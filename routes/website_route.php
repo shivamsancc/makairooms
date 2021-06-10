@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'frontend\WebPageController@hompage')->name('homepage');
+Route::get('/allrooms', 'frontend\WebPageController@alllisting')->name('alll_isting');

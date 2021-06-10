@@ -13,4 +13,13 @@ class WebPageController extends Controller
         return view('frontend.home');
     }
 
+
+
+
+
+    //============Listing Controller ======================
+
+    function alllisting(){
+        return view('frontend.listing.all-listing');
+    }
 }

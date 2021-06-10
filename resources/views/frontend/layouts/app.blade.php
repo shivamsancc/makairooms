@@ -40,7 +40,7 @@
                             <span class="icon-bar"></span>
                         </button>
                     </div>
-                    <a href="index-2.html" class="navbar_brand float-left dn-smd">
+                    <a href="{{route('homepage')}}" class="navbar_brand float-left dn-smd">
                         <img class="logo1 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo.svg"
                             alt="header-logo.svg">
                         <img class="logo2 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo2.svg"
@@ -50,22 +50,13 @@
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
                         <li>
-                            <a href="#"><span class="title">Home</span></a>
+                            <a href="{{route('homepage')}}"><span class="title">Home</span></a>
                             <!-- Level Two-->
-                            <ul>
+                            {{-- <ul>
                                 <li><a href="index-2.html">Home V1</a></li>
                                 <li><a href="index2.html">Home V2</a></li>
                                 <li><a href="index3.html">Home V3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="title">Explore</span></a>
-                            <!-- Level Two-->
-                            <ul>
-                                <li><a href="page-author-single.html">Author Single</a></li>
-                                <li><a href="page-city-single.html">City Single</a></li>
-                                <li><a href="page-add-new-listing.html">New Listing</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         <li>
                             <a href="#"><span class="title">Listing</span></a>
@@ -101,56 +92,6 @@
                                     </ul>
                                 </li>
                                 <li><a href="page-add-new-listing.html">New Listing</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="title">Pages</span></a>
-                            <ul>
-                                <li>
-                                    <a href="#"><span class="title">Shop Pages</span></a>
-                                    <ul>
-                                        <li><a href="page-shop.html">Shop</a></li>
-                                        <li><a href="page-shop-single.html">Shop Single</a></li>
-                                        <li><a href="page-shop-cart.html">Cart</a></li>
-                                        <li><a href="page-shop-checkout.html">Checkout</a></li>
-                                        <li><a href="page-shop-order.html">Order</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="page-about.html">About Us</a></li>
-                                <li><a href="page-contact.html">Contact</a></li>
-                                <li><a href="page-coming-soon.html">Coming Soon</a></li>
-                                <li>
-                                    <a href="#">User Dashboard</a>
-                                    <ul>
-                                        <li><a href="page-my-dashboard.html">Dashboard</a></li>
-                                        <li><a href="page-profile.html">My Profile</a></li>
-                                        <li><a href="page-my-listing.html">My Listings</a></li>
-                                        <li><a href="page-my-bookmark.html">Bookmarks</a></li>
-                                        <li><a href="page-message.html">Messages</a></li>
-                                        <li><a href="page-my-review.html">Reviews</a></li>
-                                        <li><a href="page-add-new-listing.html">Add New Property</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="page-gallery.html">Gallery</a></li>
-                                <li><a href="page-faq.html">Faq</a></li>
-                                <li><a href="page-invoice.html">Invoice</a></li>
-                                <li><a href="page-login.html">LogIn</a></li>
-                                <li><a href="page-pricing.html">Pricing V1</a></li>
-                                <li><a href="page-pricing2.html">Pricing V2</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-error.html">404 Page</a></li>
-                                <li><a href="page-terms.html">Terms and Conditions</a></li>
-                                <li><a href="page-ui-element.html">UI Elements</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="title">Blog</span></a>
-                            <ul>
-                                <li><a href="page-blog-grid.html">Blog Grid</a></li>
-                                <li><a href="page-blog-grid-sidebar.html">Blog Grid Sidebar</a></li>
-                                <li><a href="page-blog-details.html">Blog Details</a></li>
-                                <li><a href="page-blog-list.html">Blog List</a></li>
-                                <li><a href="page-blog-single.html">Blog Single</a></li>
                             </ul>
                         </li>
                         <li class="list-inline-item list_s"><a href="#" class="btn flaticon-avatar" data-toggle="modal"
@@ -343,41 +284,6 @@
                             <li><a href="index3.html">Home V3</a></li>
                         </ul>
                     </li>
-                    <li><span>Explore</span>
-                        <ul>
-                            <li><a href="page-author-single.html">Author Single</a></li>
-                            <li><a href="page-city-single.html">City Single</a></li>
-                            <li><a href="page-add-new-listing.html">New Listing</a></li>
-                        </ul>
-                    </li>
-                    <li><span>Listing</span>
-                        <ul>
-                            <li><span>Listing Styles</span>
-                                <ul>
-                                    <li><a href="page-listing-v1.html">Listing v1</a></li>
-                                    <li><a href="page-listing-v2.html">Listing v2</a></li>
-                                    <li><a href="page-listing-v3.html">Listing v3</a></li>
-                                    <li><a href="page-listing-v4.html">Listing v4</a></li>
-                                    <li><a href="page-listing-v5.html">Listing v5</a></li>
-                                </ul>
-                            </li>
-                            <li><span>Listing Map</span>
-                                <ul>
-                                    <li><a href="page-listing-v6.html">Map v1</a></li>
-                                    <li><a href="page-listing-v7.html">Map v2</a></li>
-                                    <li><a href="page-listing-v8.html">Map v3</a></li>
-                                    <li><a href="page-listing-v9.html">Map v4</a></li>
-                                </ul>
-                            </li>
-                            <li><span>Listing Single</span>
-                                <ul>
-                                    <li><a href="page-listing-single-v1.html">Single V1</a></li>
-                                    <li><a href="page-listing-single-v2.html">Single V2</a></li>
-                                    <li><a href="page-listing-single-v3.html">Single V3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                     <li><span>Blog</span>
                         <ul>
                             <li><a href="page-blog-grid.html">Blog Grid</a></li>
@@ -385,43 +291,6 @@
                             <li><a href="page-blog-details.html">Blog Details</a></li>
                             <li><a href="page-blog-list.html">Blog List</a></li>
                             <li><a href="page-blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li><span>Pages</span>
-                        <ul>
-                            <li><span>Shop</span>
-                                <ul>
-                                    <li><a href="page-shop.html">Shop Pages</a></li>
-                                    <li><a href="page-shop-single.html">Shop Single</a></li>
-                                    <li><a href="page-shop-cart.html">Cart</a></li>
-                                    <li><a href="page-shop-checkout.html">Checkout</a></li>
-                                    <li><a href="page-shop-order.html">Order</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-about.html">About Us</a></li>
-                            <li><a href="page-contact.html">Contact</a></li>
-                            <li><a href="page-coming-soon.html">Coming Soon</a></li>
-                            <li><span>User Detils</span>
-                                <ul>
-                                    <li><a href="page-my-dashboard.html">Dashboard</a></li>
-                                    <li><a href="page-profile.html">My Profile</a></li>
-                                    <li><a href="page-my-listing.html">My Listings</a></li>
-                                    <li><a href="page-my-bookmark.html">Bookmarks</a></li>
-                                    <li><a href="page-message.html">Messages</a></li>
-                                    <li><a href="page-my-review.html">Reviews</a></li>
-                                    <li><a href="page-add-new-listing.html">Add New Property</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="page-gallery.html">Gallery</a></li>
-                            <li><a href="page-faq.html">Faq</a></li>
-                            <li><a href="page-invoice.html">Invoice</a></li>
-                            <li><a href="page-login.html">LogIn</a></li>
-                            <li><a href="page-pricing.html">Pricing V1</a></li>
-                            <li><a href="page-pricing2.html">Pricing V2</a></li>
-                            <li><a href="page-register.html">Register</a></li>
-                            <li><a href="page-error.html">404 Page</a></li>
-                            <li><a href="page-terms.html">Terms and Conditions</a></li>
-                            <li><a href="page-ui-element.html">UI Elements</a></li>
                         </ul>
                     </li>
                     <li><a href="page-contact.html">Contact</a></li>
