@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" itemscope itemtype="http://schema.org/WebPage">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="airbnb, booking, city guide, directory, events, hotel booking, listings, marketing, places, restaurant, restaurant">
-    <meta name="description" content="Guido - Directory & Listing HTML Template">
-    <meta name="CreativeLayers" content="ATFN">
-    <!-- Title -->
-    <title> @yield('title') | {{ config('app.name', 'NextGyaan') }}</title> 
-    {{--==============================Included================================--}}
-    <!--============================== css file ==============================-->
-    <link rel="stylesheet" href="{{ asset('/web/themes/guido') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('/web/themes/guido') }}/css/style.css">
-    <!-- Responsive stylesheet -->
-    <link rel="stylesheet" href="{{ asset('/web/themes/guido') }}/css/responsive.css">
-    <!--============================== Favicon ==============================-->
-    <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
-    <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico" sizes="128x128" rel="shortcut icon" />
-    {{--==============================Included================================--}}
-</head>
-
-<body>
+@include('frontend.layouts.header')
     <div class="wrapper">
         <div class="preloader"></div>
 
@@ -51,53 +28,18 @@
                     <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
                         <li>
                             <a href="{{route('homepage')}}"><span class="title">Home</span></a>
-                            <!-- Level Two-->
-                            {{-- <ul>
-                                <li><a href="index-2.html">Home V1</a></li>
-                                <li><a href="index2.html">Home V2</a></li>
-                                <li><a href="index3.html">Home V3</a></li>
-                            </ul> --}}
                         </li>
-                        <li>
-                            <a href="#"><span class="title">Listing</span></a>
+                       <li>
+                            <a href="#"><span class="title">Explore</span></a>
+                            <!-- Level Two-->
                             <ul>
-                                <li>
-                                    <a href="#">Listing Styles</a>
-                                    <!-- Level Three-->
-                                    <ul>
-                                        <li><a href="page-listing-v1.html">Listing v1</a></li>
-                                        <li><a href="page-listing-v2.html">Listing v2</a></li>
-                                        <li><a href="page-listing-v3.html">Listing v3</a></li>
-                                        <li><a href="page-listing-v4.html">Listing v4</a></li>
-                                        <li><a href="page-listing-v5.html">Listing v5</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Listing Map</a>
-                                    <!-- Level Three-->
-                                    <ul>
-                                        <li><a href="page-listing-v6.html">Map v1</a></li>
-                                        <li><a href="page-listing-v7.html">Map v2</a></li>
-                                        <li><a href="page-listing-v8.html">Map v3</a></li>
-                                        <li><a href="page-listing-v9.html">Map v4</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">Listing Single</a>
-                                    <!-- Level Three-->
-                                    <ul>
-                                        <li><a href="page-listing-single-v1.html">Single V1</a></li>
-                                        <li><a href="page-listing-single-v2.html">Single V2</a></li>
-                                        <li><a href="page-listing-single-v3.html">Single V3</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="page-add-new-listing.html">New Listing</a></li>
+                                <li><a href="page-author-single.html">PG</a></li>
+                                <li><a href="page-city-single.html">Flat</a></li>
+                                <li><a href="page-add-new-listing.html">Room</a></li>
                             </ul>
                         </li>
-                        <li class="list-inline-item list_s"><a href="#" class="btn flaticon-avatar" data-toggle="modal"
-                                data-target=".bd-example-modal-lg"> <span class="dn-1200">Login/Sign Up</span></a></li>
-                        <li class="list-inline-item add_listing home2"><a href="page-add-new-listing.html"><span
-                                    class="icon">+</span><span class="dn-lg"> Add Listing</span></a></li>
+                        <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-avatar" > <span class="dn-1200">Login/Sign Up</span></a></li>
+                        <li class="list-inline-item add_listing"><a href="page-add-new-listing.html"><span class="icon">+</span><span class="dn-lg"> Add Listing</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -284,6 +226,41 @@
                             <li><a href="index3.html">Home V3</a></li>
                         </ul>
                     </li>
+                    <li><span>Explore</span>
+                        <ul>
+                            <li><a href="page-author-single.html">Author Single</a></li>
+                            <li><a href="page-city-single.html">City Single</a></li>
+                            <li><a href="page-add-new-listing.html">New Listing</a></li>
+                        </ul>
+                    </li>
+                    <li><span>Listing</span>
+                        <ul>
+                            <li><span>Listing Styles</span>
+                                <ul>
+                                    <li><a href="page-listing-v1.html">Listing v1</a></li>
+                                    <li><a href="page-listing-v2.html">Listing v2</a></li>
+                                    <li><a href="page-listing-v3.html">Listing v3</a></li>
+                                    <li><a href="page-listing-v4.html">Listing v4</a></li>
+                                    <li><a href="page-listing-v5.html">Listing v5</a></li>
+                                </ul>
+                            </li>
+                            <li><span>Listing Map</span>
+                                <ul>
+                                    <li><a href="page-listing-v6.html">Map v1</a></li>
+                                    <li><a href="page-listing-v7.html">Map v2</a></li>
+                                    <li><a href="page-listing-v8.html">Map v3</a></li>
+                                    <li><a href="page-listing-v9.html">Map v4</a></li>
+                                </ul>
+                            </li>
+                            <li><span>Listing Single</span>
+                                <ul>
+                                    <li><a href="page-listing-single-v1.html">Single V1</a></li>
+                                    <li><a href="page-listing-single-v2.html">Single V2</a></li>
+                                    <li><a href="page-listing-single-v3.html">Single V3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                     <li><span>Blog</span>
                         <ul>
                             <li><a href="page-blog-grid.html">Blog Grid</a></li>
@@ -291,6 +268,43 @@
                             <li><a href="page-blog-details.html">Blog Details</a></li>
                             <li><a href="page-blog-list.html">Blog List</a></li>
                             <li><a href="page-blog-single.html">Blog Single</a></li>
+                        </ul>
+                    </li>
+                    <li><span>Pages</span>
+                        <ul>
+                            <li><span>Shop</span>
+                                <ul>
+                                    <li><a href="page-shop.html">Shop Pages</a></li>
+                                    <li><a href="page-shop-single.html">Shop Single</a></li>
+                                    <li><a href="page-shop-cart.html">Cart</a></li>
+                                    <li><a href="page-shop-checkout.html">Checkout</a></li>
+                                    <li><a href="page-shop-order.html">Order</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="page-about.html">About Us</a></li>
+                            <li><a href="page-contact.html">Contact</a></li>
+                            <li><a href="page-coming-soon.html">Coming Soon</a></li>
+                            <li><span>User Detils</span>
+                                <ul>
+                                    <li><a href="page-my-dashboard.html">Dashboard</a></li>
+                                    <li><a href="page-profile.html">My Profile</a></li>
+                                    <li><a href="page-my-listing.html">My Listings</a></li>
+                                    <li><a href="page-my-bookmark.html">Bookmarks</a></li>
+                                    <li><a href="page-message.html">Messages</a></li>
+                                    <li><a href="page-my-review.html">Reviews</a></li>
+                                    <li><a href="page-add-new-listing.html">Add New Property</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="page-gallery.html">Gallery</a></li>
+                            <li><a href="page-faq.html">Faq</a></li>
+                            <li><a href="page-invoice.html">Invoice</a></li>
+                            <li><a href="page-login.html">LogIn</a></li>
+                            <li><a href="page-pricing.html">Pricing V1</a></li>
+                            <li><a href="page-pricing2.html">Pricing V2</a></li>
+                            <li><a href="page-register.html">Register</a></li>
+                            <li><a href="page-error.html">404 Page</a></li>
+                            <li><a href="page-terms.html">Terms and Conditions</a></li>
+                            <li><a href="page-ui-element.html">UI Elements</a></li>
                         </ul>
                     </li>
                     <li><a href="page-contact.html">Contact</a></li>
@@ -472,122 +486,7 @@
                 </div>
             </div>
         </section>
-        @yield('content')
-        <!-- Our Footer -->
-        <section class="footer_one home2">
-            <div class="container pb70">
-                <div class="row">
-                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3">
-                        <div class="footer_contact_widget home2">
-                            <h4>Contact Us</h4>
-                            <ul class="list-unstyled">
-                                <li class="df"><span class="flaticon-pin mr15"></span><a href="#">329 Queensberry
-                                        Street, North Melbourne VIC 3051, Australia.</a></li>
-                                <li><span class="flaticon-phone mr15"></span><a href="#">+123 456 7890</a></li>
-                                <li><span class="flaticon-email mr15"></span><a href="#">support@skola.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-2 col-xl-3">
-                        <div class="footer_qlink_widget home2">
-                            <h4>Company</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Career</a></li>
-                                <li><a href="#">How It Works</a></li>
-                                <li><a href="#">Article & Tips</a></li>
-                                <li><a href="#">Terms & Service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-5 col-md-6 col-lg-2 col-xl-2">
-                        <div class="footer_qlink_widget pl0 home2">
-                            <h4>Discover</h4>
-                            <ul class="list-unstyled">
-                                <li><a href="#">Chicago</a></li>
-                                <li><a href="#">Los Angels</a></li>
-                                <li><a href="#">Miami</a></li>
-                                <li><a href="#">New York</a></li>
-                                <li><a href="#">Florida</a></li>
-                                <li><a href="#">Boston</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-7 col-md-6 col-lg-4 col-xl-4">
-                        <div class="footer_social_widget home2">
-                            <h4>Subscribe</h4>
-                            <p class="mb20">We don’t send spam so don’t worry.</p>
-                            <form class="footer_mailchimp_form home2">
-                                <div class="form-row align-items-center">
-                                    <div class="col-auto">
-                                        <input type="email" class="form-control" id="inlineFormInput"
-                                            placeholder="Enter your email">
-                                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="container pt20 pb30">
-                <div class="row">
-                    <div class="col-md-4 col-lg-4">
-                        <div class="copyright-widget mt10 mb15-767 home2">
-                            <p>© Guido {{date('Y')}} - All rights reserved.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="footer_logo_widget text-center mb15-767 home2">
-                            <div class="wrapper">
-                                <div class="logo text-center">
-                                    <img src="{{ asset('/web/themes/guido') }}/images/header-logo3.svg"
-                                        alt="header-logo3.svg">
-                                    <span class="logo_title pl15">Guido</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="footer_social_widget text-right tac-smd mt10 home2">
-                            <ul class="mb0">
-                                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <a class="scrollToHome" href="#"><i class="fa fa-angle-up"></i></a>
-    </div>
-{{--==============================Included================================--}}
-    <!-- Wrapper End -->
-    <script src="{{ asset('/web/themes/guido') }}/js/jquery-3.6.0.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/jquery-migrate-3.0.0.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/popper.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/bootstrap.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/jquery.mmenu.all.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/ace-responsive-menu.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/bootstrap-select.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/isotop.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/snackbar.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/simplebar.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/parallax.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/scrollto.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/jquery-scrolltofixed-min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/jquery.counterup.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/progressbar.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/slider.js"></script>
-    <script src="{{ asset('/web/themes/guido') }}/js/timepicker.js"></script>
-    <!-- Custom script for all pages -->
-    <script src="{{ asset('/web/themes/guido') }}/js/script.js"></script>
-{{--==============================Included================================--}}
-</body>
 
-</html>
+       @yield('content')
+        <!-- Our Footer -->
+@include('frontend.layouts.footer')

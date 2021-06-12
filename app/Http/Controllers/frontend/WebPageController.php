@@ -17,9 +17,19 @@ class WebPageController extends Controller
 
 
 
-    //============Listing Controller ======================
+    //============Listing Controller ================
 
     function alllisting(){
         return view('frontend.listing.all-listing');
+    }
+    //==============single Listing===================
+
+    function siglelisting(){
+        return view('frontend.listing.single_listing');
+    }
+
+    //===============================================
+    function newlogin(){
+        return view('auth.login_new');
     }
 }

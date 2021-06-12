@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 /*===============================Routes Included================*/
 require('website_route.php');
-// require('jobroute.php');
+require('admin_route.php');
 /*===============================Routes Included================*/
 
 
