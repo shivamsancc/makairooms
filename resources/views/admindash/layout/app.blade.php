@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +17,7 @@
         rel="stylesheet">
     @yield('excss')
     <!-- Custom styles for this template-->
-    <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/sb-admin-2.css') }}" rel="stylesheet">
 
 </head>
 
@@ -47,7 +48,7 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -69,18 +70,17 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                
+
                                 <div class="dropdown-divider"></div>
                                 {{-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a> --}}
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
-                                              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                 {{ __('Logout') }}
-                             </a>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Logout') }}
+                                </a>
                             </div>
                         </li>
 
@@ -144,20 +144,32 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-        <!-- Bootstrap core JavaScript-->
-        <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <!-- Core plugin JavaScript-->
-        <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-        <!-- Custom scripts for all pages-->
-        <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
-        <!-- Page level plugins -->
-        {{-- <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
-        <!-- Page level custom scripts -->
-        <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
-        <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script> --}}
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
+    <!-- Page level plugins -->
+    {{-- <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script> --}}
+    <script type="text/javascript">
+        //=================Ajax Loader===================
+        $(document).on({
+            ajaxStart: function () {
+                $("body").addClass("loading");
+            },
+            ajaxStop: function () {
+                $("body").removeClass("loading");
+            }
+        });
 
+    </script>
     @yield('exjs')
+   
 </body>
 
 </html>

@@ -11279,3 +11279,25 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+/*==================================Ajax Call Css=============================*/
+.overlay{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  /* background-image: url('../../src/images/static/bg-1.webp'); */
+  background: rgba(255,255,255,0.8) url('../../admin/img/ajax-loader.gif') center no-repeat;
+}
+/* Turn off scrollbar when body element has the loading class */
+body.loading{
+  overflow: hidden;   
+}
+/* Make spinner image visible when body element has the loading class */
+body.loading .overlay{
+  display: block;
+}
+

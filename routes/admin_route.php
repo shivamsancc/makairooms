@@ -21,6 +21,9 @@ Route::get('/dashboard', 'admin\DashboardController@admindashboard')->name('admi
 //===================================================
 Route::get('/partner/all', 'admin\partner\PartnerController@allpartners')->name('allpartners');
 Route::get('/partner/add', 'admin\partner\PartnerController@addpartners')->name('addpartners');
-Route::get('/partner/edit', 'admin\partner\PartnerController@editpartner')->name('editpartner');
+Route::post('/partner/addpartnerspost', 'admin\partner\PartnerController@addpartnerspost')->name('addpartnerspost');
 
+Route::get('/partner/edit', 'admin\partner\PartnerController@editpartner')->name('editpartner');
+//========================Ajax Route=====================================================
+Route::get('/nextteacher/districtapi', 'admin\partner\PartnerController@districtapi')->name('ajaxdistrictapi');
 });
