@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'frontend\WebPageController@hompage')->name('homepage');
 Route::get('/allrooms', 'frontend\WebPageController@alllisting')->name('alll_isting');
-Route::get('/siglelisting', 'frontend\WebPageController@siglelisting')->name('siglelisting');
+Route::get('/property/{slug}', 'frontend\WebPageController@siglelisting')->name('siglelisting');
+
 
 
 

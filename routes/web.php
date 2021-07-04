@@ -21,3 +21,18 @@ require('admin_route.php');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//==============================Clear Route================
+Route::get('/clear', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+ 
+    return "Cleared!";
+ 
+ });
+ Route::get('/autoapi', 'frontend\WebPageController@mapapiupdate')->name('mapapiupdate');

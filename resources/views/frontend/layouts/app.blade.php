@@ -10,7 +10,7 @@
                     <!-- Menu Toggle btn-->
                     <div class="menu-toggle">
                         <img class="nav_logo_img img-fluid"
-                            src="{{ asset('/web/themes/guido') }}/images/header-logo.svg" alt="header-logo.svg">
+                            src="{{ asset('/web/themes/guido') }}/images/rsz_makairoom_log0_white.png" alt="header-logo.svg">
                         <button type="button" id="menu-btn">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -18,11 +18,11 @@
                         </button>
                     </div>
                     <a href="{{route('homepage')}}" class="navbar_brand float-left dn-smd">
-                        <img class="logo1 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo.svg"
+                        <img class="logo1 img-fluid" src="{{ asset('/web/themes/guido') }}/images/rsz_makairoom_log0_white.png"
                             alt="header-logo.svg">
-                        <img class="logo2 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo2.svg"
+                        <img class="logo2 img-fluid" src="{{ asset('/web/themes/guido') }}/images/makairooms_14045.png"
                             alt="header-logo2.svg">
-                        <span>Guido</span>
+                        {{-- <span>Guido</span> --}}
                     </a>
                     <!-- Responsive Menu Structure-->
                     <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
@@ -204,8 +204,8 @@
                 <div class="header stylehome1">
                     <div class="main_logo_home2 text-left">
                         <img class="nav_logo_img img-fluid mt15"
-                            src="{{ asset('/web/themes/guido') }}/images/header-logo2.svg" alt="header-logo2.svg">
-                        <span class="mt15">Guido</span>
+                            src="{{ asset('/web/themes/guido') }}/images/makairooms_14045.png" alt="header-logo2.svg">
+                        {{-- <span class="mt15">Guido</span> --}}
                     </div>
                     <ul class="menu_bar_home2">
                         <li class="list-inline-item"><a class="custom_search_with_menu_trigger msearch_icon" href="#"

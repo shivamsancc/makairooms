@@ -177,10 +177,10 @@
 						<div class="media">
 							<img class="mr-3" src="{{ asset('/web/themes/guido') }}/images/team/agency2.png" alt="agency2.png">
 							<div class="media-body mt20">
-						    	<h2 class="mt-0">Amrutha Lounge</h2>
+						    	<h2 class="mt-0">{{$property['0']->name}}</h2>
 						    	<ul class="mb0 agency_profile_contact">
-						    		<li class="list-inline-item"><a href="#"><span class="flaticon-phone"></span> +61-8181-123</a></li>
-						    		<li class="list-inline-item"><a href="#"><span class="flaticon-pin"></span> New York</a></li>
+						    		<li class="list-inline-item"><a href="#"><span class="flaticon-phone"></span>&nbsp;{{$partnername['0']->phone}}</a></li>
+						    		<li class="list-inline-item"><a href="#"><span class="flaticon-pin"></span>&nbsp;{{$distName}}</a></li>
 						    		<li class="list-inline-item sspd_review">
 						    			<ul class="mb0">
 											<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
@@ -278,16 +278,7 @@
 						<div class="col-lg-12 pl0 pr0 pl15-767">
 							<div class="listing_single_description mb60">
 								<h4 class="mb30">Overview</h4>
-						    	<p class="first-para mb25">Dishes are loosely based on Jewish cooking from the Middle East and Europe. Loosely, as a ‘Russian salad’ wouldn’t be recognised by its creator, Belgian chef Lucien Olivier, or many of his antecedents. Instead, whole green beans, large chunks of carrot, peas and potatoes were very lightly dressed with mayonnaise, and all the better for it.</p>
-						    	<p class="gpara second_para white_goverlay mt10 mb20">The Amrutha Lounge means port in the Turkish language, however the restaurant opens its doors to all aspects of the Mediterranean kitchen. The kitchen will be mostly focused on Mediterranean food; the owners of the restaurant are young professional chefs who can bring new, exciting tastes to Angel, Islington which will show through in the quality of food they prepare</p>
-								<div class="collapse" id="collapseExample">
-								  	<div class="card card-body">
-								    	<p class="mt10 mb10">The Amrutha Lounge means port in the Turkish language, however the restaurant opens its doors to all aspects of the Mediterranean kitchen. The kitchen will be mostly focused on Mediterranean food; the owners of the restaurant are young professional chefs who can bring new, exciting tastes to Angel, Islington which will show through in the quality of food they prepare.</p>
-								  	</div>
-								</div>
-								<p class="overlay_close">
-									<a class="text-thm fz15 tdu" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Show More</a>
-								</p>
+						    	<p class="first-para mb25">{{$property['0']->about_property}}</p>
 							</div>
 						</div>
 						<div class="col-lg-12">
@@ -341,53 +332,6 @@
 											<div class="icon float-left mr10"><span class="flaticon-pawprint"></span></div>
 											<div class="details">
 												<div class="title">Pets Friendly</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12 pl0 pl15-767">
-							<div class="single_listing_faq">
-								<h4 class="mb35">Frequently Asked Questions</h4>
-								<div class="faq_content mb40">
-									<div class="faq_according">
-										<div class="accordion" id="accordionExample">
-										  	<div class="card">
-											    <div class="card-header active" id="headingOne">
-											    	<h5 class="mb-0">
-											        	<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What is the Check in and check out time?</button>
-											   		</h5>
-											    </div>
-											    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
-												    <div class="card-body">
-										        		<p>Dishes are loosely based on Jewish cooking from the Middle East and Europe. Loosely, as a ‘Russian salad’ wouldn’t be recognised by its creator, Belgian chef Lucien Olivier, or many of his antecedents. Instead, whole green beans, large chunks of carrot, peas and potatoes were very lightly dressed with mayonnaise, and all the better for it.</p>
-												    </div>
-											    </div>
-										    </div>
-										    <div class="card">
-										    	<div class="card-header" id="headingTwo">
-										    		<h5 class="mb-0">
-										        		<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">How far is the Hotel from airport?</button>
-										    		</h5>
-										    	</div>
-										    	<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-										      		<div class="card-body">
-										        		<p>Dishes are loosely based on Jewish cooking from the Middle East and Europe. Loosely, as a ‘Russian salad’ wouldn’t be recognised by its creator, Belgian chef Lucien Olivier, or many of his antecedents. Instead, whole green beans, large chunks of carrot, peas and potatoes were very lightly dressed with mayonnaise, and all the better for it.</p>
-										     		 </div>
-										    	</div>
-										    </div>
-										    <div class="card">
-											    <div class="card-header" id="headingThree">
-											    	<h5 class="mb-0">
-											        	<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Do you have cocktails on the bar?</button>
-											    	</h5>
-											    </div>
-											    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample" style="">
-											    	<div class="card-body">
-										        		<p>Dishes are loosely based on Jewish cooking from the Middle East and Europe. Loosely, as a ‘Russian salad’ wouldn’t be recognised by its creator, Belgian chef Lucien Olivier, or many of his antecedents. Instead, whole green beans, large chunks of carrot, peas and potatoes were very lightly dressed with mayonnaise, and all the better for it.</p>
-											    	</div>
-											    </div>
 											</div>
 										</div>
 									</div>
@@ -502,83 +446,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-12 pl0 pl15-767">
-							<div class="single_page_review_form p30-lg mb30-991">
-								<div class="wrapper">
-									<h4>Add a Review</h4>
-									<div class="custom_reivews row mt40 mb30">
-										<div class="col-lg-2 pr0">
-											<div class="title">Overall Rating</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="review_star text-right">
-												<ul>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-lg-2 pr0">
-											<div class="title">Services</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="review_star text-right">
-												<ul>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-lg-2 pr0">
-											<div class="title">Hospitality</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="review_star text-right">
-												<ul>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-lg-2 pr0">
-											<div class="title">Pricing</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="review_star text-right">
-												<ul>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<form class="review_form">
-										<div class="form-group">
-									    	<input type="text" class="form-control" placeholder="Name">
-										</div>
-										<div class="form-group">
-									    	<input type="email" class="form-control" placeholder="Email">
-										</div>
-										<div class="form-group">
-										    <textarea class="form-control" rows="7" placeholder="Your Review"></textarea>
-										</div>
-										<button type="submit" class="btn btn-thm">Submit Review</button>
-									</form>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-xl-4">
@@ -589,28 +456,18 @@
 								<div class="lss_map h200" id="map-canvas"></div>
 							</div>
 							<ul class="contact_list list-unstyled mb15">
-								<li class="df"><span class="flaticon-pin mr15"></span><a href="#">329 Queensberry Street, North Melbourne VIC 3051, Australia. <br> <span class="tdu text-thm">Get Direction</span></a></li>
-								<li><span class="flaticon-phone mr15"></span><a href="#">+123 456 7890</a></li>
-								<li><span class="flaticon-email mr15"></span><a href="#">support@skola.com</a></li>
-								<li><span class="flaticon-link mr15"></span><a href="#">www.guido.com</a></li>
+								<li class="df"><span class="flaticon-pin mr15"></span><a href="#">
+									{{$property['0']->address}} 
+									<br> <span class="tdu text-thm">Get Direction</span></a></li>
+								<li><span class="flaticon-phone mr15"></span><a href="#">{{$partnername['0']->phone}}</a></li>
+								<li><span class="flaticon-email mr15"></span><a href="#">{{$partnername['0']->mail}}</a></li>
+								{{-- <li><span class="flaticon-link mr15"></span><a href="#">www.guido.com</a></li> --}}
 							</ul>
 							<ul class="sidebar_social_icon mb0">
 								<li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
 								<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-						<div class="sidebar_opening_hour_widget pb20">
-							<h4 class="title mb15">Hours <small class="text-thm2 float-right">Now Open</small></h4>
-							<ul class="list_details mb0">
-								<li><a href="#">Monday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Tuesday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Wednesday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Thursday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Friday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Saturday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
-								<li><a href="#">Sunday <span class="float-right">6:30 am – 4:00 pm</span></a></li>
 							</ul>
 						</div>
 						<div class="sidebar_category_widget">
@@ -624,17 +481,17 @@
 						<div class="sidebar_pricing_widget">
 							<h4 class="title mb20">Price Range</h4>
 							<ul class="mb0">
-								<li><a href="#">Price: <span class="float-right heading-color">$ 50 - $ 150</span></a></li>
+								<li><a href="#">Price: <span class="float-right heading-color">₹{{$property['0']->price_range1}} -- ₹{{$property['0']->price_range2}}</span></a></li>
 								<li><a href="#">Own or work here? <span class="float-right text-thm">Claim Now!</span></a></li>
 							</ul>
 						</div>
 						<div class="sidebar_author_widget">
-							<h4 class="title mb25">Author</h4>
+							<h4 class="title mb25">Property Manger</h4>
 							<div class="media">
 								<img class="mr-3" src="{{ asset('/web/themes/guido') }}/images/team/author.png" alt="author.png">
 								<div class="media-body">
-							    	<h5 class="mt15 mb0">Robert Fox</h5>
-							    	<p class="mb0">Designer at guido</p>
+							    	<h5 class="mt15 mb0">{{$partnername['0']->name}}</h5>
+							    	<p class="mb0">{{$partnername['0']->phone}}</p>
 							  	</div>
 							</div>
 						</div>
@@ -1140,7 +997,7 @@
 								<div class="details">
 									<div class="tc_content">
 										<div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent2.svg" alt="agent2.svg"></a></div>
-										<h4>Amrutha Lounge</h4>
+										<h4>{{$property['0']->name}}</h4>
 										<p>But I must explain to you how all this mistaken idea...</p>
 										<ul class="prop_details mb0">
 											<li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
@@ -1207,11 +1064,45 @@
 			</div>
 		</div>
 	</section>
-
+	<input type="hidden" name="lat" id="lat" value="{{$property['0']->lat}}">
+	<input type="hidden" name="lan" id="lan" value="{{$property['0']->long}}">
 @endsection
 @section('extrajs')
 <script src="{{ asset('/web/themes/guido') }}/js/isotop.js"></script>
 <script src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/google-map-api.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/googlemaps1.js"></script>
+{{-- <script src="{{ asset('/web/themes/guido') }}/js/google-map-api.js"></script>
+<script src="{{ asset('/web/themes/guido') }}/js/googlemaps1.js"></script> --}}
+<script src="https://apis.mapmyindia.com/advancedmaps/api/f682c03c-ed96-49a8-9ac8-230693e8e228/map_sdk" defer async>
+</script>
+<script type="text/javascript">
+  //=====================================MAP-MY-INDIA=====================
+  var lng = document.getElementById('lan').value
+  var lat = document.getElementById('lat').value
+  var url_result;
+  var marker;
+  var rev_geocode_api_url =
+    "https://apis.mapmyindia.com/advancedmaps/v1/f682c03c-ed96-49a8-9ac8-230693e8e228/rev_geocode?";
+  window.onload = function () {
+    document.getElementById('lat').value = lat;
+    document.getElementById('lan').value = lng;
+    var centre = [lat, lng];
+    map = new MapmyIndia.Map('map-canvas', {
+      center: centre,
+      zoomControl: true,
+      zoom: 15,
+    });
+    marker = new MapmyIndia.Marker({
+      map: map,
+      position: centre,
+      icon: 'https://maps.mapmyindia.com/images/2.png',
+      draggable: false,
+    });
+    map.setCenter(centre);
+    map.setZoom(15);
+    var region = 'ind';
+    if (region != '') {
+      region = "&region=" + region;
+    }
+  };
+</script>
 @endsection

@@ -38,7 +38,6 @@
                 <h6 class="collapse-header">Teams</h6>
                 <a class="collapse-item" href="{{route('allpartners')}}">All Partners</a>
                 <a class="collapse-item" href="{{route('addpartners')}}">Add Partners</a>
-                <a class="collapse-item" href="{{route('editpartner')}}">Edit / Delete Partners</a>
             </div>
         </div>
     </li>
@@ -47,14 +46,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
             <i class="fas fa-users"></i>
-            <span>Players</span>
+            <span>Property</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Players</h6>
-                <a class="collapse-item" href="buttons.html">Add Player</a>
-                <a class="collapse-item" href="cards.html">Edit / Delete Player</a>
-                <a class="collapse-item" href="cards.html">Player Profile</a>
+                <a class="collapse-item" href="{{route('allproperties')}}">All Property</a>
+                <a class="collapse-item" href="{{route('addproperty')}}">Add Property</a>
             </div>
         </div>
     </li>

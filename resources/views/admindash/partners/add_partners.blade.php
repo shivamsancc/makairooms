@@ -1,17 +1,16 @@
 @extends('admindash.layout.app')
 @section('excss')
-<link href="{{ asset('admin/') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 @endsection
 @section('content')
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Add Partners</h1>
+        <h1 class="h3 mb-0 text-gray-800">Add Partner</h1>
     </div>
     <!-- Content Row -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add Partners</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Add Partner</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -70,8 +69,8 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="">State</label>
-                                <select class="custom-select" name="state" required id="state">
-                                    <option selected>Select one</option>
+                                <select class="custom-select"  name="state" required id="state">
+                                    <option selected value="">Select one</option>
                                     @foreach ($all_state as $item)
                                     <option value="{{$item->id}}">{{$item->state_name}}</option>
                                     @endforeach
@@ -118,11 +117,6 @@
 </div>
 @endsection
 @section('exjs')
-<!-- Page level plugins -->
-<script src="{{asset('admin/')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="{{asset('admin/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<!-- Page level custom scripts -->
-<script src="{{asset('admin/')}}/js/demo/datatables-demo.js"></script>
 <script type="text/javascript">
     //======================================
     $('#state').on('change', function () {

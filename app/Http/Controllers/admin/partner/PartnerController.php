@@ -39,16 +39,44 @@ class PartnerController extends Controller
         ]);
 
 
-        partner::create($request->all());
-
+        $addpartner= partner::create($request->all());
+        if ($addpartner) {
+            alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+            return redirect()->route('allpartners');
+        } else {
+            alert()->error('You Data has not been saved Prperly.', 'Something Went Wrong');
+            return back();
+        }
     }
-    function editpartner(){
-        return view('admindash.partners.edit_partners');
+    function editpartner($id){
+        $all_state=  state::orderBy('state_name')->get()->all();
+        $partner =partner::find($id);
+        return view('admindash.partners.edit_partners',compact('all_state','partner'));
     }
 
+    function partner_update($id, Request $request){
+       $update= partner::where('id',$id)
+        ->update([
+            'name'=>$request->name,
+            'mail'=>$request->mail,
+            'phone'=>$request->phone,
+            'address'=>$request->address,
+            'state'=>$request->state,
+            'district'=>$request->district,
+            'pincode'=>$request->pincode]);
+            if ($update) {
+                alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+                return redirect()->route('allpartners');
+            } else {
+                alert()->error('You Data has not been saved Prperly.', 'Something Went Wrong');
+                return back();
+            }
+            }
+            
+            
 
 
-     // =======================
+     // =======================Distrct API=================
      public function districtapi(Request $request)
      {
          if ($request->ajax())

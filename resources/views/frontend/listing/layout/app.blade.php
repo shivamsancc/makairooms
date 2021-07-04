@@ -9,7 +9,7 @@
 		    <nav>
 		        <!-- Menu Toggle btn-->
 		        <div class="menu-toggle">
-		            <img class="nav_logo_img img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo.svg" alt="header-logo.svg">
+		            <img class="nav_logo_img img-fluid" src="{{ asset('/web/themes/guido') }}/images/rsz_makairoom_log0_white.png" alt="header-logo.svg">
 		            <button type="button" id="menu-btn">
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
@@ -17,9 +17,9 @@
 		            </button>
 		        </div>
 		        <a href="{{route('homepage')}}" class="navbar_brand float-left dn-smd">
-		            <img class="logo1 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo2.svg" alt="header-logo.svg">
-		            <img class="logo2 img-fluid" src="{{ asset('/web/themes/guido') }}/images/header-logo2.svg" alt="header-logo2.svg">
-		            <span>Guido</span>
+		            <img class="logo1 img-fluid" src="{{ asset('/web/themes/guido') }}/images/makairooms_14045.png" alt="header-logo.svg">
+		            <img class="logo2 img-fluid" src="{{ asset('/web/themes/guido') }}/images/makairooms_14045.png" alt="header-logo2.svg">
+		            {{-- <span>Guido</span> --}}
 		        </a>
 		        <!-- Responsive Menu Structure-->
 		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->

@@ -1,26 +1,26 @@
 @extends('admindash.layout.app')
 @section('excss')
 <link href="{{ asset('admin/') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" rel="stylesheet">
+{{-- <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet"> --}}
+{{-- <link href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" rel="stylesheet"> --}}
 @endsection
 @section('content')
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">All Partners</h1>
+        <h1 class="h3 mb-0 text-gray-800">All Property</h1>
     </div>
     <!-- Content Row -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row ">
                 <div class="col">
-                    <h6 class="m-0 font-weight-bold text-primary">All Partners</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">All Property</h6>
 
                 </div>
                 <div class="col">
                     <h6 class="m-0 font-weight-bold text-primary float-right">
-                    <a href="{{route('addpartners')}}" class="btn btn-outline-primary"><i class="fas fa-plus-square"></i> Add Partner</a></h6>
+                    <a href="{{route('addproperty')}}" class="btn btn-outline-primary"><i class="fas fa-plus-square"></i> Add Property</a></h6>
                 </div>
             </div>
         </div>
@@ -30,8 +30,8 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Type</th>
+                            <th>Partner Name</th>
                             <th>State</th>
                             <th>Disctrict</th>
                             <th>Action</th>
@@ -40,24 +40,22 @@
                     <tfoot>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Type</th>
+                            <th>Partner Name</th>
                             <th>State</th>
                             <th>Disctrict</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($all_partners as $item)
+                        @foreach ($all_properties as $item)
                         <tr>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->mail}}</td>
-                            <td>{{$item->phone}}</td>
+                            <td>{{$item->property_type}}</td>
+                            <td>{{$item->partnername}}</td>
                             <td>{{$item->stateName}}</td>
                             <td>{{$item->distName}}</td>
-                            <td class="text-center"><a href="{{route('editpartner',['id' => $item->id])}}"
-                                    class="btn btn-warning"><i class="fas fa-pen-alt"></i></a>&nbsp;<a href="#"
-                                    class="btn btn-danger"><i class="fas fa-recycle"></i></a></td>
+                            <td class="text-center"><a href="{{route('editpartner',['id' => $item->id])}}" class="btn btn-warning"><i class="fas fa-pen-alt"></i></a>&nbsp;<a href="#"class="btn btn-danger"><i class="fas fa-recycle"></i></a></td>
                         </tr>
                         @endforeach
                     </tbody>

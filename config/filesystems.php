@@ -12,8 +12,7 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
-
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,6 +63,24 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+
+
+        // 'do_spaces' => [
+        //     'driver' => 's3',
+        //     'key' => env('DO_SPACES_KEY'),     
+        //     'secret' => env('DO_SPACES_SECRET'),     
+        //     'endpoint' => env('DO_SPACES_ENDPOINT'),     
+        //     'region' => env('DO_SPACES_REGION'),     
+        //     'bucket' => env('DO_SPACES_BUCKET'), 
+        // ],
+        //    'do_spaces' => [     
+        //     'driver' => 's3',     
+        //     'key' => 'WR7UEYD7DCJDRWPL2VFH',     
+        //     'secret' => 'AfnIkTTcPdlC2nEfJ2b0yF5pKusdYjup6NgPqrVvb20',     
+        //     'endpoint' => 'https://nyc3.digitaloceanspaces.com',     
+        //     'region' => 'NYC3',     
+        //     'bucket' => 'ngcdn', 
+        //     ],
 
     ],
 
