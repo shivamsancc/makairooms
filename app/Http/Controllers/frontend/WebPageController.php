@@ -11,6 +11,8 @@ use App\Models\partner;
 use App\Models\mak_properties;
 use App\Models\mak_propert_images;
 use App\Models\mapapi;
+use App\Models\blog_post;
+use App\Models\blog_category;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -46,8 +48,13 @@ class WebPageController extends Controller
             $insts->partnername = partner::find($insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
-        // return $all_flats;  
-        return view('frontend.home',compact('all_flats','all_pg','all_rooms'));
+        $all_POST= blog_post::orderBy('created_at')->where('status',1)->get()->all();
+        foreach ($all_POST as $insts)
+        {
+            $insts->category_name = blog_category::find($insts->category)->name;
+        }
+        // return $all_POST;  
+        return view('frontend.home',compact('all_flats','all_pg','all_rooms','all_POST'));
     }
 
 
@@ -56,8 +63,16 @@ class WebPageController extends Controller
 
     //============Listing Controller ================
 
-    function alllisting(){
-        return view('frontend.listing.all-listing');
+    function alllisting($type){
+        $all_properties = mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get()->all(); 
+        foreach ($all_properties as $insts)
+        {
+            $insts->stateName = state::find($insts->state)->state_name;
+            $insts->distName = district::find($insts->district)->district_name;
+            $insts->partnername = partner::find($insts->partner_id)->get();
+            $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
+        }
+        return view('frontend.listing.all-listing',compact('all_properties'));
     }
     //==============single Listing===================
 

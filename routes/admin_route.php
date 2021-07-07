@@ -33,6 +33,22 @@ Route::get('/property/add', 'admin\property\propertyController@add_property')->n
 Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
 
 
+
+
+//===============================Blog Post========================================
+Route::get('/blog/all', 'admin\blog\blogController@index')->name('all_blogs');
+Route::get('/blog/add', 'admin\blog\blogController@create')->name('all_blogs_add');
+Route::post('/blog/add/store', 'admin\blog\blogController@store')->name('all_blogs_store');
+Route::get('/blog/delete/{id}', 'admin\blog\blogController@destroy')->name('blog_delete');
+
+
+
+Route::get('/blog/cat/all', 'admin\blog\blogController@categoryindex')->name('all_blogs_cat');
+Route::post('/blog/cat/all', 'admin\blog\blogController@categorystore')->name('all_blogs_cat_store');
+Route::get('/blog/cat/delete/{id}', 'admin\blog\blogController@categorydestroy')->name('all_blogs_cat_delete');
+
+
+
 //========================Ajax Route=====================================================
 Route::get('/nextteacher/districtapi', 'admin\partner\PartnerController@districtapi')->name('ajaxdistrictapi');
 });

@@ -22,7 +22,7 @@ class CreatePartnersTable extends Migration
             $table->string('state');
             $table->string('district');
             $table->string('pincode');
-            $table->string('status');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

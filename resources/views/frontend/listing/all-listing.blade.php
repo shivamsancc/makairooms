@@ -9,11 +9,14 @@
                         <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
                         <div class="sidebar_listing_list style2 mobile_sytle_sidebar mb0">
                             <div class="sidebar_advanced_search_widget">
-                                <h4 class="mb25">Advanced Search <a class="filter_closed_btn float-right" href="#"><small>Hide Filter</small> <span class="flaticon-close"></span></a></h4>
+                                <h4 class="mb25">Advanced Search <a class="filter_closed_btn float-right"
+                                        href="#"><small>Hide Filter</small> <span class="flaticon-close"></span></a>
+                                </h4>
                                 <ul class="sasw_list style2 mb0">
                                     <li class="search_area">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputName1" placeholder="What are you looking for">
+                                            <input type="text" class="form-control" id="exampleInputName1"
+                                                placeholder="What are you looking for">
                                         </div>
                                     </li>
                                     <li>
@@ -55,13 +58,16 @@
                                         <div class="small_dropdown2">
                                             <div id="prncgs2" class="btn dd_btn">
                                                 <span>Price</span>
-                                                <label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
+                                                <label for="exampleInputEmail2"><span
+                                                        class="fa fa-angle-down"></span></label>
                                             </div>
-                                              <div class="dd_content2">
+                                            <div class="dd_content2">
                                                 <div class="pricing_acontent">
-                                                    <input class="mt30" data-addui='slider' data-min='0' data-max='1000' data-formatter='usd' data-fontsize='14' data-step='0.05' data-range='true' value='150,692'>
+                                                    <input class="mt30" data-addui='slider' data-min='0' data-max='1000'
+                                                        data-formatter='usd' data-fontsize='14' data-step='0.05'
+                                                        data-range='true' value='150,692'>
                                                 </div>
-                                              </div>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -71,86 +77,114 @@
                                                 <ul>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckCredit3">
-                                                            <label class="custom-control-label" for="customCheckCredit3">Accepts Credit Cards</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckCredit3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckCredit3">Accepts Credit Cards</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckSmoking3">
-                                                            <label class="custom-control-label" for="customCheckSmoking3">Smoking Allowed</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckSmoking3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckSmoking3">Smoking Allowed</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckBikeP3">
-                                                            <label class="custom-control-label" for="customCheckBikeP3">Bike Parking</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckBikeP3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckBikeP3">Bike Parking</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckStreet3">
-                                                            <label class="custom-control-label" for="customCheckStreet3">Street Parking</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckStreet3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckStreet3">Street Parking</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckWireless3">
-                                                            <label class="custom-control-label" for="customCheckWireless3">Wireless Internet</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckWireless3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckWireless3">Wireless Internet</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckAlco3">
-                                                            <label class="custom-control-label" for="customCheckAlco3">Alcohol</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckAlco3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckAlco3">Alcohol</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckPet3">
-                                                            <label class="custom-control-label" for="customCheckPet3">Pet Friendly</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckPet3">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckPet3">Pet Friendly</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckCredit4">
-                                                            <label class="custom-control-label" for="customCheckCredit4">Accepts Credit Cards</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckCredit4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckCredit4">Accepts Credit Cards</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckSmoking4">
-                                                            <label class="custom-control-label" for="customCheckSmoking4">Smoking Allowed</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckSmoking4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckSmoking4">Smoking Allowed</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckBikeP4">
-                                                            <label class="custom-control-label" for="customCheckBikeP4">Bike Parking</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckBikeP4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckBikeP4">Bike Parking</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckStreet4">
-                                                            <label class="custom-control-label" for="customCheckStreet4">Street Parking</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckStreet4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckStreet4">Street Parking</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckWireless4">
-                                                            <label class="custom-control-label" for="customCheckWireless4">Wireless Internet</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckWireless4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckWireless4">Wireless Internet</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckAlco4">
-                                                            <label class="custom-control-label" for="customCheckAlco4">Alcohol</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckAlco4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckAlco4">Alcohol</label>
                                                         </div>
                                                     </li>
                                                     <li>
                                                         <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="customCheckPet4">
-                                                            <label class="custom-control-label" for="customCheckPet4">Pet Friendly</label>
+                                                            <input type="checkbox" class="custom-control-input"
+                                                                id="customCheckPet4">
+                                                            <label class="custom-control-label"
+                                                                for="customCheckPet4">Pet Friendly</label>
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -196,7 +230,8 @@
                             <ul class="sasw_list mb0">
                                 <li class="search_area">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="exampleInputName3" placeholder="What are you looking for">
+                                        <input type="text" class="form-control" id="exampleInputName3"
+                                            placeholder="What are you looking for">
                                     </div>
                                 </li>
                                 <li>
@@ -230,21 +265,24 @@
                                 </li>
                                 <li>
                                     <div class="sidebar_range_slider mb30 mt70">
-                                            <input class="range-example-km mb20" value="50" type="text">
-                                            <P class="mt20">Radius around selected destination</P>
+                                        <input class="range-example-km mb20" value="50" type="text">
+                                        <P class="mt20">Radius around selected destination</P>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="small_dropdown2">
                                         <div id="prncgs" class="btn dd_btn">
                                             <span>Price</span>
-                                            <label for="exampleInputEmail2"><span class="fa fa-angle-down"></span></label>
+                                            <label for="exampleInputEmail2"><span
+                                                    class="fa fa-angle-down"></span></label>
                                         </div>
-                                          <div class="dd_content2">
+                                        <div class="dd_content2">
                                             <div class="pricing_acontent">
-                                                <input class="mt30" data-addui='slider' data-min='0' data-max='1000' data-formatter='usd' data-fontsize='14' data-step='0.05' data-range='true' value='150,692'>
+                                                <input class="mt30" data-addui='slider' data-min='0' data-max='1000'
+                                                    data-formatter='usd' data-fontsize='14' data-step='0.05'
+                                                    data-range='true' value='150,692'>
                                             </div>
-                                          </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li>
@@ -254,86 +292,114 @@
                                             <ul>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckCredit">
-                                                        <label class="custom-control-label" for="customCheckCredit">Accepts Credit Cards</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckCredit">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckCredit">Accepts Credit Cards</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckSmoking">
-                                                        <label class="custom-control-label" for="customCheckSmoking">Smoking Allowed</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckSmoking">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckSmoking">Smoking Allowed</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckBikeP">
-                                                        <label class="custom-control-label" for="customCheckBikeP">Bike Parking</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckBikeP">
+                                                        <label class="custom-control-label" for="customCheckBikeP">Bike
+                                                            Parking</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckStreet">
-                                                        <label class="custom-control-label" for="customCheckStreet">Street Parking</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckStreet">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckStreet">Street Parking</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckWireless">
-                                                        <label class="custom-control-label" for="customCheckWireless">Wireless Internet</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckWireless">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckWireless">Wireless Internet</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckAlco">
-                                                        <label class="custom-control-label" for="customCheckAlco">Alcohol</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckAlco">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckAlco">Alcohol</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckPet">
-                                                        <label class="custom-control-label" for="customCheckPet">Pet Friendly</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckPet">
+                                                        <label class="custom-control-label" for="customCheckPet">Pet
+                                                            Friendly</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckCredit2">
-                                                        <label class="custom-control-label" for="customCheckCredit2">Accepts Credit Cards</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckCredit2">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckCredit2">Accepts Credit Cards</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckSmoking2">
-                                                        <label class="custom-control-label" for="customCheckSmoking2">Smoking Allowed</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckSmoking2">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckSmoking2">Smoking Allowed</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckBikeP2">
-                                                        <label class="custom-control-label" for="customCheckBikeP2">Bike Parking</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckBikeP2">
+                                                        <label class="custom-control-label" for="customCheckBikeP2">Bike
+                                                            Parking</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckStreet2">
-                                                        <label class="custom-control-label" for="customCheckStreet2">Street Parking</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckStreet2">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckStreet2">Street Parking</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckWireless2">
-                                                        <label class="custom-control-label" for="customCheckWireless2">Wireless Internet</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckWireless2">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckWireless2">Wireless Internet</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckAlco2">
-                                                        <label class="custom-control-label" for="customCheckAlco2">Alcohol</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckAlco2">
+                                                        <label class="custom-control-label"
+                                                            for="customCheckAlco2">Alcohol</label>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheckPet2">
-                                                        <label class="custom-control-label" for="customCheckPet2">Pet Friendly</label>
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customCheckPet2">
+                                                        <label class="custom-control-label" for="customCheckPet2">Pet
+                                                            Friendly</label>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -366,285 +432,158 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-lg-4">
+                    {{-- <div class="col-md-4 col-lg-4">
                         <div class="feat_property">
                             <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg1.jpg" alt="lg1.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="tag2 mb0">
-                                        <li class="list-inline-item"><a href="#">Featured</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent1.svg" alt="agent1.svg"></a></div>
-                                    <h4>Adventure High Ropes</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg" alt="icon3.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Outdoor Activities</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg1.jpg"
+                    alt="lg1.jpg">
+                    <div class="thmb_cntnt">
+                        <ul class="tag mb0">
+                            <li class="list-inline-item"><a href="#">$$$$</a></li>
+                            <li class="list-inline-item"><a href="#">Open</a></li>
+                        </ul>
+                        <ul class="tag2 mb0">
+                            <li class="list-inline-item"><a href="#">Featured</a></li>
+                        </ul>
+                        <ul class="listing_reviews">
+                            <li class="list-inline-item"><a class="text-white" href="#"><span
+                                        class="fa fa-star"></span></a></li>
+                            <li class="list-inline-item"><a class="text-white" href="#"><span
+                                        class="fa fa-star"></span></a></li>
+                            <li class="list-inline-item"><a class="text-white" href="#"><span
+                                        class="fa fa-star"></span></a></li>
+                            <li class="list-inline-item"><a class="text-white" href="#"><span
+                                        class="fa fa-star"></span></a></li>
+                            <li class="list-inline-item"><a class="text-white" href="#"><span
+                                        class="fa fa-star"></span></a></li>
+                            <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
+                        </ul>
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg2.jpg" alt="lg2.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent4.svg" alt="agent4.svg"></a></div>
-                                    <h4>Museum of New York</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/icon8.svg" alt="icon8.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Shopping</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                </div>
+                <div class="details">
+                    <div class="tc_content">
+                        <div class="badge_icon"><a href="#"><img
+                                    src="{{ asset('/web/themes/guido') }}/images/icons/agent1.svg" alt="agent1.svg"></a>
                         </div>
+                        <h4>Adventure High Ropes</h4>
+                        <p>But I must explain to you how all this mistaken idea...</p>
+                        <ul class="prop_details mb0">
+                            <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span>
+                                    +61-8181-123</a></li>
+                            <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg3.jpg" alt="lg3.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
+                    <div class="fp_footer">
+                        <ul class="fp_meta float-left mb0">
+                            <li class="list-inline-item"><a href="#"><img
+                                        src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
+                                        alt="icon3.svg"></a></li>
+                            <li class="list-inline-item"><a href="#">Outdoor Activities</a></li>
+                        </ul>
+                        <ul class="fp_meta float-right mb0">
+                            <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
+                            <li class="list-inline-item"><a class="icon" href="#"><span
+                                        class="flaticon-love"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        @foreach ($all_properties as $item)
+        <div class="col-md-4 col-lg-4">
+            <div class="item">
+                <div class="feat_property">
+                    <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                        <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach ($item['images'] as $itema => $slider)
+                                {{-- ----------------{{$itema}} --}}
+                                <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
+                                    style="max-height: 200px !important">
+                                    <img class="d-block w-100" src="{{Storage::url($slider['img_name'])}}"
+                                        alt="{{$slider['img_name']}}">
                                 </div>
+                                @endforeach
                             </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent5.svg" alt="agent5.svg"></a></div>
-                                    <h4>The Palmas Hotel</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/icon5.svg" alt="icon5.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Hotels</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <!-- Left and right controls -->
+                            <a class="carousel-control-prev" href="#demo{{$item->id}}" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo{{$item->id}}" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
                         </div>
+                    </a>
+                    <div class="thmb_cntnt">
                     </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg5.jpg" alt="lg5.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
+                    {{-- </div> --}}
+
+                    <div class="details">
+                        <div class="tc_content">
+                            <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                <h4>{{$item->name}}</h4>
+                                <p>{{ Str::limit($item->about_property, 55) }}</p>
+                                <ul class="prop_details mb0">
+                                    <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span>
+                                            {{$item['partnername']['0']->phone}}</a></li>
+                                    <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span>
+                                            {{$item->distName}}</a>
+                                    </li>
+                                </ul>
+                                <div class="text-center"><br>
+                                    Price Range &nbsp;
+                                    <a href="#">₹{{$item->price_range1}} --
+                                        ₹{{$item->price_range2}}</a>
+                                    </li>
                                 </div>
-                            </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent2.svg" alt="agent2.svg"></a></div>
-                                    <h4>Wellness Fitness Club</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/icon6.svg" alt="icon6.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Fitness</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg4.jpg" alt="lg4.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent6.svg" alt="agent6.svg"></a></div>
-                                    <h4>Core by Clare Smyth</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/icon4.svg" alt="icon4.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Restaurant</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg6.jpg" alt="lg6.jpg">
-                                <div class="thmb_cntnt">
-                                    <ul class="tag mb0">
-                                        <li class="list-inline-item"><a href="#">$$$$</a></li>
-                                        <li class="list-inline-item"><a href="#">Open</a></li>
-                                    </ul>
-                                    <ul class="listing_reviews">
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white" href="#"><span class="fa fa-star"></span></a></li>
-                                        <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="tc_content">
-                                    <div class="badge_icon"><a href="#"><img src="{{ asset('/web/themes/guido') }}/images/icons/agent7.svg" alt="agent7.svg"></a></div>
-                                    <h4>Luxary Hotel-Spa</h4>
-                                    <p>But I must explain to you how all this mistaken idea...</p>
-                                    <ul class="prop_details mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span> +61-8181-123</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a></li>
-                                    </ul>
-                                </div>
-                                <div class="fp_footer">
-                                    <ul class="fp_meta float-left mb0">
-                                        <li class="list-inline-item"><a href="#"><img src="images/icons/icon7.svg" alt="icon7.svg"></a></li>
-                                        <li class="list-inline-item"><a href="#">Beauty & Spa</a></li>
-                                    </ul>
-                                    <ul class="fp_meta float-right mb0">
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                                        <li class="list-inline-item"><a class="icon" href="#"><span class="flaticon-love"></span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="mbp_pagination mt10">
-                            <ul class="page_navigation">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span class="fa fa-angle-left"></span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item active" aria-current="page">
-                                    <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item"><a class="page-link" href="#">15</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><span class="fa fa-angle-right"></span></a>
-                                </li>
+                        <div class="fp_footer">
+                            <ul class="fp_meta float-left mb0">
+                                <li class="list-inline-item"><a href="#"><img
+                                            src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
+                                            alt="icon3.svg"></a></li>
+                                <li class="list-inline-item"><a href="#">Outdoor
+                                        Activities</a></li>
+                            </ul>
+                            <ul class="fp_meta float-right mb0">
+                                <li class="list-inline-item"><a
+                                        href="{{route('siglelisting',['slug' => $item->slug])}}"><span
+                                            class="flaticon-zoom"></span></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        {{-- <div class="col-lg-12">
+            <div class="mbp_pagination mt10">
+                <ul class="page_navigation">
+                    <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <span
+                                class="fa fa-angle-left"></span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">3 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <li class="page-item"><a class="page-link" href="#">15</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"><span class="fa fa-angle-right"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div> --}}
+        {{-- {{ $all_properties->links() }} --}}
+    </div>
+    </div>
+    </div>
     </div>
 </section>
 @endsection

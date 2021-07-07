@@ -41,7 +41,7 @@
 					<li>
 						<a href="{{route('homepage')}}"><span class="title">Home</span></a>
 					</li>
-				   <li>
+				   {{-- <li>
 						<a href="#"><span class="title">Explore</span></a>
 						<!-- Level Two-->
 						<ul>
@@ -49,9 +49,10 @@
 							<li><a href="page-city-single.html">Flat</a></li>
 							<li><a href="page-add-new-listing.html">Room</a></li>
 						</ul>
-					</li>
-					<li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-avatar" > <span class="dn-1200">Login/Sign Up</span></a></li>
-					<li class="list-inline-item add_listing"><a href="page-add-new-listing.html"><span
+					</li> --}}
+                    @include('frontend.listing.layout.template.explore')
+					@include('frontend.listing.layout.template.login_view')
+					<li class="list-inline-item add_listing"><a href="#"><span
 								class="icon">+</span><span class="dn-lg"> Add Listing</span></a></li>
 				</ul>
 		    </nav>

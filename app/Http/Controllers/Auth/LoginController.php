@@ -31,11 +31,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-    protected function redirectTo()
-	{
-    		return '/admin/dashboard';
-	}
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/checkuser';
+
+    // protected function redirectTo()
+	// {
+    // 		return '/admin/dashboard';
+	// }
     /**
      * Create a new controller instance.
      *
@@ -67,11 +69,11 @@ class LoginController extends Controller
                 return redirect()->route('kyconeget');
 			}elseif(auth()->user()->type == 1) {
                 return redirect()->route('admindashboard');                        
-                }elseif(auth()->user()->type == 10) {
+                }elseif(auth()->user()->type == 2) {
             		return redirect()->route('nextjober');
-                }elseif(auth()->user()->type == 11) {
+                }elseif(auth()->user()->type == 3) {
                         return redirect('/nextteacher');
-                } elseif(auth()->user()->type == 12) {
+                } elseif(auth()->user()->type == 4) {
                     return redirect('/student'); 
 
                 } elseif(auth()->user()->type == 13) {

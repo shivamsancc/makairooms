@@ -33,34 +33,11 @@
                                                         <label class="sr-only">Username</label>
                                                         <div class="input-group style1 mb-2 mb0-767">
                                                             <div class="input-group-prepend">
-                                                                <div class="input-group-text pl0 pb0-767">What
+                                                                <div class="input-group-text pl0 pb0-767">Where
                                                                 </div>
                                                             </div>
                                                             <div class="select-wrap style1-dropdown">
                                                                 <select name="lang" class="form-control js-searchBox">
-                                                                    <option value="">Ex: shopping, restaurant...
-                                                                    </option>
-                                                                    <option value="TopPicks">Top Picks</option>
-                                                                    <option value="CityOfLondon">City of London
-                                                                    </option>
-                                                                    <option value="OutdoorActivities">Outdoor
-                                                                        Activities</option>
-                                                                    <option value="Restaurant">Restaurant
-                                                                    </option>
-                                                                    <option value="Hotels">Hotels</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-auto home_form_input">
-                                                        <label class="sr-only">Username</label>
-                                                        <div class="input-group style2 mb-2 mb0-767">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text pb0-767">Where
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-wrap style2-dropdown">
-                                                                <select name="lang" class="form-control js-searchBox2">
                                                                     <option value="">Your City</option>
                                                                     <option value="NewYork">New York</option>
                                                                     <option value="London">London</option>
@@ -69,6 +46,29 @@
                                                                     <option value="LosAngeles">Los Angeles
                                                                     </option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-auto home_form_input">
+                                                        <label class="sr-only">Username</label>
+                                                        <div class="input-group style2 mb-2 mb0-767">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text pb0-767">What
+                                                                </div>
+                                                            </div>
+                                                            <div class="select-wrap style2-dropdown">
+
+                                                                <select name="lang" class="form-control js-searchBox2">
+                                                                    <option value="">Ex: shopping, restaurant...
+                                                                    </option>
+                                                                    <option value="TopPicks">Top Picks</option>
+                                                                    <option value="CityOfLondon">City of London</option>
+                                                                    <option value="OutdoorActivities">Outdoo Activities
+                                                                    </option>
+                                                                    <option value="Restaurant">Restaurant</option>
+                                                                    <option value="Hotels">Hotels</option>
+                                                                </select>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -228,271 +228,207 @@
                                             </div>
                                         </a>
                                         <div class="thmb_cntnt">
-                                            {{-- <ul class="tag mb0">
-													<li class="list-inline-item"><a href="#">$$$$</a></li>
-													<li class="list-inline-item"><a href="#">Open</a></li>
-												</ul>
-												<ul class="tag2 mb0">
-													<li class="list-inline-item"><a href="#">Featured</a></li>
-												</ul>
-												<ul class="listing_reviews">
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a
-															class="text-white total_review" href="#">(5
-															Review)</a></li>
-												</ul> --}}
                                         </div>
                                         {{-- </div> --}}
 
                                         <div class="details">
-
                                             <div class="tc_content">
                                                 <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                                    {{-- <div class="badge_icon"><a href="{{route('siglelisting',['slug' => $item->slug])}}"></a>
-                                            </div> --}}
-                                            <h4>{{$item->property_type}}</h4>
-                                            <h4>{{$item->name}}</h4>
-                                            <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                            <ul class="prop_details mb0">
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-phone pr5"></span>
-                                                        {{$item['partnername']['0']->phone}}</a></li>
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-pin pr5"></span> {{$item->distName}}</a>
-                                                </li>
-                                            </ul>
-                                            <div class="text-center"><br>
-                                                Price Range &nbsp;
-                                                <a href="#">₹{{$item->price_range1}} -- ₹{{$item->price_range2}}</a>
-                                                </li>
+                                                    <h4>{{$item->name}}</h4>
+                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
+                                                    <ul class="prop_details mb0">
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-phone pr5"></span>
+                                                                {{$item['partnername']['0']->phone}}</a></li>
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-pin pr5"></span>
+                                                                {{$item->distName}}</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="text-center"><br>
+                                                        Price Range &nbsp;
+                                                        <a href="#">₹{{$item->price_range1}} --
+                                                            ₹{{$item->price_range2}}</a>
+                                                        </li>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            </a>
-                                        </div>
-                                        <div class="fp_footer">
-                                            <ul class="fp_meta float-left mb0">
-                                                <li class="list-inline-item"><a href="#"><img
-                                                            src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                            alt="icon3.svg"></a></li>
-                                                <li class="list-inline-item"><a href="#">Outdoor
-                                                        Activities</a></li>
-                                            </ul>
-                                            <ul class="fp_meta float-right mb0">
-                                                <li class="list-inline-item"><a
-                                                        href="{{route('siglelisting',['slug' => $item->slug])}}"><span
-                                                            class="flaticon-zoom"></span></a></li>
-                                                {{-- <li class="list-inline-item"><a class="icon" href="#"><span
-																class="flaticon-love"></span></a></li> --}}
-                                            </ul>
+                                            <div class="fp_footer">
+                                                <ul class="fp_meta float-left mb0">
+                                                    <li class="list-inline-item"><a href="#"><img
+                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
+                                                                alt="icon3.svg"></a></li>
+                                                    <li class="list-inline-item"><a href="#">Outdoor
+                                                            Activities</a></li>
+                                                </ul>
+                                                <ul class="fp_meta float-right mb0">
+                                                    <li class="list-inline-item"><a
+                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
+                                                                class="flaticon-zoom"></span></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab">
-                        <div class="popular_listing_slider1">
-                            @foreach ($all_flats as $item)
-                            <div class="item">
-                                <div class="feat_property">
-                                    <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                                        <!-- The slideshow -->
-                                        <div class="carousel-inner">
-                                            @foreach ($item['images'] as $itema => $slider)
-                                            {{-- ----------------{{$itema}} --}}
-                                            <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                                style="max-height: 200px !important">
-                                                <img class="d-block w-100" src="{{Storage::url($slider['img_name'])}}"
-                                                    alt="{{$slider['img_name']}}">
+                        <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab">
+                            <div class="popular_listing_slider1">
+                                @foreach ($all_flats as $item)
+                                <div class="item">
+                                    <div class="feat_property">
+                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                            <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    @foreach ($item['images'] as $itema => $slider)
+                                                    {{-- ----------------{{$itema}} --}}
+                                                    <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
+                                                        style="max-height: 200px !important">
+                                                        <img class="d-block w-100"
+                                                            src="{{Storage::url($slider['img_name'])}}"
+                                                            alt="{{$slider['img_name']}}">
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                                <!-- Left and right controls -->
+                                                <a class="carousel-control-prev" href="#demo{{$item->id}}"
+                                                    data-slide="prev">
+                                                    <span class="carousel-control-prev-icon"></span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#demo{{$item->id}}"
+                                                    data-slide="next">
+                                                    <span class="carousel-control-next-icon"></span>
+                                                </a>
                                             </div>
-                                            @endforeach
+                                        </a>
+                                        <div class="thmb_cntnt">
                                         </div>
+                                        {{-- </div> --}}
 
-                                        <!-- Left and right controls -->
-                                        <a class="carousel-control-prev" href="#demo{{$item->id}}" data-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#demo{{$item->id}}" data-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                        </a>
-                                    </div>
-                                    <div class="thmb_cntnt">
-                                        {{-- <ul class="tag mb0">
-													<li class="list-inline-item"><a href="#">$$$$</a></li>
-													<li class="list-inline-item"><a href="#">Open</a></li>
-												</ul>
-												<ul class="tag2 mb0">
-													<li class="list-inline-item"><a href="#">Featured</a></li>
-												</ul>
-												<ul class="listing_reviews">
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a
-															class="text-white total_review" href="#">(5
-															Review)</a></li>
-												</ul> --}}
-                                    </div>
-                                    {{-- </div> --}}
-                                    <div class="details">
-                                        <div class="tc_content">
-                                            <div class="badge_icon"><a href="#"><img
-                                                        src="{{ asset('/web/themes/guido') }}/images/icons/agent1.svg"
-                                                        alt="agent1.svg"></a></div>
-                                            <h4>{{$item->property_type}}</h4>
-                                            <h4>{{$item->name}}</h4>
-                                            <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                            <ul class="prop_details mb0">
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-phone pr5"></span>
-                                                        {{$item['partnername']['0']->phone}}</a></li>
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-pin pr5"></span> {{$item->distName}}</a>
-                                                </li>
-                                            </ul>
-                                            <div class="text-center"><br>
-                                                Price Range &nbsp;
-                                                <a href="#">₹{{$item->price_range1}} -- ₹{{$item->price_range2}}</a>
-                                                </li>
+                                        <div class="details">
+                                            <div class="tc_content">
+                                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                                    <h4>{{$item->name}}</h4>
+                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
+                                                    <ul class="prop_details mb0">
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-phone pr5"></span>
+                                                                {{$item['partnername']['0']->phone}}</a></li>
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-pin pr5"></span>
+                                                                {{$item->distName}}</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="text-center"><br>
+                                                        Price Range &nbsp;
+                                                        <a href="#">₹{{$item->price_range1}} --
+                                                            ₹{{$item->price_range2}}</a>
+                                                        </li>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div class="fp_footer">
-                                            <ul class="fp_meta float-left mb0">
-                                                <li class="list-inline-item"><a href="#"><img
-                                                            src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                            alt="icon3.svg"></a></li>
-                                                <li class="list-inline-item"><a href="#">Outdoor
-                                                        Activities</a></li>
-                                            </ul>
-                                            <ul class="fp_meta float-right mb0">
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-zoom"></span></a></li>
-                                                {{-- <li class="list-inline-item"><a class="icon" href="#"><span
-																class="flaticon-love"></span></a></li> --}}
-                                            </ul>
+                                            <div class="fp_footer">
+                                                <ul class="fp_meta float-left mb0">
+                                                    <li class="list-inline-item"><a href="#"><img
+                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
+                                                                alt="icon3.svg"></a></li>
+                                                    <li class="list-inline-item"><a href="#">Outdoor
+                                                            Activities</a></li>
+                                                </ul>
+                                                <ul class="fp_meta float-right mb0">
+                                                    <li class="list-inline-item"><a
+                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
+                                                                class="flaticon-zoom"></span></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-destination" role="tabpanel"
-                        aria-labelledby="nav-destination-tab">
-                        <div class="popular_listing_slider1">
-                            @foreach ($all_rooms as $item)
-                            <div class="item">
-                                <div class="feat_property">
-                                    <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                                        <!-- The slideshow -->
-                                        <div class="carousel-inner">
-                                            @foreach ($item['images'] as $itema => $slider)
-                                            {{-- ----------------{{$itema}} --}}
-                                            <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                                style="max-height: 200px !important">
-                                                <img class="d-block w-100" src="{{Storage::url($slider['img_name'])}}"
-                                                    alt="{{$slider['img_name']}}">
+                        <div class="tab-pane fade" id="nav-destination" role="tabpanel"
+                            aria-labelledby="nav-destination-tab">
+                            <div class="popular_listing_slider1">
+                                @foreach ($all_rooms as $item)
+                                <div class="item">
+                                    <div class="feat_property">
+                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                            <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    @foreach ($item['images'] as $itema => $slider)
+                                                    {{-- ----------------{{$itema}} --}}
+                                                    <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
+                                                        style="max-height: 200px !important">
+                                                        <img class="d-block w-100"
+                                                            src="{{Storage::url($slider['img_name'])}}"
+                                                            alt="{{$slider['img_name']}}">
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                                <!-- Left and right controls -->
+                                                <a class="carousel-control-prev" href="#demo{{$item->id}}"
+                                                    data-slide="prev">
+                                                    <span class="carousel-control-prev-icon"></span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#demo{{$item->id}}"
+                                                    data-slide="next">
+                                                    <span class="carousel-control-next-icon"></span>
+                                                </a>
                                             </div>
-                                            @endforeach
+                                        </a>
+                                        <div class="thmb_cntnt">
                                         </div>
+                                        {{-- </div> --}}
 
-                                        <!-- Left and right controls -->
-                                        <a class="carousel-control-prev" href="#demo{{$item->id}}" data-slide="prev">
-                                            <span class="carousel-control-prev-icon"></span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#demo{{$item->id}}" data-slide="next">
-                                            <span class="carousel-control-next-icon"></span>
-                                        </a>
-                                    </div>
-                                    <div class="thmb_cntnt">
-                                        {{-- <ul class="tag mb0">
-													<li class="list-inline-item"><a href="#">$$$$</a></li>
-													<li class="list-inline-item"><a href="#">Open</a></li>
-												</ul>
-												<ul class="tag2 mb0">
-													<li class="list-inline-item"><a href="#">Featured</a></li>
-												</ul>
-												<ul class="listing_reviews">
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a class="text-white"
-															href="#"><span class="fa fa-star"></span></a></li>
-													<li class="list-inline-item"><a
-															class="text-white total_review" href="#">(5
-															Review)</a></li>
-												</ul> --}}
-                                    </div>
-                                    {{-- </div> --}}
-                                    <div class="details">
-                                        <div class="tc_content">
-                                            <div class="badge_icon"><a href="#"><img
-                                                        src="{{ asset('/web/themes/guido') }}/images/icons/agent1.svg"
-                                                        alt="agent1.svg"></a></div>
-                                            <h4>{{$item->name}}</h4>
-                                            <h4>{{$item->property_type}}</h4>
-                                            <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                            <ul class="prop_details mb0">
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-phone pr5"></span>
-                                                        {{$item['partnername']['0']->phone}}</a></li>
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-pin pr5"></span> {{$item->distName}}</a>
-                                                </li>
-                                            </ul>
-                                            <div class="text-center"><br>
-                                                Price Range &nbsp;
-                                                <a href="#">₹{{$item->price_range1}} -- ₹{{$item->price_range2}}</a>
-                                                </li>
+                                        <div class="details">
+                                            <div class="tc_content">
+                                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                                    <h4>{{$item->name}}</h4>
+                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
+                                                    <ul class="prop_details mb0">
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-phone pr5"></span>
+                                                                {{$item['partnername']['0']->phone}}</a></li>
+                                                        <li class="list-inline-item"><a href="#"><span
+                                                                    class="flaticon-pin pr5"></span>
+                                                                {{$item->distName}}</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="text-center"><br>
+                                                        Price Range &nbsp;
+                                                        <a href="#">₹{{$item->price_range1}} --
+                                                            ₹{{$item->price_range2}}</a>
+                                                        </li>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div class="fp_footer">
-                                            <ul class="fp_meta float-left mb0">
-                                                <li class="list-inline-item"><a href="#"><img
-                                                            src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                            alt="icon3.svg"></a></li>
-                                                <li class="list-inline-item"><a href="#">Outdoor
-                                                        Activities</a></li>
-                                            </ul>
-                                            <ul class="fp_meta float-right mb0">
-                                                <li class="list-inline-item"><a href="#"><span
-                                                            class="flaticon-zoom"></span></a></li>
-                                                {{-- <li class="list-inline-item"><a class="icon" href="#"><span
-																class="flaticon-love"></span></a></li> --}}
-                                            </ul>
+                                            <div class="fp_footer">
+                                                <ul class="fp_meta float-left mb0">
+                                                    <li class="list-inline-item"><a href="#"><img
+                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
+                                                                alt="icon3.svg"></a></li>
+                                                    <li class="list-inline-item"><a href="#">Outdoor
+                                                            Activities</a></li>
+                                                </ul>
+                                                <ul class="fp_meta float-right mb0">
+                                                    <li class="list-inline-item"><a
+                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
+                                                                class="flaticon-zoom"></span></a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -585,11 +521,14 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($all_POST as $item)
             <div class="col-md-6 col-lg-4 col-xl-4">
                 <div class="for_blog feat_property">
                     <div class="thumb">
-                        <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/blog/1.jpg" alt="1.jpg">
-                        <div class="tag bgc-thm"><a class="text-white" href="#">Health & Care</a></div>
+                        <img class="img-whp" src="{{Storage::url($item['f_image'])}}" alt="1.jpg">
+                        @isset($item->category_name)
+                           <div class="tag bgc-thm"><a class="text-white" href="#">{{$item->category_name}}</a></div>
+                        @endisset
                     </div>
                     <div class="details">
                         <div class="tc_content">
@@ -601,53 +540,12 @@
                                             April, 2020</a></li>
                                 </ul>
                             </div>
-                            <h4>The Top 25 Bike Stores in Toronto by Neighbourhood</h4>
+                            <h4>{{$item->name}}</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-4">
-                <div class="for_blog feat_property">
-                    <div class="thumb">
-                        <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/blog/2.jpg" alt="2.jpg">
-                        <div class="tag bgc-thm"><a class="text-white" href="#">Culture</a></div>
-                    </div>
-                    <div class="details">
-                        <div class="tc_content">
-                            <div class="bp_meta">
-                                <ul>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-avatar mr10"></span>
-                                            Jack Wilson</a></li>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-date mr10"></span> 06
-                                            April, 2020</a></li>
-                                </ul>
-                            </div>
-                            <h4>How to Wear a Headscarf Like a Gucci Muse</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-4">
-                <div class="for_blog feat_property">
-                    <div class="thumb">
-                        <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/blog/3.jpg" alt="3.jpg">
-                        <div class="tag bgc-thm"><a class="text-white" href="#">Travelling</a></div>
-                    </div>
-                    <div class="details">
-                        <div class="tc_content">
-                            <div class="bp_meta">
-                                <ul>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-avatar mr10"></span>
-                                            Jack Wilson</a></li>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-date mr10"></span> 06
-                                            April, 2020</a></li>
-                                </ul>
-                            </div>
-                            <h4>Quisque sed eros mollis, pretium odio feugiat dictum</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
