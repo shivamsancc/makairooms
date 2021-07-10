@@ -16,7 +16,8 @@ class CreatePartnersTable extends Migration
         Schema::create('mak_partners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('mail')->unique();
+            $table->string('user_id')->nullable();
+            $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->text('address');
             $table->string('state');

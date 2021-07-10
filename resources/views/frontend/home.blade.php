@@ -59,14 +59,10 @@
                                                             <div class="select-wrap style2-dropdown">
 
                                                                 <select name="lang" class="form-control js-searchBox2">
-                                                                    <option value="">Ex: shopping, restaurant...
-                                                                    </option>
-                                                                    <option value="TopPicks">Top Picks</option>
-                                                                    <option value="CityOfLondon">City of London</option>
-                                                                    <option value="OutdoorActivities">Outdoo Activities
-                                                                    </option>
-                                                                    <option value="Restaurant">Restaurant</option>
-                                                                    <option value="Hotels">Hotels</option>
+                                                                    <option value="" selected>Select</option>
+                                                                    <option value="">PG</option>
+                                                                    <option value="TopPicks">Flat</option>
+                                                                    <option value="CityOfLondon">Room</option>
                                                                 </select>
 
                                                             </div>
@@ -522,29 +518,29 @@
         </div>
         <div class="row">
             @foreach ($all_POST as $item)
-            <div class="col-md-6 col-lg-4 col-xl-4">
-                <div class="for_blog feat_property">
-                    <div class="thumb">
-                        <img class="img-whp" src="{{Storage::url($item['f_image'])}}" alt="1.jpg">
-                        @isset($item->category_name)
-                           <div class="tag bgc-thm"><a class="text-white" href="#">{{$item->category_name}}</a></div>
-                        @endisset
-                    </div>
-                    <div class="details">
-                        <div class="tc_content">
-                            <div class="bp_meta">
-                                <ul>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-avatar mr10"></span>
-                                            Jack Wilson</a></li>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-date mr10"></span> 06
-                                            April, 2020</a></li>
-                                </ul>
+            <a href="{{route('sigleblog',['slug' => $item->slug])}}">
+                <div class="col-md-6 col-lg-4 col-xl-4">
+                    <div class="for_blog feat_property">
+                        <div class="thumb">
+                            <img class="img-whp" src="{{Storage::url($item['f_image'])}}" alt="{{$item->name}}">
+                            @isset($item->category_name)
+                               <div class="tag bgc-thm"><a class="text-white" href="#">{{$item->category_name}}</a></div>
+                            @endisset
+                        </div>
+                        <div class="details">
+                            <div class="tc_content">
+                                <div class="bp_meta">
+                                    <ul>
+                                        <li class="list-inline-item"><a href="#"><span class="flaticon-avatar mr10"></span>{{$item->user_name}}</a></li>
+                                        <li class="list-inline-item"><a href="#"><span class="flaticon-date mr10"></span> {{$item->created_at->format('d/m/Y')}}</a></li>
+                                    </ul>
+                                </div>
+                                <h4>{{$item->name}}</h4>
                             </div>
-                            <h4>{{$item->name}}</h4>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
             @endforeach
         </div>
     </div>

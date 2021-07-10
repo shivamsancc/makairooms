@@ -25,12 +25,12 @@ class CreateMakPropertiesTable extends Migration
             $table->string('state');
             $table->string('district');
             $table->string('pincode');
-            $table->string('price_range1');
-            $table->string('price_range2');
+            $table->string('price_range1')->nullable();
+            $table->string('price_range2')->nullable();
             $table->string('slug');
             $table->string('lat');
             $table->string('long');
-            $table->string('status')->default('1');
+            $table->integer('status')->default('1');
             $table->timestamps();
         });
     }

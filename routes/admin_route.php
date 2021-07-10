@@ -47,6 +47,7 @@ Route::get('/blog/cat/all', 'admin\blog\blogController@categoryindex')->name('al
 Route::post('/blog/cat/all', 'admin\blog\blogController@categorystore')->name('all_blogs_cat_store');
 Route::get('/blog/cat/delete/{id}', 'admin\blog\blogController@categorydestroy')->name('all_blogs_cat_delete');
 
+Route::post('ckeditor/upload', 'admin\blog\blogController@upload')->name('ckeditor.upload');
 
 
 //========================Ajax Route=====================================================

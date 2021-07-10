@@ -9,6 +9,8 @@ use DB;
 use App\Models\state;
 use App\Models\district;
 use App\Models\partner;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 //=====================Imports==================
 
@@ -32,15 +34,22 @@ class PartnerController extends Controller
     }
     //=====================Partner Add Post=====================
     function addpartnerspost(Request $request){
+        // return $request->all();
         $this->validate($request, [
         'name' =>  ['required', 'string', 'max:255'], 
-        'mail' => ['required', 'string', 'email', 'max:255', 'unique:mak_partners'], 
+        'email' => ['required', 'string', 'email', 'max:255','unique:users'], 
         'phone' => ['required', 'string', 'min:10','unique:mak_partners' ], 
         ]);
-
-
         $addpartner= partner::create($request->all());
         if ($addpartner) {
+           $partner= User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'type' => 2,
+            ]);
+             $partner_id= $partner->id;
+             partner::where('email',$request->email)->update(['user_id'=>$partner_id]);
             alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
             return redirect()->route('allpartners');
         } else {
@@ -58,13 +67,14 @@ class PartnerController extends Controller
        $update= partner::where('id',$id)
         ->update([
             'name'=>$request->name,
-            'mail'=>$request->mail,
+            'email'=>$request->email,
             'phone'=>$request->phone,
             'address'=>$request->address,
             'state'=>$request->state,
             'district'=>$request->district,
             'pincode'=>$request->pincode]);
             if ($update) {
+             
                 alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
                 return redirect()->route('allpartners');
             } else {

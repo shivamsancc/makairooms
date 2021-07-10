@@ -30,9 +30,9 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Email:</label>
-                                <input type="email" class="form-control" name="mail" id="mail" required
+                                <input type="email" class="form-control" name="email" id="email" required
                                     aria-describedby="helpId" placeholder="example@example.com">
-                                    @error('mail')
+                                    @error('email')
                                      <p class="text-danger">{{ $message }}</p>
                                 @enderror
                                 <small id="helpId" class="form-text text-muted">Enter Partner's Email</small>
@@ -95,14 +95,14 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control" name="password" id="password"
+                                <input type="password" required class="form-control" name="password" id="password"
                                     placeholder="******************">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Conform Password</label>
-                                <input type="password" class="form-control" name="password_conform"
+                                <input type="password" required class="form-control" name="password_conform"
                                     id="password_conform" placeholder="******************">
                             </div>
                         </div>

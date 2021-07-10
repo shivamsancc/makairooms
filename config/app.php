@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         //==============================SHIVAM================
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Onecentlin\Adminer\ServiceProvider::class,
+        
+
 
     ],
 

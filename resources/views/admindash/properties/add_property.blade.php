@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <label for="">Status</label>
                                 <div class="custom-control custom-switch">
-                                    <input type="checkbox" class="custom-control-input" value="1" name="status"
+                                <input type="checkbox" class="custom-control-input" value="1" name="status"
                                         id="customSwitch1">
                                     <label class="custom-control-label" for="customSwitch1">Toggle this switch</label>
                                 </div>

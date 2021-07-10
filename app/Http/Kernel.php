@@ -43,6 +43,13 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'adminer' => [
+	        \App\Http\Middleware\EncryptCookies::class,
+	        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+	        \Illuminate\Session\Middleware\StartSession::class,
+	        // you may create customized middleware to fit your needs
+	        \Illuminate\Auth\Middleware\Authenticate::class,
+	    ],
     ];
 
     /**
@@ -65,5 +72,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //===================================
         'admin_check' => \App\Http\Middleware\admin_check::class,
+        'adminer' => \App\Http\Middleware\Authenticate::class,
     ];
 }

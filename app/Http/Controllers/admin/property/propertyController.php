@@ -77,7 +77,7 @@ class propertyController extends Controller
             'district'=>$request->district,
             'pincode'=>$request->pincode,
             'lat'=>$request->lat,
-            'long'=>$request->long,]);
+            'long'=>$request->long]);
         $property_id= $insert->id;
        if ($files = $request->file('images')) {
          foreach($request->file('images') as $img) {   
@@ -86,7 +86,6 @@ class propertyController extends Controller
             $filePath = 'upload/property/images/' . $name;
             Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
             $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
-            // print_r( $request->images);
          }
          alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
          return redirect()->route('allproperties');

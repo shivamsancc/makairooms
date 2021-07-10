@@ -40,8 +40,8 @@
                             <li><a href="{{route('all_isting',['type' => 'ROOMS'])}}">Room</a></li>
                         </ul>
                     </li> --}}
-                    @include('frontend.listing.layout.template.explore');
-                    @include('frontend.listing.layout.template.login_view');
+                    @include('frontend.listing.layout.template.explore')
+                    @include('frontend.listing.layout.template.login_view')
                     <li class="list-inline-item add_listing"><a href="#"><span
                                 class="icon">+</span><span class="dn-lg"> Add Listing</span></a></li>
                 </ul>

@@ -29,8 +29,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Email:</label>
-                                <input type="email" class="form-control" name="mail" id="mail" required
-                                    aria-describedby="helpId" placeholder="example@example.com" value="{{$partner->mail}}">
+                                <input type="email" class="form-control" name="email" id="email" required
+                                    aria-describedby="helpId" placeholder="example@example.com" value="{{$partner->email}}">
                                     @error('mail')
                                      <p class="text-danger">{{ $message }}</p>
                                 @enderror

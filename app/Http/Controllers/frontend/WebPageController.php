@@ -53,7 +53,6 @@ class WebPageController extends Controller
         {
             $insts->category_name = blog_category::find($insts->category)->name;
         }
-        // return $all_POST;  
         return view('frontend.home',compact('all_flats','all_pg','all_rooms','all_POST'));
     }
 
@@ -99,7 +98,7 @@ class WebPageController extends Controller
 
 
 
-
+// 
 
 
 
@@ -127,6 +126,21 @@ class WebPageController extends Controller
                 $message->to('shviamanandiet@gmail.com');
             });
         }
+    }
+
+
+
+    public function singleblog($slug){
+        // return $slug;
+        $POST= blog_post::orderBy('created_at')->where('slug',$slug)->where('status',1)->get()->all();
+        foreach ($POST as $insts)
+        {
+            $insts->category_name = blog_category::find($insts->category)->name;
+        }
+        $next_record = blog_post::where('id', '>', $POST['0']->id)->orderBy('id')->first();
+        $pre_record = blog_post::where('id', '<', $POST['0']->id)->orderBy('id')->first();
+        // return $next_record;
+        return view('frontend.blog.single',compact('POST','pre_record','next_record'));
     }
 
 

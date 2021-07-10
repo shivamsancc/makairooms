@@ -19,5 +19,8 @@ Route::get('/property/{slug}', 'frontend\WebPageController@siglelisting')->name(
 
 
 
+//=======================================Blog Route===============================
+Route::get('/blog/{slug}', 'frontend\WebPageController@singleblog')->name('sigleblog');
+
 
 Route::get('/newlogin', 'frontend\WebPageController@newlogin')->name('newlogin');
