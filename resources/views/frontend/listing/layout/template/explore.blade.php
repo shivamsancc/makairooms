@@ -7,3 +7,6 @@
         <li><a href="{{route('all_isting',['type' => 'ROOMS'])}}">Room</a></li>
     </ul>
 </li>
+<li>
+    <a href="{{route('blog')}}">Blog</a>
+</li>

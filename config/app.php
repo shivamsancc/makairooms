@@ -177,6 +177,8 @@ return [
         //==============================SHIVAM================
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Onecentlin\Adminer\ServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
+
         
 
 

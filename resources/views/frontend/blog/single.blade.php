@@ -1,7 +1,8 @@
 @extends('frontend.listing.layout.app')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
 @section('content')
 <!-- Inner Page Breadcrumb -->
-<section class="inner_page_breadcrumb style3">
+<section class="inner_page_breadcrumb style3" style="background-image:url({{Storage::url($POST['0']->f_image)}})">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8">
@@ -16,6 +17,7 @@
                                         class="flaticon-date mr10"></span>{{$POST['0']->created_at->format('d/m/Y')}}</a>
                             </li>
                         </ul>
+                        
                     </div>
                 </div>
             </div>
@@ -27,6 +29,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-9">
+                @foreach ($POST['0']->tags as $item)
+                <button class="btn btn-outline-info">
+                    <span class="fas fa-tag">&nbsp;{{$item->name}}</span>
+                  </button>
+                    {{-- <div class="btn btn-outline-primary">{{$POST['0']->name}}</div> --}}
+                @endforeach
                 <div class="main_blog_post_content">
                     <div class="mbp_thumb_post">
                         {!!$POST['0']->body!!}
@@ -39,7 +47,8 @@
                                     <div class="detls">
                                         @isset($pre_record)
                                         <a href="{{route('sigleblog',['slug' => $pre_record->slug])}}">
-                                        <h5 class="text-thm"><span class="fa fa-angle-left mr5"></span> Previous Post </h5>
+                                            <h5 class="text-thm"><span class="fa fa-angle-left mr5"></span> Previous
+                                                Post </h5>
                                             <p>{{$pre_record->name}}</p>
                                         </a>
                                         @endisset
@@ -63,76 +72,7 @@
                         </div>
                     </div>
                     <hr>
-                    {{-- <div class="product_single_content mb50">
-							<div class="mbp_pagination_comments">
-								<div class="total_review">
-									<h4>14 Reviews</h4>
-								</div>
-								<div class="mbp_first media">
-									<img src="images/blog/reviewer1.png" class="mr-3" alt="reviewer1.png">
-									<div class="media-body">
-								    	<h4 class="sub_title mt-0">Jane Cooper</h4>
-								    	<div class="sspd_postdate fz14 mb20">April 6, 2021 at 3:21 AM
-											<div class="sspd_review pull-right">
-												<ul class="mb0 pl15">
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item">(5 reviews)</li>
-												</ul>
-											</div>
-								    	</div>
-								    	<p class="fz14 mt10">Every single thing we tried with John was delicious! Found some awesome places we would definitely go back to on our trip. John was also super friendly and passionate about Beşiktaş and Istanbul. we had an awesome time!</p>
-								    	<div class="thumb-list mt30">
-								    		<ul>
-								    			<li class="list-inline-item"><a href="#"><img src="images/blog/bsp1.jpg" alt="bsp1.jpg"></a></li>
-								    			<li class="list-inline-item"><a href="#"><img src="images/blog/bsp2.jpg" alt="bsp2.jpg"></a></li>
-								    			<li class="list-inline-item"><a href="#"><img src="images/blog/bsp3.jpg" alt="bsp3.jpg"></a></li>
-								    			<li class="list-inline-item"><a href="#"><img src="images/blog/bsp4.jpg" alt="bsp4.jpg"></a></li>
-								    		</ul>
-								    	</div>
-									</div>
-								</div>
-								<div class="mbp_first media">
-									<img src="images/blog/reviewer2.png" class="mr-3" alt="reviewer2.png">
-									<div class="media-body">
-								    	<h4 class="sub_title mt-0">Bessie Cooper</h4>
-								    	<div class="sspd_postdate fz14 mb20">April 6, 2021 at 3:21 AM
-											<div class="sspd_review pull-right">
-												<ul class="mb0 pl15">
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-													<li class="list-inline-item">(5 reviews)</li>
-												</ul>
-											</div>
-								    	</div>
-								    	<p class="fz14 mt10">I enjoyed the tour. John is very friendly, observant, and funny. He cares for the guests and really works hard on providing a good experience by understanding each person's needs.…</p>
-									</div>
-								</div>
-							</div>
-						</div> --}}
                     <div id="disqus_thread"></div>
-
-                    {{-- <div class="bsp_reveiw_wrt">
-							<h4>Add a Review</h4>
-							<form class="comments_form">
-								<div class="form-group">
-							    	<input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-								</div>
-								<div class="form-group">
-							    	<input type="email" class="form-control" id="exampleInputEmail14" placeholder="Email">
-								</div>
-								<div class="form-group">
-								    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
-								</div>
-								<button type="submit" class="btn btn-thm">Send Your Review</button>
-							</form>
-						</div> --}}
                 </div>
             </div>
         </div>
@@ -146,7 +86,8 @@
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     var disqus_config = function () {
         this.page.url = '{{URL::full()}}'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = '{{URL::full()}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier =
+            '{{URL::full()}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function () { // DON'T EDIT BELOW THIS LINE
         var d = document,

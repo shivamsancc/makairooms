@@ -48,7 +48,7 @@ class WebPageController extends Controller
             $insts->partnername = partner::find($insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
-        $all_POST= blog_post::orderBy('created_at')->where('status',1)->get()->all();
+        $all_POST= blog_post::orderBy('created_at')->where('status',1)->take(3)->get();
         foreach ($all_POST as $insts)
         {
             $insts->category_name = blog_category::find($insts->category)->name;
@@ -92,17 +92,6 @@ class WebPageController extends Controller
         return view('auth.login_new');
     }
 
-
-
-
-
-
-
-// 
-
-
-
-
     public function mapapiupdate()
     {
         $url = "https://outpost.mapmyindia.com/api/security/oauth/token?grant_type=client_credentials&client_id=33OkryzDZsLRjoC8fmCxWxELgv7x6cYJFDTXQzAOqUhlS9DyaZjJCD_6_PeHc_6wNH0nNJ91p57QtpoHVULO2W_smTLS5h5hvCNpcpA8TxQ-epJ2uXCAFw==&client_secret=lrFxI-iSEg_pkRLZTay7C4tDBbWhENGnWbFqi-m-s7QLlEBIx-N0ljIcbWx6zY6qqwgaEXVuu6a1kJTjR_XKNOso_lt0JKCCxXflgAWIrCg89K-TinLcqmePWTZzbsPL";
@@ -128,18 +117,26 @@ class WebPageController extends Controller
         }
     }
 
-
+//==================================Blog=====================================================
+    public function blog(){
+        $all_POST= blog_post::with('tagged')->orderBy('created_at')->where('status',1)->simplePaginate(6);
+        foreach ($all_POST as $insts)
+        {
+            $insts->category_name = blog_category::find($insts->category)->name;
+        }
+        $allcategory= blog_category::orderBy('created_at')->where('status',1)->get();
+         $tags=blog_post::existingTags();
+        return view('frontend.blog.blog',compact('all_POST','allcategory','tags'));
+    }
 
     public function singleblog($slug){
-        // return $slug;
-        $POST= blog_post::orderBy('created_at')->where('slug',$slug)->where('status',1)->get()->all();
+        $POST= blog_post::with('tagged')->orderBy('created_at')->where('slug',$slug)->where('status',1)->get()->all();
         foreach ($POST as $insts)
         {
             $insts->category_name = blog_category::find($insts->category)->name;
         }
         $next_record = blog_post::where('id', '>', $POST['0']->id)->orderBy('id')->first();
         $pre_record = blog_post::where('id', '<', $POST['0']->id)->orderBy('id')->first();
-        // return $next_record;
         return view('frontend.blog.single',compact('POST','pre_record','next_record'));
     }
 

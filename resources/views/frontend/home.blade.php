@@ -524,15 +524,18 @@
                         <div class="thumb">
                             <img class="img-whp" src="{{Storage::url($item['f_image'])}}" alt="{{$item->name}}">
                             @isset($item->category_name)
-                               <div class="tag bgc-thm"><a class="text-white" href="#">{{$item->category_name}}</a></div>
+                            <div class="tag bgc-thm"><a class="text-white" href="#">{{$item->category_name}}</a></div>
                             @endisset
                         </div>
                         <div class="details">
                             <div class="tc_content">
                                 <div class="bp_meta">
                                     <ul>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-avatar mr10"></span>{{$item->user_name}}</a></li>
-                                        <li class="list-inline-item"><a href="#"><span class="flaticon-date mr10"></span> {{$item->created_at->format('d/m/Y')}}</a></li>
+                                        <li class="list-inline-item"><a href="#"><span
+                                                    class="flaticon-avatar mr10"></span>{{$item->user_name}}</a></li>
+                                        <li class="list-inline-item"><a href="#"><span
+                                                    class="flaticon-date mr10"></span>
+                                                {{$item->created_at->format('d/m/Y')}}</a></li>
                                     </ul>
                                 </div>
                                 <h4>{{$item->name}}</h4>
@@ -543,6 +546,7 @@
             </a>
             @endforeach
         </div>
+        <center><a href="{{route('blog')}}" type="submit" class=" txt-center btn btn-primary">View All</a></center>
     </div>
 </section>
 

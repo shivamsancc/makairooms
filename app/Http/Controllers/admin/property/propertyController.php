@@ -14,6 +14,9 @@ use App\Models\district;
 use App\Models\partner;
 use App\Models\mak_properties;
 use App\Models\mak_propert_images;
+use App\Models\property_features;
+use App\Models\property_item;
+use App\Models\property_img;
 use App\Models\mapapi;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
@@ -85,7 +88,7 @@ class propertyController extends Controller
             $name = $randomId . time() . str_replace(' ', '', $img->getClientOriginalName());
             $filePath = 'upload/property/images/' . $name;
             Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
-            $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
+            $insert = property_img::create(['property_item_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
          }
          alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
          return redirect()->route('allproperties');
@@ -93,4 +96,68 @@ class propertyController extends Controller
      }
 
    }
+
+//==================================Property Item Controllers================================
+public  function propertyitemindex()
+{
+    $all_properties_item = property_item::orderBy('created_at')->where('status',1)->get()->all();
+    foreach ($all_properties_item as $inst)
+    {
+        $inst->property = mak_properties::find($inst->ptoperty_id)->name;
+        $inst->manger = partner::find($inst->partner_id)->name;
+        // $inst->partnername = partner::find($inst->partner_id)->name;
+    }
+    // return $all_properties_item;
+    return  view('admindash.properties.property_item.index',compact('all_properties_item'));
+}
+public function createpropertyitem(){
+    $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
+    $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();
+    return view('admindash.properties.property_item.add_item',compact('all_partners','all_features'));
+}
+
+
+public function createpropertystore(Request $request){
+    $randomurl = $this->random_strings(30); 
+        $insert= property_item::create([
+            'partner_id'=>$request->partner_id,
+            'ptoperty_id'=>$request->ptoperty_id,
+            'property_type'=>$request->property_type,
+            'item_name'=>$request->item_name,
+            'item_for'=>$request->item_for,
+            'item_price'=>$request->item_price,
+            'item_features'=>json_encode($request->item_feature),
+            'slug'=>$randomurl,
+            // 'status'=>$request->status,
+        ]);
+        $property_id= $insert->id;
+       if ($files = $request->file('images')) {
+         foreach($request->file('images') as $img) {   
+            $randomId       =   rand(1,1000000);
+            $name = $randomId . time() . str_replace(' ', '', $img->getClientOriginalName());
+            $filePath = 'upload/property/images/' . $name;
+            Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
+            $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
+         }
+         alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+         return redirect()->route('allproperties');
+
+        }
+}
+
+// =======================Property API=================
+public function propertyapi(Request $request)
+{
+    if ($request->ajax())
+    {
+
+        $cities = DB::table("mak_properties")->where("partner_id", $request->state_id)
+            // ->orderBy('district_name', 'ASC')
+            ->pluck("name", "id");
+        return response()
+            ->json($cities);
+    }
+    return abort(404);
+}
+
 }

@@ -53,21 +53,7 @@
                 <h6 class="collapse-header">Players</h6>
                 <a class="collapse-item" href="{{route('allproperties')}}">All Property</a>
                 <a class="collapse-item" href="{{route('addproperty')}}">Add Property</a>
-            </div>
-        </div>
-    </li>
-     {{--=========================Match==================--}}
-     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
-            aria-controls="collapseThree">
-            <i class="fas fa-dharmachakra"></i>
-            <span>Match</span>
-        </a>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <a class="collapse-item" href="{{route('createpropertyitem')}}">Property Item</a>
             </div>
         </div>
     </li>
@@ -101,7 +87,21 @@
             </div>
         </div>
     </li>
-
+{{--==========================Master Setinng============================= --}}
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesix" aria-expanded="true"
+        aria-controls="collapsesix">
+        <i class="fab fa-blogger"></i>
+        <span>Master</span>
+    </a>
+    <div id="collapsesix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Blog </h6>
+            <a class="collapse-item" href="{{route('all_features')}}">Features</a>
+            {{-- <a class="collapse-item" href="{{route('all_blogs')}}">Blog</a> --}}
+        </div>
+    </div>
+</li>
     <!-- Nav Item - Pages Collapse Menu -->
 
     <!-- Divider -->

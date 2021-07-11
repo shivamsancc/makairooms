@@ -32,6 +32,22 @@ Route::get('/property/add', 'admin\property\propertyController@add_property')->n
 //============================PG=================
 Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
 
+//================================Property Item======================
+Route::get('/property/item/', 'admin\property\propertyController@propertyitemindex')->name('propertyitemindex');
+Route::get('/property/item/add', 'admin\property\propertyController@createpropertyitem')->name('createpropertyitem');
+Route::post('/property/item/store', 'admin\property\propertyController@createpropertystore')->name('createpropertystore');
+
+
+
+
+
+
+
+//=========================features Routes===============================
+Route::get('/property/features', 'admin\features\featuresController@index')->name('all_features');
+Route::post('/property/features/store', 'admin\features\featuresController@store')->name('all_features_add');
+
+
 
 
 
@@ -40,8 +56,6 @@ Route::get('/blog/all', 'admin\blog\blogController@index')->name('all_blogs');
 Route::get('/blog/add', 'admin\blog\blogController@create')->name('all_blogs_add');
 Route::post('/blog/add/store', 'admin\blog\blogController@store')->name('all_blogs_store');
 Route::get('/blog/delete/{id}', 'admin\blog\blogController@destroy')->name('blog_delete');
-
-
 
 Route::get('/blog/cat/all', 'admin\blog\blogController@categoryindex')->name('all_blogs_cat');
 Route::post('/blog/cat/all', 'admin\blog\blogController@categorystore')->name('all_blogs_cat_store');
@@ -52,4 +66,5 @@ Route::post('ckeditor/upload', 'admin\blog\blogController@upload')->name('ckedit
 
 //========================Ajax Route=====================================================
 Route::get('/nextteacher/districtapi', 'admin\partner\PartnerController@districtapi')->name('ajaxdistrictapi');
+Route::get('/nextteacher/propertyapi', 'admin\property\propertyController@propertyapi')->name('ajaxpropertyapi');
 });

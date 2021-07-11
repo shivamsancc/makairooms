@@ -96,6 +96,7 @@
 
                     <!-- Page Heading -->
                     {{-- <h1 class="h3 mb-4 text-gray-800">Blank Page</h1> --}}
+                    <div id="loader" class="lds-dual-ring hidden overlay"></div>
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->
@@ -148,16 +149,11 @@
     </form>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Custom scripts for all pages-->
     <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
-    <!-- Page level plugins -->
-    {{-- <script src="{{asset('admin/vendor/chart.js/Chart.min.js')}}"></script>
-    <!-- Page level custom scripts -->
-    <script src="{{asset('admin/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('admin/js/demo/chart-pie-demo.js')}}"></script> --}}
     <script type="text/javascript">
         //=================Ajax Loader===================
         $(document).on({
@@ -171,7 +167,7 @@
 
     </script>
     @yield('exjs')
-   
+
 </body>
 
 </html>

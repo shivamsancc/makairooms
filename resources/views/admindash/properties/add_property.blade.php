@@ -204,6 +204,9 @@
             $.ajax({
                 type: "GET",
                 url: "{{ route('ajaxdistrictapi') }}?state_id=" + stateID,
+                beforeSend: function () {
+                    $('#loader').removeClass('hidden')
+                },
                 success: function (res) {
                     if (res) {
                         $("#district").empty();
@@ -218,7 +221,10 @@
                     } else {
                         $("#district").empty();
                     }
-                }
+                },
+                complete: function () {
+                    $('#loader').addClass('hidden')
+                },
             });
         } else {
             $("#district").empty();
