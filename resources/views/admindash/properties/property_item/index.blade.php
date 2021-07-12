@@ -6,19 +6,19 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">All Property</h1>
+        <h1 class="h3 mb-0 text-gray-800">All Property Items</h1>
     </div>
     <!-- Content Row -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <div class="row ">
                 <div class="col">
-                    <h6 class="m-0 font-weight-bold text-primary">All Property</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">All Property Items</h6>
 
                 </div>
                 <div class="col">
                     <h6 class="m-0 font-weight-bold text-primary float-right">
-                    <a href="{{route('addproperty')}}" class="btn btn-outline-primary"><i class="fas fa-plus-square"></i> Add Property</a></h6>
+                    <a href="{{route('createpropertyitem')}}" class="btn btn-outline-primary"><i class="fas fa-plus-square"></i> Add Property item</a></h6>
                 </div>
             </div>
         </div>
@@ -54,7 +54,9 @@
                             {{-- <td>{{$item->stateName}}</td> --}}
                             <td>{{$item->manger}}</td>
                             <td>{{$item->item_price}}</td>
-                            <td class="text-center"><a href="{{route('editpartner',['id' => $item->id])}}" class="btn btn-outline-primary"><i class="fas fa-pen-alt"></i></a>&nbsp;<a href="#"class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a></td>
+                            <td class="text-center">
+                                <a href="{{route('eidtpropertyitem',['id' => $item->id])}}" class="btn btn-outline-primary"><i class="fas fa-pen-alt"></i></a>&nbsp;
+                            <a href="{{route('deletepropertyitem',['id' => $item->id])}}"class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a></td>
                         </tr>
                         @endforeach
                     </tbody>

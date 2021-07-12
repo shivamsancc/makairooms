@@ -10,6 +10,11 @@ use App\Models\state;
 use App\Models\district;
 use App\Models\partner;
 use App\User;
+use App\Models\mak_properties;
+use App\Models\mak_propert_images;
+use App\Models\property_features;
+use App\Models\property_item;
+use App\Models\property_img;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 //=====================Imports==================
@@ -83,6 +88,19 @@ class PartnerController extends Controller
             }
             }
             
+
+            public function partnerdelete($id){
+                  $count = mak_properties::where('partner_id', $id)->count();
+                if ($count == 0) {
+                   if ( partner::destroy($id)) {
+                    alert()->success('You Data has been Deleted Prperly.', 'Deleted Sucessfully');
+                    return redirect()->route('allpartners');
+                   }
+                }else{
+                    alert()->error('You Data has not been Deleted Prperly.', 'Partner has Properties');
+                    return back();
+                }
+            }
             
 
 

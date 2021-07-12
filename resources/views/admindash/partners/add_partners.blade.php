@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label for="">Phone No.</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
-                                    aria-describedby="helpId" placeholder="+91-1234567890">
+                                    aria-describedby="helpId" required maxlength="10" placeholder="+91-1234567890">
                                 <small id="helpId" class="form-text text-muted">Enter Partner's Phone Number</small>
                                 @error('phone')
                                 <p class="text-danger">{{ $message }}</p>
@@ -63,7 +63,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="">Address</label>
-                                <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                                <textarea class="form-control" required name="address" id="address" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="col-4">
@@ -87,7 +87,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="">Pincode</label>
-                                <input type="text" class="form-control" name="pincode" id="pincode"
+                                <input type="text" class="form-control" required maxlength="6" name="pincode" id="pincode"
                                     aria-describedby="helpId" placeholder="">
                                 <small id="helpId" class="form-text text-muted">Enter Pincode</small>
                             </div>

@@ -22,7 +22,7 @@ class CreatePropertyItemsTable extends Migration
             $table->text('item_for')->nullable();
             $table->string('item_price')->nullable();
             $table->string('slug');
-            $table->string('item_features');
+            $table->string('item_features')->nullable();
             $table->string('status')->default('1');
             $table->timestamps();
         });

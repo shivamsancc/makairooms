@@ -96,7 +96,43 @@ class propertyController extends Controller
      }
 
    }
+public function eidtproperty($id)
+{
+    $all_state=  state::orderBy('state_name')->get()->all();
+   
+    $latestmapapi = mapapi::orderBy('created_at', 'DESC')->limit(1)->get();
+   $property_data =mak_properties::where('id',$id)->get();
+    return view('admindash.properties.edit_property',compact('property_data','latestmapapi','all_state'));
+    }
 
+ public function updateproperty($id ,Request $request )
+{
+   $update= mak_properties::where('id',$id)->update([
+        'name'=>$request->name,
+        'status'=>$request->status,
+        'property_type'=>$request->property_type,
+        'status'=>'1',
+        'youtube_link'=>$request->youtube_link,
+        '360_degree_link'=>$request->degree_link,
+        'about_property'=>$request->about_property,
+        'address'=>$request->address,
+        'state'=>$request->state,
+        'price_range1'=>$request->price_range1,
+        'price_range2'=>$request->price_range2,
+        'district'=>$request->district,
+        'pincode'=>$request->pincode,
+        'lat'=>$request->lat,
+        'long'=>$request->long,  
+    ]);
+    if ($update) {
+        alert()->success('You Data has been Updated Prperly.', 'Updated Sucessfully');
+         return redirect()->route('allproperties');
+    } else {
+        alert()->error('You Data has not been saved Prperly.', 'Something Went Wrong');
+                return back();
+    }
+    
+}
 //==================================Property Item Controllers================================
 public  function propertyitemindex()
 {
@@ -128,21 +164,61 @@ public function createpropertystore(Request $request){
             'item_price'=>$request->item_price,
             'item_features'=>json_encode($request->item_feature),
             'slug'=>$randomurl,
-            // 'status'=>$request->status,
         ]);
         $property_id= $insert->id;
-       if ($files = $request->file('images')) {
-         foreach($request->file('images') as $img) {   
-            $randomId       =   rand(1,1000000);
-            $name = $randomId . time() . str_replace(' ', '', $img->getClientOriginalName());
-            $filePath = 'upload/property/images/' . $name;
-            Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
-            $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
-         }
-         alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
-         return redirect()->route('allproperties');
+        if ($files = $request->file('images')) {
+                foreach($request->file('images') as $img) {   
+                    $randomId       =   rand(1,1000000);
+                    $name = $randomId . time() . str_replace(' ', '', $img->getClientOriginalName());
+                    $filePath = 'upload/property/images/' . $name;
+                    Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
+                    $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
+                    alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+                    return redirect()->route('propertyitemindex');}
+                }else{
+                    alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+                    return redirect()->route('propertyitemindex');           
+        }       
+      
+}
 
-        }
+
+public function deleteitem($id)
+{
+    if (property_item::destroy($id)) {
+        property_img::where('property_item_id',$id)->delete();
+        alert()->success('You Data has been Deleted Prperly.', 'Deleted Sucessfully');
+        return back();
+    }else{
+        alert()->error('You Data has not been Deleted.', 'Something Went Wrong');
+        return back();
+    }
+    
+}
+public function edititem($id){
+    $property_data= property_item::where('id',$id)->get();
+    $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
+    $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();
+    return view('admindash.properties.property_item.edit_item',compact('property_data','all_partners','all_features'));
+}
+
+public function updateitem($id ,Request $request)
+{
+    $update= property_item::where('id',$id)->update([
+        'partner_id'=>$request->partner_id,
+        'ptoperty_id'=>$request->ptoperty_id,
+        'property_type'=>$request->property_type,
+        'item_name'=>$request->item_name,
+        'item_for'=>$request->item_for,
+        'item_price'=>$request->item_price,
+    ]);
+    if ($update) {
+        alert()->success('You Data has been Updated Prperly.', 'Updated Sucessfully');
+        return back();
+    } else {
+        alert()->error('You Data has not been saved Prperly.', 'Something Went Wrong');
+                return back();
+    }
 }
 
 // =======================Property API=================

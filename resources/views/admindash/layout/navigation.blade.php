@@ -53,12 +53,12 @@
                 <h6 class="collapse-header">Players</h6>
                 <a class="collapse-item" href="{{route('allproperties')}}">All Property</a>
                 <a class="collapse-item" href="{{route('addproperty')}}">Add Property</a>
-                <a class="collapse-item" href="{{route('createpropertyitem')}}">Property Item</a>
+                <a class="collapse-item" href="{{route('propertyitemindex')}}">Property Item</a>
             </div>
         </div>
     </li>
     {{--=========================Gallery==================--}}
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true"
             aria-controls="collapseFour">
             <i class="fas fa-photo-video"></i>
@@ -71,7 +71,7 @@
                 <a class="collapse-item" href="cards.html">Cards</a>
             </div>
         </div>
-    </li>
+    </li> --}}
     {{--=========================Blog==================--}}
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"

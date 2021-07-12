@@ -56,8 +56,8 @@
                             <td>{{$item->stateName}}</td>
                             <td>{{$item->distName}}</td>
                             <td class="text-center"><a href="{{route('editpartner',['id' => $item->id])}}"
-                                    class="btn btn-outline-primary"><i class="fas fa-pen-alt"></i></a>&nbsp;<a href="#"
-                                    class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a></td>
+                                    class="btn btn-outline-primary"><i class="fas fa-pen-alt"></i></a>&nbsp;
+                            <a href="{{route('deletepartner',['id' => $item->id])}}" class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a></td>
                         </tr>
                         @endforeach
                     </tbody>

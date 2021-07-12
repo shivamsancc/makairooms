@@ -24,11 +24,13 @@ Route::get('/partner/add', 'admin\partner\PartnerController@addpartners')->name(
 Route::post('/partner/addpartnerspost', 'admin\partner\PartnerController@addpartnerspost')->name('addpartnerspost');
 
 Route::get('/partner/edit/{id}', 'admin\partner\PartnerController@editpartner')->name('editpartner');
+Route::get('/partner/delete/{id}', 'admin\partner\PartnerController@partnerdelete')->name('deletepartner');
 Route::post('/partner/update/{id}', 'admin\partner\PartnerController@partner_update')->name('updatepartner');
 //===============================All Property Routes==========================
 Route::get('/property/all', 'admin\property\propertyController@all_properties')->name('allproperties');
 Route::get('/property/add', 'admin\property\propertyController@add_property')->name('addproperty');
-
+Route::get('/property/getp/{id}', 'admin\property\propertyController@eidtproperty')->name('eidtproperty');
+Route::post('/property/update/{id}', 'admin\property\propertyController@updateproperty')->name('updateproperty');
 //============================PG=================
 Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
 
@@ -36,6 +38,11 @@ Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost
 Route::get('/property/item/', 'admin\property\propertyController@propertyitemindex')->name('propertyitemindex');
 Route::get('/property/item/add', 'admin\property\propertyController@createpropertyitem')->name('createpropertyitem');
 Route::post('/property/item/store', 'admin\property\propertyController@createpropertystore')->name('createpropertystore');
+Route::get('/property/item/getp/{id}', 'admin\property\propertyController@edititem')->name('eidtpropertyitem');
+Route::post('/property/item/update/{id}', 'admin\property\propertyController@updateitem')->name('updatepropertyitem');
+Route::get('/property/item/delete/{id}', 'admin\property\propertyController@deleteitem')->name('deletepropertyitem');
+
+
 
 
 
@@ -55,10 +62,14 @@ Route::post('/property/features/store', 'admin\features\featuresController@store
 Route::get('/blog/all', 'admin\blog\blogController@index')->name('all_blogs');
 Route::get('/blog/add', 'admin\blog\blogController@create')->name('all_blogs_add');
 Route::post('/blog/add/store', 'admin\blog\blogController@store')->name('all_blogs_store');
+Route::get('/blog/add/edit/{id}', 'admin\blog\blogController@blogedit')->name('blogedit');
+Route::post('/blog/post/update/{id}', 'admin\blog\blogController@blogupdate')->name('blogupdate');
 Route::get('/blog/delete/{id}', 'admin\blog\blogController@destroy')->name('blog_delete');
 
 Route::get('/blog/cat/all', 'admin\blog\blogController@categoryindex')->name('all_blogs_cat');
 Route::post('/blog/cat/all', 'admin\blog\blogController@categorystore')->name('all_blogs_cat_store');
+Route::get('/blog/cat/edit/{id}', 'admin\blog\blogController@editcategory')->name('editcategory_blog');
+Route::post('/blog/cat/update/{id}', 'admin\blog\blogController@updatecategory')->name('all_blogs_cat_update');
 Route::get('/blog/cat/delete/{id}', 'admin\blog\blogController@categorydestroy')->name('all_blogs_cat_delete');
 
 Route::post('ckeditor/upload', 'admin\blog\blogController@upload')->name('ckeditor.upload');
