@@ -53,16 +53,16 @@ class propertyController extends Controller
 
 
    function add_property(){
+      $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();   
         $latestmapapi = mapapi::orderBy('created_at', 'DESC')->limit(1)->get();
         $all_state=  state::orderBy('state_name')->get()->all();
         $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
-       return view('admindash.properties.add_property',compact('all_state','all_partners','latestmapapi'));
+       return view('admindash.properties.add_property',compact('all_state','all_partners','latestmapapi','all_features'));
    }
 
 
 
    function add_pgpost(Request $request){
-        // return $request->all();
         $randomurl = $this->random_strings(30); 
         $insert= mak_properties::create([
             'partner_id'=>$request->partner_id,
@@ -80,6 +80,7 @@ class propertyController extends Controller
             'district'=>$request->district,
             'pincode'=>$request->pincode,
             'lat'=>$request->lat,
+            'item_features'=>json_encode($request->item_feature),
             'long'=>$request->long]);
         $property_id= $insert->id;
        if ($files = $request->file('images')) {
@@ -88,7 +89,7 @@ class propertyController extends Controller
             $name = $randomId . time() . str_replace(' ', '', $img->getClientOriginalName());
             $filePath = 'upload/property/images/' . $name;
             Storage::disk(env("FILESYSTEM_DRIVER"))->put($filePath, file_get_contents($img,$name),'public');
-            $insert = property_img::create(['property_item_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
+            $insert = mak_propert_images::create(['property_id' =>$property_id,'img_name'=> $filePath,'alt_name' =>$name]);
          }
          alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
          return redirect()->route('allproperties');
@@ -136,17 +137,34 @@ public function eidtproperty($id)
     }
     
 }
+
+
+public function deleteproperty($id){
+    $images= mak_propert_images::where('property_id', $id)->pluck('img_name');
+    if ($images) {
+        foreach ($images as $key ) {
+            $filePath = 'upload/property/images/' . $key;
+            Storage::disk(env("FILESYSTEM_DRIVER"))->delete($filePath,$key,'public');   
+            mak_propert_images::where('img_name', $key)->delete();
+        }
+    }    
+     if (mak_properties::destroy($id)) {
+        alert()->success('You Property  Has Been Deleted Prperly.', 'Deleted Sucessfully');
+        return back();
+     }else{
+        alert()->error('Something Went wrong plese try Agian.', 'Something Went Wrong');
+        return back();
+     }
+}
 //==================================Property Item Controllers================================
 public  function propertyitemindex()
 {
-    $all_properties_item = property_item::orderBy('created_at')->where('status',1)->get()->all();
+    $all_properties_item = property_item::orderBy('created_at', 'DESC')->where('status', 1)->get();
     foreach ($all_properties_item as $inst)
     {
-        $inst->property = mak_properties::find($inst->ptoperty_id)->name;
-        $inst->manger = partner::find($inst->partner_id)->name;
-        // $inst->partnername = partner::find($inst->partner_id)->name;
+            $inst->property = mak_properties::find($inst->ptoperty_id)->name;
+            $inst->manger = partner::find($inst->partner_id)->name;
     }
-    // return $all_properties_item;
     return  view('admindash.properties.property_item.index',compact('all_properties_item'));
 }
 public function createpropertyitem(){

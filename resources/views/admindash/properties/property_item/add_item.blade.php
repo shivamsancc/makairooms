@@ -89,16 +89,7 @@
                                 <small id="fileHelpId" class="form-text text-muted">Help text</small>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="">Select Features</label>
-                                <select class="custom-select" id="item_feature" name="item_feature[]" multiple="multiple">
-                                    @foreach ($all_features as $item)
-                                      <option value="{{$item->id}}"><i class="{{$item->f_icon}} fa-2x text-primary">{{$item->f_name}}</i></option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                        @include('admindash.layout.template.features')
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
@@ -147,7 +138,6 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
-    // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function () {
         $('#item_feature').select2();
     });

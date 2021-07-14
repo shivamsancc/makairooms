@@ -73,5 +73,6 @@ class Kernel extends HttpKernel
         //===================================
         'admin_check' => \App\Http\Middleware\admin_check::class,
         'adminer' => \App\Http\Middleware\Authenticate::class,
+        'Visitor_log' => \App\Http\Middleware\Visitor_log::class,
     ];
 }

@@ -29,6 +29,7 @@
 </style>
 <script src="https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $latestmapapi['0']->access_token ?>/map_load?v=1.5"></script>
 <script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $latestmapapi['0']->access_token ?>/map_sdk_plugins"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
   #map {
     width: 100%;
@@ -146,6 +147,7 @@
                             <small id="helpId" class="form-text text-muted">Enter Last Price</small>
                           </div>
                         </div>
+                        @include('admindash.layout.template.features')
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="">State</label>
@@ -174,7 +176,7 @@
                                 <small id="helpId" class="form-text text-muted">Enter Pincode</small>
                             </div>
                         </div>
-                       <div class="col-12">
+                       <div class="col-12" >
                         {{-- <span id="map"></div> --}}
                           <div id="map" class="col-12"></div>
                           {{-- 
@@ -326,5 +328,12 @@ $(document).ready(function() {
     //     },
     //   });
     // });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $('#item_feature').select2();
+      });
+  
   </script>
 @endsection

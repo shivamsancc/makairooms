@@ -31,6 +31,7 @@ Route::get('/property/all', 'admin\property\propertyController@all_properties')-
 Route::get('/property/add', 'admin\property\propertyController@add_property')->name('addproperty');
 Route::get('/property/getp/{id}', 'admin\property\propertyController@eidtproperty')->name('eidtproperty');
 Route::post('/property/update/{id}', 'admin\property\propertyController@updateproperty')->name('updateproperty');
+Route::get('/property/delete/{id}', 'admin\property\propertyController@deleteproperty')->name('deleteproperty');
 //============================PG=================
 Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
 

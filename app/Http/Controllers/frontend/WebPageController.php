@@ -53,7 +53,7 @@ class WebPageController extends Controller
             $insts->partnername = partner::find($insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
-        $all_POST= blog_post::orderBy('created_at')->where('status',1)->take(3)->get();
+        $all_POST= blog_post::orderBy('created_at', 'DESC')->where('status',1)->take(3)->get();
         foreach ($all_POST as $insts)
         {
             $insts->category_name = blog_category::find($insts->category)->name;
@@ -86,7 +86,7 @@ class WebPageController extends Controller
         $property= mak_properties::where('slug',$slug)->where('status',1)->first();
         $stateName = state::find($property->state)->state_name;
         $distName = district::find($property->district)->district_name;
-        $partnername = partner::find($property->partner_id)->get();
+        $partnername = partner::find($property->partner_id)->first();
         $images = mak_propert_images::where('property_id', $property->id)->get();
         $related_listing= mak_properties::orderBy('created_at')->where('property_type',$property->property_type)->where('status',1)->get()->all();
         foreach ($related_listing as $inst)
@@ -114,12 +114,9 @@ class WebPageController extends Controller
         $something = mapapi::create($data);
         if ($something->save())
         {
-            Mail::send('mail.kyc_completed', $data, function ($message)
-            {
-                $message->from('info@nextgyaan.com', 'API Update');
-                $message->to('shviamanandiet@gmail.com');
-            });
-        }
+            alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
+        return redirect()->route('home');
+         }    
         else
         {
             Mail::send('mail.kyc_completed', $data, function ($message)

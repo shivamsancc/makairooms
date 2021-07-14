@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware'=>'Visitor_log'], function() {
 Route::get('/', 'frontend\WebPageController@hompage')->name('homepage');
 Route::get('/all-{type}', 'frontend\WebPageController@alllisting')->name('all_isting');
 Route::get('/property/{slug}', 'frontend\WebPageController@siglelisting')->name('siglelisting');
@@ -25,3 +25,4 @@ Route::get('/blog/{slug}', 'frontend\WebPageController@singleblog')->name('sigle
 
 
 Route::get('/newlogin', 'frontend\WebPageController@newlogin')->name('newlogin');
+});
