@@ -105,6 +105,8 @@ public function eidtproperty($id)
     return view('admindash.properties.edit_property',compact('property_data','latestmapapi','all_state'));
     }
 
+
+
  public function updateproperty($id ,Request $request )
 {
    $update= mak_properties::where('id',$id)->update([
@@ -124,6 +126,7 @@ public function eidtproperty($id)
         'lat'=>$request->lat,
         'long'=>$request->long,  
     ]);
+    // dd($update);
     if ($update) {
         alert()->success('You Data has been Updated Prperly.', 'Updated Sucessfully');
          return redirect()->route('allproperties');

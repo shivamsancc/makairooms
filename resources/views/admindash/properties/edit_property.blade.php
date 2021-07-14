@@ -51,13 +51,18 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <form action="{{route('all_blogs_cat_update',['id' => $property_data['0']->id])}}" method="post" enctype="multipart/form-data" role="form">@csrf
+                <form action="{{route('updateproperty',['id' => $property_data['0']->id])}}" method="post" enctype="multipart/form-data" role="form">@csrf
                     <div class="row m-0 p-0">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Name of the Poperty</label>
                                 <input type="text" class="form-control" name="name" id="name" required
                                     aria-describedby="helpId" placeholder="Name" value="{{$property_data['0']->name}}">
+                                    <input type="hidden" class="form-control" name="partner_id" id="partner_id" 
+                                    aria-describedby="helpId" placeholder="Name" value="{{$property_data['0']->partner_id}}">
+                                    <input type="hidden" class="form-control" name="ptoperty_id" id="ptoperty_id" 
+                                    aria-describedby="helpId" placeholder="Name" value="{{$property_data['0']->ptoperty_id}}">
+
                                 @error('name')
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
