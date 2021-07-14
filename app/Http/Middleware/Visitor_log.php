@@ -16,7 +16,7 @@ class Visitor_log{
 			$request= Request();
             if (setCookie("ConnectoID",$cookie_id,time() + (20 * 365 * 24 * 60 * 60))) {  
 				$start = microtime(true);
-                $log = new \App\Models\Visitor;
+                $log = new \App\Models\visitor;
                 $log->ip = $request->ip();
                 $log->user_agent = $request->userAgent();
                 $log->method = $request->method();
@@ -32,7 +32,7 @@ class Visitor_log{
         } else{
 				$start = microtime(true);
                 $old_cookie= $_COOKIE['ConnectoID'];
-            	$cookie_id  =Visitor::where('cookie',$old_cookie)->first();
+            	$cookie_id  =visitor::where('cookie',$old_cookie)->first();
                 $newlog = new \App\Models\visitor_log;
                 $newlog->ip = $request->ip();
                 $newlog->userAgent = $request->userAgent();
