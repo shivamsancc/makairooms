@@ -35,6 +35,7 @@
                         <li><a href="#">New York</a></li>
                         <li><a href="#">Florida</a></li>
                         <li><a href="#">Boston</a></li>
+                        <li><a href="{{route('indexsitemap')}}">Sitemap</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,14 +43,7 @@
                 <div class="footer_social_widget">
                     <h4>Subscribe</h4>
                     <p class="text-white mb20">We don’t send spam so don’t worry.</p>
-                    <form class="footer_mailchimp_form">
-                         <div class="form-row align-items-center">
-                            <div class="col-auto">
-                                <input type="email" class="form-control" id="inlineFormInput" placeholder="Enter your email">
-                                <button type="submit" class="btn btn-primary">Subscribe</button>
-                            </div>
-                          </div>
-                    </form>
+                    @include('frontend.layouts.newsletter_form')
                 </div>
             </div>
         </div>
@@ -88,25 +82,81 @@
 <a class="scrollToHome" href="#"><i class="fa fa-angle-up"></i></a>
 </div>
 <!-- Wrapper End -->
-<script src="{{ asset('/web/themes/guido') }}/js/jquery-3.6.0.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/jquery-migrate-3.0.0.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/popper.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/bootstrap.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/jquery.mmenu.all.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/ace-responsive-menu.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/bootstrap-select.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/snackbar.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/simplebar.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/parallax.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/scrollto.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/jquery-scrolltofixed-min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/jquery.counterup.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/progressbar.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/slider.js"></script>
-<script src="{{ asset('/web/themes/guido') }}/js/timepicker.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-3.6.0.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-migrate-3.0.0.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/popper.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.mmenu.all.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/ace-responsive-menu.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap-select.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/snackbar.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/simplebar.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/parallax.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/scrollto.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-scrolltofixed-min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.counterup.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/progressbar.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/slider.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/timepicker.js"></script>
+<script  type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 @yield('extrajs')
 <!-- Custom script for all pages --> 
+<script type="text/javascript" >
+      //=========================News Letter submission==================================
+      $('#newspopButton').click(function (e) {
+            e.preventDefault();
+            var mailformat =
+                /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
+            var newsletter_email = $('#newsletter_email').val();
+            var newsletter_mac_id = $.cookie("ConnectoID");
+            if (newsletter_email == '') {
+                alert("Email is Required");
+                return false;
+            }
+            const validateEmail = (email) => {
+                var regex =
+                    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return regex.test(String(email).toLowerCase());
+            }
+                if (validateEmail(newsletter_email)) {
+                    document.getElementById("newsletter_email").innerText = "Valid email";
+                    $.ajax({
+                        url: "{{ route('newslettersubbmit') }}",
+                        method: "POST",
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                            newsletter_email: newsletter_email,
+                            newsletter_mac_id: newsletter_mac_id,
+                        },
+                        success: function (result) {
+
+                            if (result.trim() == 'unique') {
+                                alert('Saved Sucessfully');
+                                $('#error_email').html(
+                                    '<label class="text-success">Saved Sucessfully</label>');
+                                $('#institute_url').removeClass('is-invalid');
+                                $('#institute_url').addClass('is-valid');
+                                $('#register').attr('disabled', 'false');
+                                $("#newsletter_form")[0].reset();
+                            } else {
+                                alert('Already Saved');
+                                $('#error_email').html(
+                                    '<label class="text-danger">Already Saved</label>');
+                                $('#institute_url').addClass('is-invalid');
+                                $('#register').attr('disabled', 'true');
+                                $('#newspopButton').attr('disabled', 'true');
+                                $("#newsletter_form")[0].reset();
+                            }
+                        }
+                    })
+                } else {
+                alert("Not Valid Email Address");
+                document.getElementById("newsletter_email").focus();
+            }
+
+        });
+</script>
 <script src="{{ asset('/web/themes/guido') }}/js/script.js"></script>
 </body>
 </html>

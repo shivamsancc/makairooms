@@ -1,6 +1,16 @@
 @extends('frontend.listing.layout.app')
+@isset($property)
+@section('title',e($property->name))
+@endisset
+@empty($property)
+@section('title','404 Not Foud')
+@endempty
 @section('content')
-<!-- Listing Single Property -->
+@section('excss')
+<link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+@endsection
+@isset($property)
+    <!-- Listing Single Property -->
 <section class="listing-title-area pb50">
     <div class="container">
         <div class="row mb30">
@@ -12,21 +22,11 @@
                         <div class="media-body mt20">
                             <h2 class="mt-0">{{$property->name}}</h2>
                             <ul class="mb0 agency_profile_contact">
-                                <li class="list-inline-item"><a href="tel:{{$partnername->phone}}"><span
-                                            class="flaticon-phone"></span>&nbsp;{{$partnername->phone}}</a></li>
-                                <li class="list-inline-item"><a href="#"><span
-                                            class="flaticon-pin"></span>&nbsp;{{$distName}}</a></li>
-                                <li class="list-inline-item sspd_review">
-                                    <ul class="mb0">
-                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li class="list-inline-item">(5 reviews)</li>
-                                    </ul>
+                                <li class="list-inline-item"><a href="tel:{{$property['partnername']->phone}}"><span
+                                            class="flaticon-phone"></span>&nbsp;{{$property['partnername']->phone}}</a>
                                 </li>
-                                <li class="list-inline-item"><a class="price_range" href="#">$$$$</a></li>
+                                <li class="list-inline-item"><a href="#"><span
+                                            class="flaticon-pin"></span>&nbsp;{{$property['distName']}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -40,22 +40,15 @@
             <div class="col-xl-5">
                 <div class="single_property_social_share">
                     <div class="spss style2 mt30 float-left fn-lg">
-                        <ul class="mb0">
-                            <li class="list-inline-item icon"><a href="#"><span class="flaticon-upload"></span></a></li>
-                            <li class="list-inline-item"><a href="#">Share</a></li>
-                            {{-- <li class="list-inline-item icon"><a href="#"><span class="flaticon-love"></span></a></li>
-                            <li class="list-inline-item"><a href="#">Save</a></li> --}}
-                        </ul>
                     </div>
                     <div class="price mt25 float-right fn-lg">
-                        <a href="#" class="btn btn-thm spr_btn">Submit Reveiw</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
 
-            @foreach ($images as $item)
+            @foreach ($property['images'] as $item)
             <div class="col-md-5 col-lg-4">
                 <div class="col-md-7 col-lg-8">
                     <div class="row">
@@ -73,7 +66,6 @@
         </div>
     </div>
 </section>
-
 <!-- Agent Single Grid View -->
 <section class="our-agent-single pt0 pb30-991">
     <div class="container">
@@ -86,6 +78,16 @@
                             <p class="first-para mb25">{{$property->about_property}}</p>
                         </div>
                     </div>
+                    @isset($property['property_features'])
+                    <div class="col-lg-12 pl0 pr0 pl15-767">
+                        <div class="listing_single_description mb60">
+                            <h4 class="mb30">Property Features</h4>
+                            @foreach ($property['property_features'] as $item)
+                                <i class="{{$item->f_icon}} fa-2x">&nbsp;<br>{{$item->f_name}}</i>&nbsp;
+                            @endforeach
+                        </div>
+                    </div>  
+                    @endisset
                     @if(isset($property->youtube_link))
                     <div class="col-lg-12 pl0 pl15-767">
                         <div class="listing_single_video">
@@ -106,31 +108,33 @@
                     </div>
                     @else
                     @endif
-                    <div class="col-lg-12 pl0 pl15-767">
-                        <div class="custom_reivews mt30 mb30 row">
-                            <h3 class="text-center">Property Items</h3>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>For (People)</th>
-                                        <th>Price (In INR)</th>
-                                        <th>View</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($property_item as $item)
-                                    <tr>
-                                        <td>{{$item->item_name}}</td>
-                                        <td>{{$item->item_for}}</td>
-                                        <td>{{$item->item_price}}</td>
-                                        <td><a href="#{{$item->item_price}}">View</a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    @isset($property['property_item'])
+                            <div class="col-lg-12 pl0 pl15-767">
+                                <div class="custom_reivews mt30 mb30 row">
+                                    <h3 class="text-center">Property Items</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>For (People)</th>
+                                                <th>Price (In INR)</th>
+                                                <th>View</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($property['property_item'] as $item)
+                                            <tr>
+                                                <td>{{$item->item_name}}</td>
+                                                <td>{{$item->item_for}}</td>
+                                                <td>{{$item->item_price}}</td>
+                                                <td><a href="#{{$item->item_price}}">View</a></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    @endisset
                 </div>
             </div>
             <div class="col-lg-4 col-xl-4">
@@ -142,82 +146,93 @@
                         </div>
                         <ul class="contact_list list-unstyled mb15">
                             <li class="df"><span class="flaticon-pin mr15"></span>
-                                <a target="_blank" href="https://www.google.com/maps/@<?php echo $property->lat?>,<?php echo $property->long ?>,16z?hl=en-US">
+                                <a target="_blank"
+                                    href="https://www.google.com/maps/@<?php echo $property->lat?>,<?php echo $property->long ?>,16z?hl=en-US">
                                     {{$property->address}}
                                     <br> <span class="tdu text-thm">Get Direction</span></a></li>
-                                    @isset($partnername->phone)
-                                        <li><span class="flaticon-phone mr15"></span><a href="tel:{{$partnername->phone}}">{{$partnername->phone}}</a></li> 
-                                    @endisset
-                                    @isset($partnername->email)
-                                      <li><span class="flaticon-email mr15"></span><a href="mailto:{{$partnername->email}}">{{$partnername->email}}</a></li>    
-                                    @endisset
+                            @isset($partnername->phone)
+                            <li><span class="flaticon-phone mr15"></span><a
+                                    href="tel:{{$partnername->phone}}">{{$partnername->phone}}</a></li>
+                            @endisset
+                            @isset($partnername->email)
+                            <li><span class="flaticon-email mr15"></span><a
+                                    href="mailto:{{$partnername->email}}">{{$partnername->email}}</a></li>
+                            @endisset
                             {{-- <li><span class="flaticon-link mr15"></span><a href="#">www.guido.com</a></li> --}}
                         </ul>
                         <ul class="sidebar_social_icon mb0">
-                            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/sharer.php?u={{URL::full()}}"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a target="_blank" href="https://twitter.com/share?url={{URL::full()}}"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a target="_blank" href="https://api.whatsapp.com/send?text={{URL::full()}}"><i class="fa fa-whatsapp"></i></a></li>
-                            <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?{{URL::full()}}"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="list-inline-item"><a target="_blank"
+                                    href="https://www.facebook.com/sharer.php?u={{URL::full()}}"><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a target="_blank"
+                                    href="https://twitter.com/share?url={{URL::full()}}"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a target="_blank"
+                                    href="https://api.whatsapp.com/send?text={{URL::full()}}"><i
+                                        class="fa fa-whatsapp"></i></a></li>
+                            <li class="list-inline-item"><a target="_blank"
+                                    href="https://www.linkedin.com/sharing/share-offsite/?{{URL::full()}}"><i
+                                        class="fa fa-linkedin"></i></a></li>
                         </ul>
                     </div>
-                <div class="sidebar_pricing_widget">
-                    <h4 class="title mb20">Price Range</h4>
-                    <ul class="mb0">
-                        <li><a href="#">Price: <span class="float-right heading-color">₹{{$property->price_range1}}
-                                    --
-                                    ₹{{$property->price_range2}}</span></a></li>
-                        <li><a href="#">Own or work here? <span class="float-right text-thm">Claim Now!</span></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sidebar_author_widget">
-                    <h4 class="title mb25">Property Manger</h4>
-                    <div class="media">
-                        <img class="mr-3" src="{{ asset('/web/themes/guido') }}/images/team/author.png"
-                            alt="author.png">
-                        <div class="media-body">
-                            <h5 class="mt15 mb0">{{$partnername->name}}</h5>
-                            <p class="mb0">{{$partnername->phone}}</p>
+                    <div class="sidebar_pricing_widget">
+                        <h4 class="title mb20">Price Range</h4>
+                        <ul class="mb0">
+                            <li><a href="#">Price: <span class="float-right heading-color">₹{{$property->price_range1}}
+                                        --
+                                        ₹{{$property->price_range2}}</span></a></li>
+                            <li><a href="#">Own or work here? <span class="float-right text-thm">Claim Now!</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sidebar_author_widget">
+                        <h4 class="title mb25">Property Manger</h4>
+                        <div class="media">
+                            <img class="mr-3" src="{{ asset('/web/themes/guido') }}/images/team/author.png"
+                                alt="author.png">
+                            <div class="media-body">
+                                <h5 class="mt15 mb0">{{$property['partnername']->name}}</h5>
+                                <p class="mb0">{{$property['partnername']->phone}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="sidebar_contact_business_widget">
-                    <h4 class="title mb25">Contact Business</h4>
-                    <ul class="business_contact mb0">
-                        <li class="search_area">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputName3" placeholder="Name">
-                            </div>
-                        </li>
-                        <li class="search_area">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
-                            </div>
-                        </li>
-                        <li class="search_area">
-                            <div class="form-group">
-                                <input type="number" class="form-control" id="exampleInputName4" placeholder="Phone">
-                            </div>
-                        </li>
-                        <li class="search_area">
-                            <div class="form-group">
-                                <textarea id="form_message" name="form_message" class="form-control required" rows="5"
-                                    required="required" placeholder="Message"></textarea>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="search_option_button">
-                                <button type="submit" class="btn btn-block btn-thm h55">Send Message</button>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="sidebar_contact_business_widget">
+                        <h4 class="title mb25">Contact Business</h4>
+                        <ul class="business_contact mb0">
+                            <li class="search_area">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputName3" placeholder="Name">
+                                </div>
+                            </li>
+                            <li class="search_area">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                                </div>
+                            </li>
+                            <li class="search_area">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="exampleInputName4"
+                                        placeholder="Phone">
+                                </div>
+                            </li>
+                            <li class="search_area">
+                                <div class="form-group">
+                                    <textarea id="form_message" name="form_message" class="form-control required"
+                                        rows="5" required="required" placeholder="Message"></textarea>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="search_option_button">
+                                    <button type="submit" class="btn btn-block btn-thm h55">Send Message</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </section>
-
 <!-- Feature Properties -->
 <section class="feature-property bgc-f4">
     <div class="container">
@@ -230,7 +245,7 @@
             </div>
             <div class="col-lg-12">
                 <div class="popular_listing_slider1">
-                    @foreach ($related_listing as $item)
+                    @foreach ($property['related_listing'] as $item)
                     <div class="item">
                         <div class="feat_property">
                             <a href="{{route('siglelisting',['slug' => $item->slug])}}">
@@ -309,7 +324,8 @@
 @section('extrajs')
 <script src="{{ asset('/web/themes/guido') }}/js/isotop.js"></script>
 <script src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
-<script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $latestmapapi['0']->access_token ?>/map_sdk" defer async>
+<script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $property['latestmapapi']->access_token ?>/map_sdk"
+    defer async>
 </script>
 <script type="text/javascript">
     //=====================================MAP-MY-INDIA=====================
@@ -317,7 +333,8 @@
     var lat = document.getElementById('lat').value
     var url_result;
     var marker;
-    var rev_geocode_api_url ="https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $latestmapapi['0']->access_token ?>/rev_geocode?";
+    var rev_geocode_api_url =
+        "https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $property['latestmapapi']->access_token ?>/rev_geocode?";
     window.onload = function () {
         document.getElementById('lat').value = lat;
         document.getElementById('lan').value = lng;
@@ -342,4 +359,8 @@
     };
 
 </script>
+@endisset
+@empty($property)
+    @include('frontend.layouts.404-block')
+@endempty
 @endsection

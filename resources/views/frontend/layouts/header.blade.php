@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" itemscope itemtype="http://schema.org/WebPage">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +20,7 @@
     <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico" sizes="128x128" rel="shortcut icon"
         type="image/x-icon" />
     <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico" sizes="128x128" rel="shortcut icon" />
+    @yield('excss')
     {{-- ========================================included==================== --}}
 </head>
 

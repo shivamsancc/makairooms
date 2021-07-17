@@ -32,11 +32,6 @@ class blogController extends Controller
     public function store(Request $request)
     {
         $ref_no = rand(1, 2000000000);
-        // $this->validate($request, [
-        //     'f_image' =>  ['required', 'string', 'max:255'], 
-        //     'body' => ['required', 'string'], 
-        //     ]);
-
         if ($this->validate($request, [
             'f_image' =>  ['required', 'mimes:jpeg,jpg,png,gif','max:10000'], 
             'body' => ['required', 'string'], 
@@ -74,8 +69,6 @@ class blogController extends Controller
 
     public function blogupdate($id,Request $request )
     {
-        // return $request->all();
-
         $update= blog_post::where('id',$id)->update([
             'name'=>$request->name,
             'body'=>$request->body,

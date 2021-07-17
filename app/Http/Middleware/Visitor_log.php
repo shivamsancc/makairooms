@@ -1,7 +1,7 @@
 <?php namespace App\Http\Middleware;
 
-use App\Models\Visitor;
-use App\Models\VisitorLog;
+use App\Models\visitor;
+use App\Models\visitorLog;
 use Closure;
 use DB;
 use Str;

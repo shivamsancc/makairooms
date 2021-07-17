@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //=====================Imports==================
 use DB;
 use Storage;
+use Carbon\Carbon;
 use Image;
 use Redirect,Response,File;
 use App\Models\state;
@@ -53,16 +54,23 @@ class propertyController extends Controller
 
 
    function add_property(){
-      $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();   
-        $latestmapapi = mapapi::orderBy('created_at', 'DESC')->limit(1)->get();
-        $all_state=  state::orderBy('state_name')->get()->all();
-        $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
-       return view('admindash.properties.add_property',compact('all_state','all_partners','latestmapapi','all_features'));
+       $latestmapapi = mapapi::orderBy('created_at', 'DESC')->first();
+      if ($latestmapapi->created_at->format('Y-m-d') == Carbon::now()->toDateString()) {
+            $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();   
+            $all_state=  state::orderBy('state_name')->get()->all();
+            $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
+            return view('admindash.properties.add_property',compact('all_state','all_partners','latestmapapi','all_features'));  
+        }
+         return redirect()->route('mapapiupdate');
    }
 
 
 
    function add_pgpost(Request $request){
+    // $input = $request->all();
+    $request->validate([
+        'youtube_link' => 'url'
+    ]);
         $randomurl = $this->random_strings(30); 
         $insert= mak_properties::create([
             'partner_id'=>$request->partner_id,
@@ -79,8 +87,8 @@ class propertyController extends Controller
             'slug'=>$randomurl,
             'district'=>$request->district,
             'pincode'=>$request->pincode,
+            'property_features'=>json_encode($request->item_feature),
             'lat'=>$request->lat,
-            'item_features'=>json_encode($request->item_feature),
             'long'=>$request->long]);
         $property_id= $insert->id;
        if ($files = $request->file('images')) {
@@ -249,7 +257,6 @@ public function propertyapi(Request $request)
     {
 
         $cities = DB::table("mak_properties")->where("partner_id", $request->state_id)
-            // ->orderBy('district_name', 'ASC')
             ->pluck("name", "id");
         return response()
             ->json($cities);

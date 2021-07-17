@@ -23,6 +23,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+//===========================================================================
+Route::get('/sitemap.xml', 'sitemap\siteMapController@index')->name('indexsitemap');
+Route::get('/{slug}-sitemap.xml', 'sitemap\siteMapController@dynamicsitemap')->name('dynamicsitemap');
 
 //==============================Clear Route================
 Route::get('/clear', function() {
@@ -36,3 +39,4 @@ Route::get('/clear', function() {
  
  });
  Route::get('/autoapi', 'frontend\WebPageController@mapapiupdate')->name('mapapiupdate');
+ Route::post('/newslettersubbmit', 'frontend\webPageController@newslettersubbmit')->name('newslettersubbmit');

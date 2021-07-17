@@ -6,15 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 //=================Include=========
 use DB;
-use App\Models\state;
-use App\Models\district;
-use App\Models\partner;
-use App\Models\mak_properties;
-use App\Models\mak_propert_images;
-use App\Models\property_item;
-use App\Models\mapapi;
-use App\Models\blog_post;
-use App\Models\blog_category;
+use App\Models\sitemap;
 //=================Include=========
 class siteMapController extends Controller
 {
@@ -22,11 +14,22 @@ class siteMapController extends Controller
     public function index()
     {
         
-    }
-    public function show($id)
-    {
-        
+        $posts= sitemap::where('status',1)->get();  
+        return response()->view('sitemap.sitemap',compact('posts'))->header('Content-Type', 'text/xml');
     }
 
-    
+    public function dynamicsitemap($slug){
+        $sitemapname= sitemap::where('slug',$slug)->first();
+        if ($sitemapname) {
+            $model_directry= "\App\\Models";
+            $model= $sitemapname->model;
+            $value= $sitemapname->value;
+            $static= $sitemapname->static;
+            $model_name= $model_directry.'\\'.$model;
+            if (!empty($sitemapname)) {
+             $posts=$model_name::select($value,'created_at')->where('status', 1)->get();
+                  return response()->view('sitemap.dynamic',compact('posts','value','static'))->header('Content-Type', 'text/xml');
+                }    
+        }    
+    }
 }

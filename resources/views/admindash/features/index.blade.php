@@ -71,11 +71,6 @@
                                 <tr>
                                     <td>{{$item->f_name}}</td>
                                     <td><i class="{{$item->f_icon}} fa-2x text-primary"> </i></td>
-                                    {{-- <td class="text-center"><a
-                                            href="{{route('all_blogs_cat_delete',['id' => $item->id])}}"
-                                            class="btn btn-outline-primary"><i class="fas fa-pen-alt"></i></a>&nbsp;
-                                        <a href="{{route('all_blogs_cat_delete',['id' => $item->id])}}"
-                                            class="btn btn-outline-danger"><i class="fas fa-recycle"></i></a></td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>

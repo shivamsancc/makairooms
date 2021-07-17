@@ -27,8 +27,8 @@
   color: black;
 }
 </style>
-<script src="https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $latestmapapi['0']->access_token ?>/map_load?v=1.5"></script>
-<script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $latestmapapi['0']->access_token ?>/map_sdk_plugins"></script>
+<script src="https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $latestmapapi->access_token ?>/map_load?v=1.5"></script>
+<script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $latestmapapi->access_token ?>/map_sdk_plugins"></script>
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
   #map {
@@ -52,7 +52,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <form action="{{route('add_pgpost')}}" method="post" enctype="multipart/form-data" role="form">@csrf
+                <form action="{{route('add_pgpost')}}"  name="propertyform" method="post" enctype="multipart/form-data" role="form">@csrf
                     <div class="row m-0 p-0">
                         <div class="col-6">
                             <div class="form-group">
@@ -109,6 +109,9 @@
                               <label for="">YouTube Video Link</label>
                               <input type="text" class="form-control" name="youtube_link" id="youtube_link" aria-describedby="helpId" placeholder="youtube_link">
                               <small id="helpId" class="form-text text-muted">Past YouTube Video Link</small>
+                              @error('youtube_link')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-12">
@@ -188,7 +191,7 @@
                     <input name="lat"  type="hidden" id="lat" >
                     <input name="long" type="hidden"  id="long" >
                     <div class="col-12">
-                        <button type="submt" class="btn btn-primary">Submit</button>
+                        <button type="submt" id="newspopButton"  class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
@@ -197,6 +200,19 @@
 </div>
 @endsection
 @section('exjs')
+<script type="text/javascript" >
+  //=========================News Letter submission==================================
+  $('#newspopButton').click(function (e) {
+        var mailformat =
+            /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
+            let x = document.forms["propertyform"]["lat"].value;
+            let y = document.forms["propertyform"]["long"].value;
+        if (x == '' && y=='') {
+            alert("Property Locaiton Is not Selected");
+            return false;
+        }
+    });
+</script>
 <script type="text/javascript">
     //======================================
     $('#state').on('change', function () {
@@ -336,4 +352,5 @@ $(document).ready(function() {
       });
   
   </script>
+  
 @endsection
