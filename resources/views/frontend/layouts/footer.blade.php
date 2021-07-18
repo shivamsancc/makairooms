@@ -81,24 +81,24 @@
 <a class="scrollToHome" href="#"><i class="fa fa-angle-up"></i></a>
 </div>
 <!-- Wrapper End -->
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-3.6.0.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-migrate-3.0.0.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/popper.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.mmenu.all.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/ace-responsive-menu.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap-select.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/snackbar.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/simplebar.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/parallax.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/scrollto.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-scrolltofixed-min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.counterup.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/wow.min.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/progressbar.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/slider.js"></script>
-<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/timepicker.js"></script>
-<script  type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-3.6.0.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-migrate-3.0.0.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/popper.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.mmenu.all.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/ace-responsive-menu.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/bootstrap-select.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/snackbar.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/simplebar.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/parallax.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/scrollto.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery-scrolltofixed-min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/jquery.counterup.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/wow.min.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/progressbar.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/slider.js?v=2.02"></script>
+<script  type="text/javascript" src="{{ asset('/web/themes/guido') }}/js/timepicker.js?v=2.02"></script>
+<script  type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js?v=2.02"></script>
 @yield('extrajs')
 <!-- Custom script for all pages --> 
 <script type="text/javascript" >
@@ -156,6 +156,6 @@
 
         });
 </script>
-<script src="{{ asset('/web/themes/guido') }}/js/script.js"></script>
+<script src="{{ asset('/web/themes/guido') }}/js/script.js?v=2.02"></script>
 </body>
 </html>
