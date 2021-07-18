@@ -19,8 +19,7 @@
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Career</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Article & Tips</a></li>
+                        <li><a href="{{route('blog')}}">Article & Tips</a></li>
                         <li><a href="#">Terms & Service</a></li>
                     </ul>
                 </div>
@@ -34,7 +33,7 @@
                         <li><a href="#">Miami</a></li>
                         <li><a href="#">New York</a></li>
                         <li><a href="#">Florida</a></li>
-                        <li><a href="#">Boston</a></li>
+                        <li><a href="#">Boston</a></li><hr>
                         <li><a href="{{route('indexsitemap')}}">Sitemap</a></li>
                     </ul>
                 </div>
@@ -69,10 +68,10 @@
             <div class="col-md-4 col-lg-4">
                 <div class="footer_social_widget text-right tac-smd mt10">
                     <ul class="mb0">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="https://www.instagram.com/makairooms/"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/makairooms/"><i class="fa fa-instagram fa-2x"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin fa-2x"></i></a></li>
                     </ul>
                 </div>
             </div>

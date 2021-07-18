@@ -28,38 +28,16 @@ class WebPageController extends Controller
 
     public function hompage()
     {
-        $all_flats= mak_properties::orderBy('created_at')->where('property_type','FLAT')->where('status',1)->get()->all();
-        foreach ($all_flats as $inst)
-        {
-            $inst->stateName = state::find($inst->state)->state_name;
-            $inst->distName = district::find($inst->district)->district_name;
-            $inst->partnername = partner::find($inst->partner_id)->get();
-            $inst->images = mak_propert_images::where('property_id', $inst->id)->get();
-        }
-        // return $all_properties;
-        $all_pg= mak_properties::orderBy('created_at')->where('property_type','PG')->where('status',1)->get()->all();
-        foreach ($all_pg as $inst)
-        {
-            $inst->stateName = state::find($inst->state)->state_name;
-            $inst->distName = district::find($inst->district)->district_name;
-            $inst->partnername = partner::find($inst->partner_id)->get();
-            $inst->images = mak_propert_images::where('property_id', $inst->id)->get();
-        }
-
-        $all_rooms= mak_properties::orderBy('created_at')->where('property_type','ROOMS')->where('status',1)->get()->all();
-        foreach ($all_rooms as $insts)
-        {
-            $insts->stateName = state::find($insts->state)->state_name;
-            $insts->distName = district::find($insts->district)->district_name;
-            $insts->partnername = partner::find($insts->partner_id)->get();
-            $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
-        }
         $all_POST= blog_post::orderBy('created_at', 'DESC')->where('status',1)->take(3)->get();
         foreach ($all_POST as $insts)
         {
             $insts->category_name = blog_category::find($insts->category)->name;
         }
-        return view('frontend.home',compact('all_flats','all_pg','all_rooms','all_POST'));
+        $all_city=  \App\Models\City::where('status',1)->get();
+        if ($all_city) {
+            $allcity =$all_city;
+        }
+        return view('frontend.home',compact('all_POST','allcity'));
     }
 
 
@@ -103,14 +81,39 @@ class WebPageController extends Controller
                         $property['property_features']=\App\Models\property_features::orderBy('created_at')->where('status',1)->get();
                     }
                 }
-                $xyx= property_item::where('id',$property->id)->get();
+                $xyx= property_item::where('ptoperty_id',$property->id)->get();
                 if ($xyx) {
-                    $xyx=$property['property_item'] ;
+                    $property['property_item']= $xyx;
                 }               
+            // return $xyx;
             }
         return view('frontend.listing.single_listing',compact('property'));
     }
 
+//=================================================Filter Listing========================
+    public function properyfilter(Request $request)
+        {
+            return $request->all();
+        }
+//===============================================Query Submission =========================
+    public function propertyquerySubmit(Request $request){
+        $old_cookie= $_COOKIE['ConnectoID'];
+       $data_inserted= \App\Models\listing_query::create([
+            'date_of_visit'=> $request->date_of_visit,
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'phone'=> $request->phone,
+            'form_message'=> $request->form_message,
+            'cookie_id'=> $old_cookie,
+        ]);
+        if ($data_inserted) {
+            alert()->success('You Query has been saved Prperly.', 'Query Sent Sucessfully');
+            return back();
+        }
+        alert()->error('Something Went wrong plese try Agian.', 'Something Went Wrong');
+        return back();
+
+    }
     //===============================================
     function newlogin(){
         return view('auth.login_new');

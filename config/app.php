@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'MAKAI Rooms'),
+    'name' => env('APP_NAME', 'MAKAIRooms'),
 
     /*
     |--------------------------------------------------------------------------
@@ -178,7 +178,7 @@ return [
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Onecentlin\Adminer\ServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
-
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         
 
 
@@ -235,7 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //======================
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
-
-    ],
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+    ],  
 
 ];

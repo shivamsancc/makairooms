@@ -13,12 +13,12 @@
                                         href="#"><small>Hide Filter</small> <span class="flaticon-close"></span></a>
                                 </h4>
                                 <ul class="sasw_list style2 mb0">
-                                    <li class="search_area">
+                                    {{-- <li class="search_area">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="exampleInputName1"
                                                 placeholder="What are you looking for">
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <div class="search_option_two">
                                             <div class="sidebar_select_options">
@@ -228,12 +228,6 @@
                     <div class="sidebar_listing_list">
                         <div class="sidebar_advanced_search_widget">
                             <ul class="sasw_list mb0">
-                                <li class="search_area">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="exampleInputName3"
-                                            placeholder="What are you looking for">
-                                    </div>
-                                </li>
                                 <li>
                                     <div class="search_option_two">
                                         <div class="sidebar_select_options">
@@ -263,12 +257,12 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <div class="sidebar_range_slider mb30 mt70">
                                         <input class="range-example-km mb20" value="50" type="text">
                                         <P class="mt20">Radius around selected destination</P>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <div class="small_dropdown2">
                                         <div id="prncgs" class="btn dd_btn">
@@ -287,7 +281,7 @@
                                 </li>
                                 <li>
                                     <div class="ui_kit_checkbox sidebar_tag">
-                                        <h4 class="title">Tags</h4>
+                                        <h4 class="title">Amenities</h4>
                                         <div class="wrapper">
                                             <ul>
                                                 <li>
@@ -432,64 +426,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    {{-- <div class="col-md-4 col-lg-4">
-                        <div class="feat_property">
-                            <div class="thumb">
-                                <img class="img-whp" src="{{ asset('/web/themes/guido') }}/images/listing/lg1.jpg"
-                    alt="lg1.jpg">
-                    <div class="thmb_cntnt">
-                        <ul class="tag mb0">
-                            <li class="list-inline-item"><a href="#">$$$$</a></li>
-                            <li class="list-inline-item"><a href="#">Open</a></li>
-                        </ul>
-                        <ul class="tag2 mb0">
-                            <li class="list-inline-item"><a href="#">Featured</a></li>
-                        </ul>
-                        <ul class="listing_reviews">
-                            <li class="list-inline-item"><a class="text-white" href="#"><span
-                                        class="fa fa-star"></span></a></li>
-                            <li class="list-inline-item"><a class="text-white" href="#"><span
-                                        class="fa fa-star"></span></a></li>
-                            <li class="list-inline-item"><a class="text-white" href="#"><span
-                                        class="fa fa-star"></span></a></li>
-                            <li class="list-inline-item"><a class="text-white" href="#"><span
-                                        class="fa fa-star"></span></a></li>
-                            <li class="list-inline-item"><a class="text-white" href="#"><span
-                                        class="fa fa-star"></span></a></li>
-                            <li class="list-inline-item"><a class="text-white total_review" href="#">(5 Review)</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="details">
-                    <div class="tc_content">
-                        <div class="badge_icon"><a href="#"><img
-                                    src="{{ asset('/web/themes/guido') }}/images/icons/agent1.svg" alt="agent1.svg"></a>
-                        </div>
-                        <h4>Adventure High Ropes</h4>
-                        <p>But I must explain to you how all this mistaken idea...</p>
-                        <ul class="prop_details mb0">
-                            <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span>
-                                    +61-8181-123</a></li>
-                            <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span> New York</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="fp_footer">
-                        <ul class="fp_meta float-left mb0">
-                            <li class="list-inline-item"><a href="#"><img
-                                        src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                        alt="icon3.svg"></a></li>
-                            <li class="list-inline-item"><a href="#">Outdoor Activities</a></li>
-                        </ul>
-                        <ul class="fp_meta float-right mb0">
-                            <li class="list-inline-item"><a href="#"><span class="flaticon-zoom"></span></a></li>
-                            <li class="list-inline-item"><a class="icon" href="#"><span
-                                        class="flaticon-love"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         @foreach ($all_properties as $item)
         <div class="col-md-4 col-lg-4">
             <div class="item">
@@ -540,18 +476,9 @@
                             </a>
                         </div>
                         <div class="fp_footer">
-                            <ul class="fp_meta float-left mb0">
-                                <li class="list-inline-item"><a href="#"><img
-                                            src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                            alt="icon3.svg"></a></li>
-                                <li class="list-inline-item"><a href="#">Outdoor
-                                        Activities</a></li>
-                            </ul>
-                            <ul class="fp_meta float-right mb0">
-                                <li class="list-inline-item"><a
+                                <li class="list-inline-item text-center"><a
                                         href="{{route('siglelisting',['slug' => $item->slug])}}"><span
                                             class="flaticon-zoom"></span></a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>

@@ -98,6 +98,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Blog </h6>
             <a class="collapse-item" href="{{route('all_features')}}">Features</a>
+            <a class="collapse-item" href="{{route('all_admin_city')}}">City</a>
             {{-- <a class="collapse-item" href="{{route('all_blogs')}}">Blog</a> --}}
         </div>
     </div>

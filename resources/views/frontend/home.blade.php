@@ -1,15 +1,6 @@
 @extends('frontend.layouts.app')
-@section('title','best institute for iit in patna,Top coaching in Patna for NEET,Best coaching in Patna for 11 and
-12,Best Coaching in Patna for SSC,Best IIT coaching in Bihar')
+@section('title','Find Brokrege Free Stay : Find Flats , Apartment , PG for Rent')
 @section('content')
-<style>
-    /* Make the image fully responsive */
-    .carousel-inner img {
-        width: 100%;
-        height: 100%;
-    }
-
-</style>
 <!-- Home Design -->
 <section class="home-one home1-overlay bg-img2">
     <div class="container">
@@ -27,7 +18,7 @@
                                 <div class="wrapper">
                                     <div class="home_adv_srch_form home2">
                                         <div class="home_adv_srch_form">
-                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767">
+                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767" action="{{route('properyfilter')}}" method="POST"> @csrf 
                                                 <div class="form-row align-items-center">
                                                     <div class="col-auto home_form_input mb20-xsd">
                                                         <label class="sr-only">Username</label>
@@ -37,14 +28,11 @@
                                                                 </div>
                                                             </div>
                                                             <div class="select-wrap style1-dropdown">
-                                                                <select name="lang" class="form-control js-searchBox">
+                                                                <select name="city" class="form-control js-searchBox">
                                                                     <option value="">Your City</option>
-                                                                    <option value="NewYork">New York</option>
-                                                                    <option value="London">London</option>
-                                                                    <option value="Paris">Paris</option>
-                                                                    <option value="Istanbul">Istanbul</option>
-                                                                    <option value="LosAngeles">Los Angeles
-                                                                    </option>
+                                                                    @foreach ($allcity as $item)
+                                                                        <option value="{{$item->id}}">{{$item->city_name}}</option>   
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -100,19 +88,20 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="feature_place_home2_slider">
-                    <div class="item">
-                        <div class="properti_city">
-                            <div class="thumb"><img class="img-fluid w100"
-                                    src="{{ asset('/web/themes/guido') }}/images/property/pc5.jpg" alt="pc5.jpg"></div>
-                            <div class="overlay">
-                                <div class="details">
-                                    <h4>Miami</h4>
-                                    <p>62 Listing</p>
+                    @foreach ($allcity as $item)
+                        <div class="item">
+                            <div class="properti_city">
+                                <div class="thumb"><img class="img-fluid w100"src="{{Storage::url($item->city_img)}}" alt="{{$item->city_name}}" alt="pc5.jpg"></div>
+                                <div class="overlay">
+                                    <div class="details">
+                                        <h4>{{$item->city_name}}</h4>
+                                        <p>{{$item->count}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
+                    @endforeach
+                    {{-- <div class="item">
                         <div class="properti_city">
                             <div class="thumb"><img class="img-fluid w100"
                                     src="{{ asset('/web/themes/guido') }}/images/property/pc6.jpg" alt="pc6.jpg"></div>
@@ -159,7 +148,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -167,266 +156,7 @@
 </section>
 
 <!-- Property Cities popular_listing_slider -->
-<section class="bgc-f4">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="main-title text-center mb20">
-                    <h2>Most Popular Thing To Do</h2>
-                    <p>Discover some of the most popular listings in Toronto based on user reviews and ratings.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="popular_listing_sliders row">
-                    <!-- Nav tabs -->
-                    <div class="nav nav-tabs mb50 col-lg-12 justify-content-center" role="tablist">
-                        <a class="nav-link active" id="nav-shopping-tab" data-toggle="tab" href="#nav-shopping"
-                            role="tab" aria-controls="nav-shopping" aria-selected="false">PG</a>
-                        <a class="nav-link" id="nav-hotels-tab" data-toggle="tab" href="#nav-hotels" role="tab"
-                            aria-controls="nav-hotels" aria-selected="false">Flat</a>
-                        <a class="nav-link" id="nav-destination-tab" data-toggle="tab" href="#nav-destination"
-                            role="tab" aria-controls="nav-destination" aria-selected="false">Rooms</a>
-                    </div>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content col-lg-12" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-shopping" role="tabpanel"
-                            aria-labelledby="nav-shopping-tab">
-                            <div class="popular_listing_slider1">
-                                @foreach ($all_pg as $item)
-                                <div class="item">
-                                    <div class="feat_property">
-                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                            <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    @foreach ($item['images'] as $itema => $slider)
-                                                    {{-- ----------------{{$itema}} --}}
-                                                    <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                                        style="max-height: 200px !important">
-                                                        <img class="d-block w-100"
-                                                            src="{{Storage::url($slider['img_name'])}}"
-                                                            alt="{{$slider['img_name']}}">
-                                                    </div>
-                                                    @endforeach
-                                                </div>
-                                                <!-- Left and right controls -->
-                                                <a class="carousel-control-prev" href="#demo{{$item->id}}"
-                                                    data-slide="prev">
-                                                    <span class="carousel-control-prev-icon"></span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#demo{{$item->id}}"
-                                                    data-slide="next">
-                                                    <span class="carousel-control-next-icon"></span>
-                                                </a>
-                                            </div>
-                                        </a>
-                                        <div class="thmb_cntnt">
-                                        </div>
-                                        {{-- </div> --}}
-
-                                        <div class="details">
-                                            <div class="tc_content">
-                                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                                    <h4>{{$item->name}}</h4>
-                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                                    <ul class="prop_details mb0">
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-phone pr5"></span>
-                                                                {{$item['partnername']['0']->phone}}</a></li>
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-pin pr5"></span>
-                                                                {{$item->distName}}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="text-center"><br>
-                                                        Price Range &nbsp;
-                                                        <a href="#">₹{{$item->price_range1}} --
-                                                            ₹{{$item->price_range2}}</a>
-                                                        </li>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="fp_footer">
-                                                <ul class="fp_meta float-left mb0">
-                                                    <li class="list-inline-item"><a href="#"><img
-                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                                alt="icon3.svg"></a></li>
-                                                    <li class="list-inline-item"><a href="#">Outdoor
-                                                            Activities</a></li>
-                                                </ul>
-                                                <ul class="fp_meta float-right mb0">
-                                                    <li class="list-inline-item"><a
-                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
-                                                                class="flaticon-zoom"></span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-hotels" role="tabpanel" aria-labelledby="nav-hotels-tab">
-                            <div class="popular_listing_slider1">
-                                @foreach ($all_flats as $item)
-                                <div class="item">
-                                    <div class="feat_property">
-                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                            <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    @foreach ($item['images'] as $itema => $slider)
-                                                    {{-- ----------------{{$itema}} --}}
-                                                    <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                                        style="max-height: 200px !important">
-                                                        <img class="d-block w-100"
-                                                            src="{{Storage::url($slider['img_name'])}}"
-                                                            alt="{{$slider['img_name']}}">
-                                                    </div>
-                                                    @endforeach
-                                                </div>
-                                                <!-- Left and right controls -->
-                                                <a class="carousel-control-prev" href="#demo{{$item->id}}"
-                                                    data-slide="prev">
-                                                    <span class="carousel-control-prev-icon"></span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#demo{{$item->id}}"
-                                                    data-slide="next">
-                                                    <span class="carousel-control-next-icon"></span>
-                                                </a>
-                                            </div>
-                                        </a>
-                                        <div class="thmb_cntnt">
-                                        </div>
-                                        {{-- </div> --}}
-
-                                        <div class="details">
-                                            <div class="tc_content">
-                                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                                    <h4>{{$item->name}}</h4>
-                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                                    <ul class="prop_details mb0">
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-phone pr5"></span>
-                                                                {{$item['partnername']['0']->phone}}</a></li>
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-pin pr5"></span>
-                                                                {{$item->distName}}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="text-center"><br>
-                                                        Price Range &nbsp;
-                                                        <a href="#">₹{{$item->price_range1}} --
-                                                            ₹{{$item->price_range2}}</a>
-                                                        </li>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="fp_footer">
-                                                <ul class="fp_meta float-left mb0">
-                                                    <li class="list-inline-item"><a href="#"><img
-                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                                alt="icon3.svg"></a></li>
-                                                    <li class="list-inline-item"><a href="#">Outdoor
-                                                            Activities</a></li>
-                                                </ul>
-                                                <ul class="fp_meta float-right mb0">
-                                                    <li class="list-inline-item"><a
-                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
-                                                                class="flaticon-zoom"></span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-destination" role="tabpanel"
-                            aria-labelledby="nav-destination-tab">
-                            <div class="popular_listing_slider1">
-                                @foreach ($all_rooms as $item)
-                                <div class="item">
-                                    <div class="feat_property">
-                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                            <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    @foreach ($item['images'] as $itema => $slider)
-                                                    {{-- ----------------{{$itema}} --}}
-                                                    <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                                        style="max-height: 200px !important">
-                                                        <img class="d-block w-100"
-                                                            src="{{Storage::url($slider['img_name'])}}"
-                                                            alt="{{$slider['img_name']}}">
-                                                    </div>
-                                                    @endforeach
-                                                </div>
-                                                <!-- Left and right controls -->
-                                                <a class="carousel-control-prev" href="#demo{{$item->id}}"
-                                                    data-slide="prev">
-                                                    <span class="carousel-control-prev-icon"></span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#demo{{$item->id}}"
-                                                    data-slide="next">
-                                                    <span class="carousel-control-next-icon"></span>
-                                                </a>
-                                            </div>
-                                        </a>
-                                        <div class="thmb_cntnt">
-                                        </div>
-                                        {{-- </div> --}}
-
-                                        <div class="details">
-                                            <div class="tc_content">
-                                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                                    <h4>{{$item->name}}</h4>
-                                                    <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                                    <ul class="prop_details mb0">
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-phone pr5"></span>
-                                                                {{$item['partnername']['0']->phone}}</a></li>
-                                                        <li class="list-inline-item"><a href="#"><span
-                                                                    class="flaticon-pin pr5"></span>
-                                                                {{$item->distName}}</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="text-center"><br>
-                                                        Price Range &nbsp;
-                                                        <a href="#">₹{{$item->price_range1}} --
-                                                            ₹{{$item->price_range2}}</a>
-                                                        </li>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="fp_footer">
-                                                <ul class="fp_meta float-left mb0">
-                                                    <li class="list-inline-item"><a href="#"><img
-                                                                src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                                                alt="icon3.svg"></a></li>
-                                                    <li class="list-inline-item"><a href="#">Outdoor
-                                                            Activities</a></li>
-                                                </ul>
-                                                <ul class="fp_meta float-right mb0">
-                                                    <li class="list-inline-item"><a
-                                                            href="{{route('siglelisting',['slug' => $item->slug])}}"><span
-                                                                class="flaticon-zoom"></span></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Why Chose Us -->
 <section id="why-chose" class="whychose_us pb70">
@@ -434,7 +164,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="main-title text-center">
-                    <h2>Filter by Category</h2>
+                    <h2>Why Choose Makairooms</h2>
                     <p>Discover some of the most popular listings in Toronto based on user reviews and ratings.
                     </p>
                 </div>
@@ -546,7 +276,7 @@
             </a>
             @endforeach
         </div>
-        <center><a href="{{route('blog')}}" type="submit" class=" txt-center btn btn-primary">View All</a></center>
+        <center><a href="{{route('blog')}}" type="submit" class=" txt-center  btn btn-outline-primary">View All</a></center>
     </div>
 </section>
 

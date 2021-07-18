@@ -6611,7 +6611,7 @@ form.listing_page_v9{
 }
 .footer_one.home1:before,
 .footer_one.home3:before{
-  background-image: url(../images/icons/footer-bg.svg);
+  /* background-image: url(../images/icons/footer-bg.svg); */
   background-repeat: no-repeat;
   background-position: center center;
   bottom: 0;
@@ -6623,7 +6623,7 @@ form.listing_page_v9{
   top: 25px;
 }
 .footer_one.home2:before{
-  background-image: url(../images/icons/footer-bg2.svg);
+  /* background-image: url(../images/icons/footer-bg2.svg); */
   background-repeat: no-repeat;
   background-position: center center;
   bottom: 0;

@@ -67,10 +67,6 @@ class propertyController extends Controller
 
 
    function add_pgpost(Request $request){
-    // $input = $request->all();
-    $request->validate([
-        'youtube_link' => 'url'
-    ]);
         $randomurl = $this->random_strings(30); 
         $insert= mak_properties::create([
             'partner_id'=>$request->partner_id,
@@ -108,9 +104,8 @@ class propertyController extends Controller
 public function eidtproperty($id)
 {
     $all_state=  state::orderBy('state_name')->get()->all();
-   
     $latestmapapi = mapapi::orderBy('created_at', 'DESC')->limit(1)->get();
-   $property_data =mak_properties::where('id',$id)->get();
+    $property_data =mak_properties::where('id',$id)->get();
     return view('admindash.properties.edit_property',compact('property_data','latestmapapi','all_state'));
     }
 
@@ -135,7 +130,6 @@ public function eidtproperty($id)
         'lat'=>$request->lat,
         'long'=>$request->long,  
     ]);
-    // dd($update);
     if ($update) {
         alert()->success('You Data has been Updated Prperly.', 'Updated Sucessfully');
          return redirect()->route('allproperties');
@@ -148,30 +142,38 @@ public function eidtproperty($id)
 
 
 public function deleteproperty($id){
-    $images= mak_propert_images::where('property_id', $id)->pluck('img_name');
-    if ($images) {
-        foreach ($images as $key ) {
-            $filePath = 'upload/property/images/' . $key;
-            Storage::disk(env("FILESYSTEM_DRIVER"))->delete($filePath,$key,'public');   
-            mak_propert_images::where('img_name', $key)->delete();
-        }
-    }    
-     if (mak_properties::destroy($id)) {
-        alert()->success('You Property  Has Been Deleted Prperly.', 'Deleted Sucessfully');
-        return back();
-     }else{
-        alert()->error('Something Went wrong plese try Agian.', 'Something Went Wrong');
-        return back();
-     }
+   $property_item_count= property_item::where('ptoperty_id',$id)->count();
+    if ($property_item_count ==0) {
+        $images= mak_propert_images::where('property_id', $id)->pluck('img_name');
+        if ($images) {
+            foreach ($images as $key ) {
+                $filePath = 'upload/property/images/' . $key;
+                Storage::disk(env("FILESYSTEM_DRIVER"))->delete($filePath,$key,'public');   
+                mak_propert_images::where('img_name', $key)->delete();
+            }
+        }    
+         if (mak_properties::destroy($id)) {
+            alert()->success('You Property  Has Been Deleted Prperly.', 'Deleted Sucessfully');
+            return back();
+         }else{
+            alert()->error('Something Went wrong plese try Agian.', 'Something Went Wrong');
+            return back();
+         }
+    }
+    alert()->error('You Have To Delte Propery Item First To Delete Property.', 'Items in Property ');
+    return back();
+    
 }
 //==================================Property Item Controllers================================
 public  function propertyitemindex()
 {
-    $all_properties_item = property_item::orderBy('created_at', 'DESC')->where('status', 1)->get();
-    foreach ($all_properties_item as $inst)
-    {
-            $inst->property = mak_properties::find($inst->ptoperty_id)->name;
-            $inst->manger = partner::find($inst->partner_id)->name;
+ $all_properties_item = property_item::orderBy('created_at', 'DESC')->where('status', 1)->get();
+   if ($all_properties_item) {
+        foreach ($all_properties_item as $inst)
+            {
+                   $inst->property = mak_properties::find($inst->ptoperty_id)->name;
+                    $inst->manger = partner::find($inst->partner_id)->name;
+            }
     }
     return  view('admindash.properties.property_item.index',compact('all_properties_item'));
 }

@@ -27,14 +27,19 @@ Route::get('/partner/edit/{id}', 'admin\partner\PartnerController@editpartner')-
 Route::get('/partner/delete/{id}', 'admin\partner\PartnerController@partnerdelete')->name('deletepartner');
 Route::post('/partner/update/{id}', 'admin\partner\PartnerController@partner_update')->name('updatepartner');
 //===============================All Property Routes==========================
+//=========================City Routes=======================
+Route::get('/city', 'admin\city\CityController@index')->name('all_admin_city');
+Route::get('/city/add', 'admin\city\CityController@create')->name('add_admin_city');
+Route::post('/city/add/store', 'admin\city\CityController@store')->name('store_admin_city');
+Route::get('/city/edit/{id}', 'admin\city\CityController@edit')->name('edit_admin_city');
+Route::post('/city/update/{id}', 'admin\city\CityController@update')->name('admin_city_update');
+Route::get('/city/delete/{id}', 'admin\city\CityController@destroy')->name('delete_admin_city');
+//====================Property route================
 Route::get('/property/all', 'admin\property\propertyController@all_properties')->name('allproperties');
 Route::get('/property/add', 'admin\property\propertyController@add_property')->name('addproperty');
 Route::get('/property/getp/{id}', 'admin\property\propertyController@eidtproperty')->name('eidtproperty');
 Route::post('/property/update/{id}', 'admin\property\propertyController@updateproperty')->name('updateproperty');
 Route::get('/property/delete/{id}', 'admin\property\propertyController@deleteproperty')->name('deleteproperty');
-//============================PG=================
-Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
-
 //================================Property Item======================
 Route::get('/property/item/', 'admin\property\propertyController@propertyitemindex')->name('propertyitemindex');
 Route::get('/property/item/add', 'admin\property\propertyController@createpropertyitem')->name('createpropertyitem');
@@ -42,6 +47,8 @@ Route::post('/property/item/store', 'admin\property\propertyController@createpro
 Route::get('/property/item/getp/{id}', 'admin\property\propertyController@edititem')->name('eidtpropertyitem');
 Route::post('/property/item/update/{id}', 'admin\property\propertyController@updateitem')->name('updatepropertyitem');
 Route::get('/property/item/delete/{id}', 'admin\property\propertyController@deleteitem')->name('deletepropertyitem');
+//============================PG=================
+Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost')->name('add_pgpost');
 
 
 
