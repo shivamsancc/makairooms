@@ -11,43 +11,35 @@ class Visitor_log{
 	public function __construct() {}
 
 	public function handle($request, Closure $next) {
-		if (!isset($_COOKIE['ConnectoID'])){
-            $cookie_id = Str::random(32).'-'.rand(0,10000);
-			$request= Request();
-            if (setCookie("ConnectoID",$cookie_id,time() + (20 * 365 * 24 * 60 * 60))) {  
-				$start = microtime(true);
-                $log = new \App\Models\visitor;
-                $log->ip = $request->ip();
-                $log->user_agent = $request->userAgent();
-                $log->method = $request->method();
-                $log->path = $request->path();
-                $log->cookie = $cookie_id;
-				$response = $next($request);
-				$end = microtime(true);
-				$log->response_code = $response->getStatusCode();
-				$log->response_after = $end-$start;
-				$log->save();
-				return $response;
-            }
-        } else{
-				$start = microtime(true);
-                $old_cookie= $_COOKIE['ConnectoID'];
-            	$cookie_id  =visitor::where('cookie',$old_cookie)->first();
-                $newlog = new \App\Models\visitor_log;
-                $newlog->ip = $request->ip();
-                $newlog->userAgent = $request->userAgent();
-                $newlog->method = $request->method();
-                $newlog->path = $request->path();
-                $newlog->cookie_id = $cookie_id->id;
-                $newlog->parameters = json_encode($request->all());
-				$response = $next($request);
-				$end = microtime(true);
-				$newlog->response_code = $response->getStatusCode();
-				$newlog->response_after = $end-$start;
-				$newlog->save();
-				return $response;
+		if(!isset($_COOKIE['ConnectoID'])){
+            $user_cookie= Str::random(32) . '-' . rand(0, 10000);
+            $user_cookie =setCookie("ConnectoID", $user_cookie,time() + (20 * 365 * 24 * 60 * 60));     
+        }else{
+            $user_cookie=$_COOKIE['ConnectoID'];
+        }
+        $start = microtime(true);
+        $log = Visitor::firstOrNew(['cookie' => $user_cookie]);
+        $log->ip = $request->ip();
+        $log->method = $request->method();
+        $log->path = $request->path();
+        $log->user_agent = $request->userAgent();
+        $log->save();
 
-            }
+        $newlog = new \App\Models\Visitor_log;
+        $newlog->ip = $request->ip();
+        $newlog->userAgent = $request->userAgent();
+        $newlog->method = $request->method();
+        $newlog->path = $request->path();
+        $newlog->cookie_id = $log->id;
+        $newlog->parameters = json_encode($request->all());
+        $response = $next($request);
+        $end = microtime(true);
+        $newlog->response_code = $response->getStatusCode();
+        $newlog->response_after = $end - $start;
+        $newlog->save();
+        return $response;
+
+    
 	}
 	
 }

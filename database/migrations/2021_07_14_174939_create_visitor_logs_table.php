@@ -19,8 +19,8 @@ class CreateVisitorLogsTable extends Migration
             $table->text('userAgent');
             $table->string('method');
             $table->string('path');
-            $table->string('cookie_id');
-            $table->string('parameters')->nullable();
+            $table->text('cookie_id');
+            $table->longtext('parameters')->nullable();
             $table->string('response_code');
             $table->string('response_after');
             $table->timestamps();

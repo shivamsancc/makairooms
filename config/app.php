@@ -179,6 +179,8 @@ return [
         Onecentlin\Adminer\ServiceProvider::class,
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
         
 
 
@@ -236,6 +238,8 @@ return [
         //======================
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
     ],  
 
 ];

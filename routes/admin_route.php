@@ -56,7 +56,10 @@ Route::post('/pr/property/pgpost', 'admin\property\propertyController@add_pgpost
 
 
 
-
+//========================locality Routes===============================
+Route::get('/locality', 'admin\master\localityController@index')->name('all_admin_locality');
+Route::get('/locality/add', 'admin\master\localityController@create')->name('all_admin_locality_add');
+Route::post('/locality/add/store', 'admin\master\localityController@store')->name('all_admin_locality_store');
 
 //=========================features Routes===============================
 Route::get('/property/features', 'admin\features\featuresController@index')->name('all_features');

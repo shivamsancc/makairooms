@@ -54,15 +54,19 @@ class propertyController extends Controller
 
 
    function add_property(){
-       $latestmapapi = mapapi::orderBy('created_at', 'DESC')->first();
-      if ($latestmapapi->created_at->format('Y-m-d') == Carbon::now()->toDateString()) {
-            $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();   
-            $all_state=  state::orderBy('state_name')->get()->all();
-            $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
-            return view('admindash.properties.add_property',compact('all_state','all_partners','latestmapapi','all_features'));  
-        }
-         return redirect()->route('mapapiupdate');
+    $latestmapapi = mapapi::orderBy('created_at', 'DESC')->first();
+    if (!is_null($latestmapapi)) {
+     if ($latestmapapi->created_at->format('Y-m-d') == Carbon::now()->toDateString()) {
+         $all_features= property_features::orderBy('created_at')->where('status',1)->get()->all();   
+         $all_state=  state::orderBy('state_name')->get()->all();
+         $all_partners= partner::orderBy('created_at')->where('status',1)->get()->all();
+         return view('partnerdashboard.properties.add_property',compact('all_state','all_partners','latestmapapi','all_features'));  
+     }
+  return redirect()->route('mapapiupdate');
    }
+  return redirect()->route('mapapiupdate');
+
+}
 
 
 

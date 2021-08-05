@@ -18,7 +18,7 @@ Route::get('/all-{type}', 'frontend\WebPageController@alllisting')->name('all_is
 Route::get('/property/{slug}', 'frontend\WebPageController@siglelisting')->name('siglelisting');
 
 //=======================================Search Route=============================
-Route::post('/filter', 'frontend\WebPageController@properyfilter')->name('properyfilter');
+Route::get('/filter', 'frontend\WebPageController@properyfilter')->name('properyfilter');
 Route::post('/propertyquerySubmit', 'frontend\WebPageController@propertyquerySubmit')->name('propertyquerySubmit');
 //=======================================Blog Route===============================
 Route::get('/blog', 'frontend\WebPageController@blog')->name('blog');

@@ -253,6 +253,16 @@
             <div class="col-lg-4 col-xl-4">
                 <div class="listing_single_sidebar">
                     <div class="lss_contact_location ">
+                        <h4 class="mb25">Location</h4>
+                        <div class="sidebar_map mb30">
+                            <div class="lss_map h200" id="map-canvas"></div>
+                        </div>
+                        <ul class="contact_list list-unstyled mb15">
+                            <li class="df"><span class="flaticon-pin mr15"></span><a target="_blank"
+                                    href="https://www.google.com/maps/@<?php echo $property->lat?>,<?php echo $property->long ?>,16z?hl=en-US">
+                                    {{$property->address}}
+                                    <br> <span class="tdu text-thm">Get Direction</span></a></li>
+                        </ul>
                         <ul class="sidebar_social_icon mb0">
                             <li class="list-inline-item"><a target="_blank"
                                     href="https://www.facebook.com/sharer.php?u={{URL::full()}}"><i
@@ -269,37 +279,57 @@
                         </ul>
                     </div>
                     <div class="sidebar_contact_business_widget">
+                    <h4 class="title mb25">Book Now</h4>
+                    <form action="" method="post">
+                        <ul class="business_contact mb0">
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Name</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Email:</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>PG Detials</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Sharing</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>From Date</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>months</li>
+                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Price</li>
+                        </ul>
+                    </form>
+                    </div>
+                    <div class="sidebar_contact_business_widget">
                         <h4 class="title mb25">SCHEDULE A VISIT</h4>
                         <form action="{{route('propertyquerySubmit')}}" method="post">@csrf
                             <ul class="business_contact mb0">
                                 <li>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required name="date_of_visit" value="" placeholder="Date" />
+                                        <input type="text" class="form-control" required name="date_of_visit" value=""
+                                            placeholder="Date" />
+                                            <input type="hidden" class="form-control" required name="property_id" value="{{$property->id}}"/>
+                                            <input type="hidden" class="form-control" required name="partner_id" value="{{$property->partner_id}}"/>
                                     </div>
                                 </li>
                                 <li class="search_area">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" required name="name" id="exampleInputName3" placeholder="Name">
+                                        <input type="text" class="form-control" required name="name"
+                                            id="exampleInputName3" placeholder="Name">
                                     </div>
                                 </li>
                                 <li class="search_area">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" required name="email" id="exampleInputEmail" placeholder="Email">
+                                        <input type="email" class="form-control" required name="email"
+                                            id="exampleInputEmail" placeholder="Email">
                                     </div>
                                 </li>
                                 <li class="search_area">
                                     <div class="form-group">
-                                        <input type="number" class="form-control" required name="phone" id="exampleInputName4"
-                                            placeholder="Phone">
+                                        <input type="number" class="form-control" required name="phone"
+                                            id="exampleInputName4" placeholder="Phone">
                                     </div>
                                 </li>
                                 <li class="search_area">
                                     <div class="form-group">
-                                        <textarea id="form_message" name="form_message" required name="messege" class="form-control required"
-                                            rows="5" required="required" placeholder="Message"></textarea>
+                                        <textarea id="form_message" name="form_message" required name="messege"
+                                            class="form-control required" rows="5" required="required"
+                                            placeholder="Message"></textarea>
                                     </div>
                                 </li>
-                                 {!! app('captcha')->display() !!}
+                                {!! app('captcha')->display() !!}
                                 <li>
                                     <div class="search_option_button">
                                         <button type="submit" class="btn btn-block btn-thm h55">Send Message</button>
@@ -399,30 +429,78 @@
         </div>
     </div>
 </section>
+<input type="hidden" name="lat" id="lat" value="{{$property->lat}}">
+<input type="hidden" name="lan" id="lan" value="{{$property->long}}">
 @endsection
 @section('extrajs')
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript">
-    $(function() {
-    
-      $('input[name="date_of_visit"]').daterangepicker({
-          autoUpdateInput: false,
-          locale: {
-              cancelLabel: 'Clear'
-          }
-      });
-    
-      $('input[name="date_of_visit"]').on('apply.daterangepicker', function(ev, picker) {
-          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      });
-    
-      $('input[name="date_of_visit"]').on('cancel.daterangepicker', function(ev, picker) {
-          $(this).val('');
-      });
-    
+    $(function () {
+        $('input[name="date_of_visit"]').daterangepicker({
+            autoUpdateInput: false,
+            locale: {
+                cancelLabel: 'Clear'
+            }
+        });
+
+        $('input[name="date_of_visit"]').on('apply.daterangepicker', function (ev, picker) {
+            $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format(
+                'MM/DD/YYYY'));
+        });
+
+        $('input[name="date_of_visit"]').on('cancel.daterangepicker', function (ev, picker) {
+            $(this).val('');
+        });
+
     });
-    </script>
+
+</script>
+<script src="https://apis.mapmyindia.com/advancedmaps/api/<?php echo $property['latestmapapi']->access_token ?>/map_sdk"
+    defer async>
+</script>
+<script type="text/javascript">
+    //=====================================MAP-MY-INDIA=====================
+    var lng = document.getElementById('lan').value
+    var lat = document.getElementById('lat').value
+    var url_result;
+    var marker;
+    /*put your REST API URL with key here**/
+    var rev_geocode_api_url =
+        "https://apis.mapmyindia.com/advancedmaps/v1/<?php echo $property['latestmapapi']->access_token ?>/rev_geocode?";
+    window.onload = function () {
+        document.getElementById('lat').value = lat;
+        document.getElementById('lan').value = lng;
+        var centre = [lat, lng];
+        map = new MapmyIndia.Map('map-canvas', {
+            center: centre,
+            zoomControl: true,
+            // hybrid: true,
+            // layer:Indic,
+            zoom: 15,
+        });
+        /*1.create a MapmyIndia Map by simply calling new MapmyIndia.Map() and passsing it at the minimum div object, all others are optional...
+        2.all leaflet mapping functions can be called simply on the L object
+        3.MapmyIndia may extend and in future modify the customised/forked Leaflet object to enhance mapping functionality for developers, which will be clearly documented in the MapmyIndia API documentation section.*/
+        marker = new MapmyIndia.Marker({
+            map: map,
+            position: centre,
+            icon: 'https://maps.mapmyindia.com/images/2.png',
+            draggable: false,
+        });
+        map.setCenter(centre);
+        map.setZoom(15);
+        // marker = L.marker(centre, {draggable: 'true'}).addTo(map);/*add marker at center position*/
+        var region = 'ind';
+        if (region != '') {
+            region = "&region=" + region;
+        }
+        // var rev_geocode_api_url_with_param = rev_geocode_api_url + "lng=" + lng + "&lat=" + lat + region;
+        // getUrlResult(rev_geocode_api_url_with_param); /***get revgeocode result corresponding to the position***/
+        // show_info_window(url_result, lng, lat);
+    };
+
+</script>
 @endisset
 @empty($property)
 @include('frontend.layouts.404-block')

@@ -70,7 +70,7 @@ class LoginController extends Controller
 			}elseif(auth()->user()->type == 1) {
                 return redirect()->route('admindashboard');                        
                 }elseif(auth()->user()->type == 2) {
-            		return redirect()->route('nextjober');
+            		return redirect()->route('partnerdashboard');
                 }elseif(auth()->user()->type == 3) {
                         return redirect('/nextteacher');
                 } elseif(auth()->user()->type == 4) {

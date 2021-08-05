@@ -47,12 +47,13 @@ class WebPageController extends Controller
     //============Listing Controller ================
 
     function alllisting($type){
-        $all_properties = mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get()->all(); 
+        $all_properties = mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get(); 
+    //    dd($all_properties);
         foreach ($all_properties as $insts)
         {
             $insts->stateName = state::find($insts->state)->state_name;
             $insts->distName = district::find($insts->district)->district_name;
-            $insts->partnername = partner::find($insts->partner_id)->get();
+            $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
         return view('frontend.listing.all-listing',compact('all_properties'));
@@ -65,27 +66,30 @@ class WebPageController extends Controller
                 $property['latestmapapi'] = mapapi::orderBy('created_at', 'DESC')->first();
                 $property['stateName'] = state::find($property->state)->state_name;
                 $property['distName'] = district::find($property->district)->district_name;
-                $property['partnername'] = partner::find($property->partner_id)->first();
+                $property['partnername'] = partner::where('user_id',$property->partner_id)->first();
                 $property['images'] = mak_propert_images::where('property_id', $property->id)->get();
                 $property['related_listing']= mak_properties::orderBy('created_at')->where('property_type',$property->property_type)->where('status',1)->get()->all();
                 foreach ($property['related_listing'] as $inst)
                 {
                     $inst['stateName'] = state::find($inst->state)->state_name;
                     $inst['distName'] = district::find($inst->district)->district_name;
-                    $inst['partnername'] = partner::find($inst->partner_id)->get();
+                    $inst['partnername'] = partner::where('user_id',$inst->partner_id)->get();
                     $inst['images'] = mak_propert_images::where('property_id', $inst->id)->get();
                 }
-                if ($property->property_features) {
-                    foreach (json_decode($property->property_features)	as $inst)
-                    {
-                        $property['property_features']=\App\Models\property_features::orderBy('created_at')->where('status',1)->get();
+                // dd($property->property_features);
+                if (!is_null($property->property_features)) {
+                    if ($property->property_features) {
+                        foreach (json_decode($property->property_features)	as $inst)
+                        {
+                            $property['property_features']=\App\Models\property_features::orderBy('created_at')->where('status',1)->get();
+                        }
                     }
                 }
                 $xyx= property_item::where('ptoperty_id',$property->id)->get();
                 if ($xyx) {
                     $property['property_item']= $xyx;
                 }               
-            // return $xyx;
+            // return $property;
             }
         return view('frontend.listing.single_listing',compact('property'));
     }
@@ -93,7 +97,30 @@ class WebPageController extends Controller
 //=================================================Filter Listing========================
     public function properyfilter(Request $request)
         {
-            return $request->all();
+            // return $request->property_type;
+
+            // $users = mak_properties::where('status', 1);
+
+            // if ($request->has('property_type')) {
+            //     $users->where('property_type', $request->property_type);
+            // }
+    
+            // if ($request->has('gender')) {
+            //     $users->where('gender', $request->gender);
+            // }
+    
+            //  $users->get()->all();
+            // foreach ($users as $insts)
+            // {
+            //     $insts->stateName = state::find($insts->state)->state_name;
+            //     $insts->distName = district::find($insts->district)->district_name;
+            //     $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
+            //     $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
+            // }
+            // return $users;
+
+            // return view('frontend.listing.all-listing',compact('users'));
+            // // return $request->all();
         }
 //===============================================Query Submission =========================
     public function propertyquerySubmit(Request $request){
@@ -103,6 +130,8 @@ class WebPageController extends Controller
             'name'=> $request->name,
             'email'=> $request->email,
             'phone'=> $request->phone,
+            'property_id'=> $request->property_id,
+            'partner_id'=> $request->partner_id,
             'form_message'=> $request->form_message,
             'cookie_id'=> $old_cookie,
         ]);

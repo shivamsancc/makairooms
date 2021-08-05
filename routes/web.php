@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 /*===============================Routes Included================*/
 require('website_route.php');
 require('admin_route.php');
+require('partner_route.php');
 /*===============================Routes Included================*/
 
 
@@ -40,3 +41,6 @@ Route::get('/clear', function() {
  });
  Route::get('/autoapi', 'frontend\WebPageController@mapapiupdate')->name('mapapiupdate');
  Route::post('/newslettersubbmit', 'frontend\webPageController@newslettersubbmit')->name('newslettersubbmit');
+//========================Ajax Route=====================================================
+Route::get('/nextteacher/districtapi', 'admin\partner\PartnerController@districtapi')->name('ajaxdistrictapi');
+Route::get('/nextteacher/propertyapi', 'admin\property\propertyController@propertyapi')->name('ajaxpropertyapi');
