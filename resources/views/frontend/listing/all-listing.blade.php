@@ -234,9 +234,9 @@
                                             <div class="sidebar_select_options">
                                                 <select name="property_type" id="property_type" class="selectpicker w100 show-tick">
                                                     <option value="">All Categories</option>
-                                                    <option value="PG">PG</option>
-                                                    <option value="FLAT">Flat</option>
-                                                    <option value="ROOMS">Room</option>
+                                                    <option <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?> value="PG">PG</option>
+                                                    <option <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?> value="FLAT">Flat</option>
+                                                    <option <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?> value="ROOMS">Room</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -246,9 +246,9 @@
                                             <div class="sidebar_select_options">
                                                 <select name="gender" id="gender" class="selectpicker w100 show-tick">
                                                     <option value="" selected>Select One</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    <option value="unisex">Unisex</option>
+                                                    <option value="male" <?= app('request')->input('gender') == 'male' ? ' selected="selected"' : '';?>>Male</option>
+                                                    <option value="female" <?= app('request')->input('gender')  == 'female' ? ' selected="selected"' : '';?>>Female</option>
+                                                    <option value="unisex"  <?= app('request')->input('gender')  == 'unisex' ? ' selected="selected"' : '';?>>Unisex</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -271,122 +271,17 @@
                                     </li>
                                     <li>
                                         <div class="ui_kit_checkbox sidebar_tag">
-                                            <h4 class="title">Amenities</h4>
+                                            <h4 class="title">Locality</h4>
                                             <div class="wrapper">
-                                                <ul>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckCredit">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckCredit">Accepts Credit Cards</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckSmoking">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckSmoking">Smoking Allowed</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckBikeP">
-                                                            <label class="custom-control-label" for="customCheckBikeP">Bike
-                                                                Parking</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckStreet">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckStreet">Street Parking</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckWireless">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckWireless">Wireless Internet</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckAlco">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckAlco">Alcohol</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckPet">
-                                                            <label class="custom-control-label" for="customCheckPet">Pet
-                                                                Friendly</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckCredit2">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckCredit2">Accepts Credit Cards</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckSmoking2">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckSmoking2">Smoking Allowed</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckBikeP2">
-                                                            <label class="custom-control-label" for="customCheckBikeP2">Bike
-                                                                Parking</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckStreet2">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckStreet2">Street Parking</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckWireless2">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckWireless2">Wireless Internet</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckAlco2">
-                                                            <label class="custom-control-label"
-                                                                for="customCheckAlco2">Alcohol</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="customCheckPet2">
-                                                            <label class="custom-control-label" for="customCheckPet2">Pet
-                                                                Friendly</label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                <div class="form-group">
+                                                  <label for=""></label>
+                                                  <select class="selectpicker w100 show-tick" name="localities" id="localities">
+                                                    <option value="" selected> Select </option>
+                                                    @foreach ($localities as $item)
+                                                        <option <?= app('request')->input('localities')  == $item->id ? ' selected="selected"' : '';?> value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach
+                                                  </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>

@@ -22,4 +22,10 @@ class locality extends Model
             ]
         ];
     }
+
+
+    public static function getlisting(){
+        $result =self::where('status',1)->get();
+        return $result;
+    }
 }

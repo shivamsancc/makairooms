@@ -48,7 +48,6 @@ class WebPageController extends Controller
 
     function alllisting($type){
         $all_properties = mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get(); 
-    //    dd($all_properties);
         foreach ($all_properties as $insts)
         {
             $insts->stateName = state::find($insts->state)->state_name;
@@ -56,7 +55,8 @@ class WebPageController extends Controller
             $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
-        return view('frontend.listing.all-listing',compact('all_properties'));
+        $all_properties['localities']= \App\Models\locality::get();
+        return view('frontend.listing.all-listing',compact('all_properties','localities'));
     }
     //==============single Listing===================
 
@@ -76,7 +76,6 @@ class WebPageController extends Controller
                     $inst['partnername'] = partner::where('user_id',$inst->partner_id)->get();
                     $inst['images'] = mak_propert_images::where('property_id', $inst->id)->get();
                 }
-                // dd($property->property_features);
                 if (!is_null($property->property_features)) {
                     if ($property->property_features) {
                         foreach (json_decode($property->property_features)	as $inst)
@@ -89,7 +88,6 @@ class WebPageController extends Controller
                 if ($xyx) {
                     $property['property_item']= $xyx;
                 }               
-            // return $property;
             }
         return view('frontend.listing.single_listing',compact('property'));
     }
@@ -97,30 +95,32 @@ class WebPageController extends Controller
 //=================================================Filter Listing========================
     public function properyfilter(Request $request)
         {
-            // return $request->property_type;
+           $all_properties= $this->filterview($request);
+            foreach ($all_properties as $insts)
+            {
+                $insts->stateName = state::find($insts->state)->state_name;
+                $insts->distName = district::find($insts->district)->district_name;
+                $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
+                $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
+            }
+            $localities= \App\Models\locality::getlisting();
+            return view('frontend.listing.all-listing',compact('all_properties','localities'));
+        }
 
-            // $users = mak_properties::where('status', 1);
+        public function filterview(Request $request)
+        {
+            $users = mak_properties::where('status', 1);
 
-            // if ($request->has('property_type')) {
-            //     $users->where('property_type', $request->property_type);
-            // }
+            if ($request->has('property_type')) {
+                $users->where('property_type', $request->property_type);
+            }
     
-            // if ($request->has('gender')) {
-            //     $users->where('gender', $request->gender);
-            // }
+            if ($request->has('gender')) {
+                $users->where('gender', $request->gender);
+            }
     
-            //  $users->get()->all();
-            // foreach ($users as $insts)
-            // {
-            //     $insts->stateName = state::find($insts->state)->state_name;
-            //     $insts->distName = district::find($insts->district)->district_name;
-            //     $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
-            //     $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
-            // }
-            // return $users;
+            return $users->get()->all();   
 
-            // return view('frontend.listing.all-listing',compact('users'));
-            // // return $request->all();
         }
 //===============================================Query Submission =========================
     public function propertyquerySubmit(Request $request){
