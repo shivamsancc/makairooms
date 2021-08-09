@@ -15,13 +15,13 @@ class CreateVisitorsTable extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
-            $table->string('ip');
-            $table->text('user_agent');
-            $table->string('method');
-            $table->string('path');
-            $table->string('cookie');
-            $table->string('response_code');
-            $table->string('response_after');
+            $table->string('ip')->nullable();
+            $table->text('user_agent')->nullable();
+            $table->string('method')->nullable();
+            $table->string('path')->nullable();
+            $table->string('cookie')->nullable();
+            $table->string('response_code')->nullable();
+            $table->string('response_after')->nullable();
             $table->timestamps();
         });
     }

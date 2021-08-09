@@ -15,14 +15,14 @@ class CreateVisitorLogsTable extends Migration
     {
         Schema::create('visitor_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('ip');
-            $table->text('userAgent');
-            $table->string('method');
-            $table->string('path');
-            $table->text('cookie_id');
+            $table->string('ip')->nullable();
+            $table->text('userAgent')->nullable();
+            $table->string('method')->nullable();
+            $table->string('path')->nullable();
+            $table->text('cookie_id')->nullable();
             $table->longtext('parameters')->nullable();
-            $table->string('response_code');
-            $table->string('response_after');
+            $table->string('response_code')->nullable();
+            $table->string('response_after')->nullable();
             $table->timestamps();
         });
     }

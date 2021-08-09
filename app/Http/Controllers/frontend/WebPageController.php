@@ -55,7 +55,7 @@ class WebPageController extends Controller
             $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
             $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
         }
-        $all_properties['localities']= \App\Models\locality::get();
+        $localities= \App\Models\locality::getlisting();
         return view('frontend.listing.all-listing',compact('all_properties','localities'));
     }
     //==============single Listing===================
