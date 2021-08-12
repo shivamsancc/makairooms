@@ -9,16 +9,6 @@ use DB;
 use Storage;
 use Image;
 use File;
-use App\Models\state;
-use App\Models\district;
-use App\Models\partner;
-use App\Models\mak_properties;
-use App\Models\mak_propert_images;
-use App\Models\property_item;
-use App\Models\mapapi;
-use App\Models\blog_post;
-use App\Models\blog_category;
-use App\Models\newsletter;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
@@ -28,53 +18,51 @@ class WebPageController extends Controller
 
     public function hompage()
     {
-        $all_POST= blog_post::orderBy('created_at', 'DESC')->where('status',1)->take(3)->get();
+        $all_POST= \App\Models\blog_post::orderBy('created_at', 'DESC')->where('status',1)->take(3)->get();
         foreach ($all_POST as $insts)
         {
-            $insts->category_name = blog_category::find($insts->category)->name;
+            $insts->category_name = \App\Models\blog_category::find($insts->category)->name;
         }
         $all_city=  \App\Models\City::where('status',1)->get();
         if ($all_city) {
             $allcity =$all_city;
         }
+
         return view('frontend.home',compact('all_POST','allcity'));
     }
-
-
-
-
 
     //============Listing Controller ================
 
     function alllisting($type){
-        $all_properties = mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get(); 
+        $all_properties = \App\Models\mak_properties::orderBy('created_at')->where('property_type',$type)->where('status',1)->get(); 
         foreach ($all_properties as $insts)
         {
-            $insts->stateName = state::find($insts->state)->state_name;
-            $insts->distName = district::find($insts->district)->district_name;
-            $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
-            $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
+            $insts->stateName = \App\Models\state::find($insts->state)->state_name;
+            $insts->distName = \App\Models\district::find($insts->district)->district_name;
+            $insts->partnername = \App\Models\partner::getpropertyuser($insts->partner_id);
+            $insts->images = \App\Models\mak_propert_images::where('property_id', $insts->id)->get();
         }
         $localities= \App\Models\locality::getlisting();
+        
         return view('frontend.listing.all-listing',compact('all_properties','localities'));
     }
     //==============single Listing===================
 
     function siglelisting($slug){
-        $property= mak_properties::where('slug',$slug)->where('status',1)->first();
+        $property= \App\Models\mak_properties::where('slug',$slug)->where('status',1)->first();
             if ($property) {
-                $property['latestmapapi'] = mapapi::orderBy('created_at', 'DESC')->first();
-                $property['stateName'] = state::find($property->state)->state_name;
-                $property['distName'] = district::find($property->district)->district_name;
-                $property['partnername'] = partner::where('user_id',$property->partner_id)->first();
-                $property['images'] = mak_propert_images::where('property_id', $property->id)->get();
-                $property['related_listing']= mak_properties::orderBy('created_at')->where('property_type',$property->property_type)->where('status',1)->get()->all();
+                $property['latestmapapi'] = \App\Models\mapapi::orderBy('created_at', 'DESC')->first();
+                $property['stateName'] = \App\Models\state::find($property->state)->state_name;
+                $property['distName'] = \App\Models\district::find($property->district)->district_name;
+                $property['partnername'] = \App\Models\partner::where('user_id',$property->partner_id)->first();
+                $property['images'] = \App\Models\mak_propert_images::where('property_id', $property->id)->get();
+                $property['related_listing']= \App\Models\mak_properties::orderBy('created_at')->where('property_type',$property->property_type)->where('status',1)->get()->all();
                 foreach ($property['related_listing'] as $inst)
                 {
-                    $inst['stateName'] = state::find($inst->state)->state_name;
-                    $inst['distName'] = district::find($inst->district)->district_name;
-                    $inst['partnername'] = partner::where('user_id',$inst->partner_id)->get();
-                    $inst['images'] = mak_propert_images::where('property_id', $inst->id)->get();
+                    $inst['stateName'] = \App\Models\state::find($inst->state)->state_name;
+                    $inst['distName'] = \App\Models\district::find($inst->district)->district_name;
+                    $inst['partnername'] = \App\Models\partner::where('user_id',$inst->partner_id)->get();
+                    $inst['images'] = \App\Models\mak_propert_images::where('property_id', $inst->id)->get();
                 }
                 if (!is_null($property->property_features)) {
                     if ($property->property_features) {
@@ -84,11 +72,12 @@ class WebPageController extends Controller
                         }
                     }
                 }
-                $xyx= property_item::where('ptoperty_id',$property->id)->get();
+                $xyx= \App\Models\property_item::where('ptoperty_id',$property->id)->get();
                 if ($xyx) {
                     $property['property_item']= $xyx;
                 }               
             }
+
         return view('frontend.listing.single_listing',compact('property'));
     }
 
@@ -98,18 +87,19 @@ class WebPageController extends Controller
            $all_properties= $this->filterview($request);
             foreach ($all_properties as $insts)
             {
-                $insts->stateName = state::find($insts->state)->state_name;
-                $insts->distName = district::find($insts->district)->district_name;
-                $insts->partnername = partner::where('user_id',$insts->partner_id)->get();
-                $insts->images = mak_propert_images::where('property_id', $insts->id)->get();
+                $insts->stateName = \App\Models\state::find($insts->state)->state_name;
+                $insts->distName = \App\Models\district::find($insts->district)->district_name;
+                $insts->partnername = \App\Models\partner::getpropertyuser($insts->partner_id);
+                $insts->images = \App\Models\mak_propert_images::where('property_id', $insts->id)->get();
             }
             $localities= \App\Models\locality::getlisting();
+
             return view('frontend.listing.all-listing',compact('all_properties','localities'));
         }
 
         public function filterview(Request $request)
         {
-            $users = mak_properties::where('status', 1);
+            $users = \App\Models\mak_properties::where('status', 1);
 
             if ($request->has('property_type')) {
                 $users->where('property_type', $request->property_type);
@@ -154,7 +144,7 @@ class WebPageController extends Controller
 
         $response = Http::post($url);
         $data = json_decode($response, true);
-        $something = mapapi::create($data);
+        $something = \App\Models\mapapi::create($data);
         if ($something->save())
         {
             return back();
@@ -163,35 +153,38 @@ class WebPageController extends Controller
 
 //==================================Blog=====================================================
     public function blog(){
-                $all_POST= blog_post::with('tagged')->orderBy('created_at')->where('status',1)->simplePaginate(6);
+                $all_POST= \App\Models\blog_post::with('tagged')->orderBy('created_at')->where('status',1)->simplePaginate(6);
                 foreach ($all_POST as $insts)
                     {
-                        $insts->category_name = blog_category::find($insts->category)->name;
+                        $insts->category_name = \App\Models\blog_category::find($insts->category)->name;
                     }
-                $allcategory= blog_category::orderBy('created_at')->where('status',1)->get();
-                $tags=blog_post::existingTags();
+                $allcategory= \App\Models\blog_category::orderBy('created_at')->where('status',1)->get();
+                $tags=\App\Models\blog_post::existingTags();
+
         return view('frontend.blog.blog',compact('all_POST','allcategory','tags'));
     }
 
     public function singleblog($slug){
-            $POST= blog_post::with('tagged')->where('slug',$slug)->where('status',1)->first();
+            $POST= \App\Models\blog_post::with('tagged')->where('slug',$slug)->where('status',1)->first();
             if ($POST) {
-                $POST['category_name'] = blog_category::find($POST->category)->name;
-                $POST['next_record'] = blog_post::where('id', '>', $POST->id)->orderBy('id')->first();
-                $POST['pre_record'] = blog_post::where('id', '<', $POST->id)->orderBy('id')->first();    
+                $POST['category_name'] = \App\Models\blog_category::find($POST->category)->name;
+                $POST['next_record'] = \App\Models\blog_post::where('id', '>', $POST->id)->orderBy('id')->first();
+                $POST['pre_record'] = \App\Models\blog_post::where('id', '<', $POST->id)->orderBy('id')->first();    
             }
+
         return view('frontend.blog.single',compact('POST'));
     }
 
     public function catergoryblog($category){
-        $allcategory= blog_category::orderBy('created_at')->where('status',1)->get();
-        $category = blog_category::where('slug',$category)->where('status',1)->first();
-        $all_POST = blog_post::where('category',$category->id)->orderBy('created_at')->simplePaginate(6);
+        $allcategory= \App\Models\blog_category::orderBy('created_at')->where('status',1)->get();
+        $category = \App\Models\blog_category::where('slug',$category)->where('status',1)->first();
+        $all_POST = \App\Models\blog_post::where('category',$category->id)->orderBy('created_at')->simplePaginate(6);
         foreach ($all_POST as $insts)
         {
-            $insts->category_name = blog_category::find($insts->category)->name;
+            $insts->category_name = \App\Models\blog_category::find($insts->category)->name;
         }
-        $tags=blog_post::existingTags();
+        $tags=\App\Models\blog_post::existingTags();
+
      return view('frontend.blog.blog',compact('all_POST','allcategory','tags','category'));
     }
 
@@ -202,7 +195,7 @@ class WebPageController extends Controller
     {
         if ($request->newsletter_email)
         {
-            $data = DB::table("newsletters")->where('newsletter_email', $request->newsletter_email)
+            $data = \DB::table("newsletters")->where('newsletter_email', $request->newsletter_email)
                 ->count();
             if ($data > 0)
             {
@@ -210,7 +203,7 @@ class WebPageController extends Controller
             }
             else
             {
-                $insertdata = newsletter::create(['newsletter_email' => $request->newsletter_email, 'cookie' => $request->newsletter_mac_id, ]);
+                $insertdata = \App\Models\newsletter::create(['newsletter_email' => $request->newsletter_email, 'cookie' => $request->newsletter_mac_id, ]);
                 if ($insertdata)
                 {
                     echo 'unique';

@@ -132,6 +132,7 @@ public function eidtproperty($id)
         'about_property'=>$request->about_property,
         'address'=>$request->address,
         'state'=>$request->state,
+        'gender'=>$request->gender,
         'price_range1'=>$request->price_range1,
         'price_range2'=>$request->price_range2,
         'district'=>$request->district,
@@ -265,6 +266,7 @@ public function updateitem($id ,Request $request)
         'property_type'=>$request->property_type,
         'item_name'=>$request->item_name,
         'item_for'=>$request->item_for,
+        'gender'=>$request->gender,
         'item_price'=>$request->item_price,
     ]);
     if ($update) {

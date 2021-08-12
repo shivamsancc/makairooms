@@ -17,6 +17,7 @@
     <!-- Title -->
     <title> @yield('title') | {{ config('app.name', 'MakaiRooms') }}</title>
     <!-- Favicon -->
+    <link rel="stylesheet" href="{{ asset('') }}font/css/all.min.css" />
     <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico?v=2.02" sizes="128x128" rel="shortcut icon"
         type="image/x-icon" />
     <link href="{{ asset('/web/themes/guido') }}/images/favicon.ico?v=2.02" sizes="128x128" rel="shortcut icon" />

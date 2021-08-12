@@ -65,6 +65,20 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
+                                <div class="form-group">
+                                  <label for="gender">Item For (Gender) <span class="text-danger">*</span></label>
+                                  <select class="form-control" required name="gender" id="gender">
+                                    <option value="" selected>Select One</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="unisex">Unisex</option>
+                                  </select>
+                                  <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
                                 <label for="">Status</label>
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" value="1" name="status"

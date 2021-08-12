@@ -70,9 +70,9 @@
                                 <label for="">Name of the Poperty</label>
                                 <input type="text" class="form-control" name="name" id="name" required
                                     aria-describedby="helpId" placeholder="Name">
-                                @error('name')
-                                <p class="text-danger">{{ $message }}</p>
-                                @enderror
+                                  @error('name')
+                                  <p class="text-danger">{{ $message }}</p>
+                                  @enderror
                                 <small id="helpId" class="form-text text-muted">Name of the Poperty</small>
                             </div>
                         </div>
@@ -88,6 +88,20 @@
                           </div>
                         </div>
                         <div class="col-6">
+                          <div class="form-group">
+                              <div class="form-group">
+                                <label for="gender">Item For (Gender) <span class="text-danger">*</span></label>
+                                <select class="form-control" required name="gender" id="gender">
+                                  <option value="" selected>Select One</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="unisex">Unisex</option>
+                                </select>
+                                <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
+                              </div>
+                          </div>
+                       </div>
+                        <div class="col-6">
                             <div class="form-group">
                                 <label for="">Status</label>
                                 <div class="custom-control custom-switch">
@@ -97,6 +111,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-12">
                             <div class="form-group">
                               <label for=""></label>

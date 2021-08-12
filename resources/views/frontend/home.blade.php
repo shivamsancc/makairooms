@@ -18,7 +18,7 @@
                                 <div class="wrapper">
                                     <div class="home_adv_srch_form home2">
                                         <div class="home_adv_srch_form">
-                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767" action="{{route('properyfilter')}}" method="POST"> @csrf 
+                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767" action="{{route('properyfilter')}}" method="get">
                                                 <div class="form-row align-items-center">
                                                     <div class="col-auto home_form_input mb20-xsd">
                                                         <label class="sr-only">Username</label>
@@ -46,11 +46,11 @@
                                                             </div>
                                                             <div class="select-wrap style2-dropdown">
 
-                                                                <select name="lang" class="form-control js-searchBox2">
+                                                                <select name="property_type" class="form-control js-searchBox2">
                                                                     <option value="" selected>Select</option>
-                                                                    <option value="">PG</option>
-                                                                    <option value="TopPicks">Flat</option>
-                                                                    <option value="CityOfLondon">Room</option>
+                                                                    <option <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?> value="PG">PG</option>
+                                                                    <option <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?> value="FLAT">Flat</option>
+                                                                    <option <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?> value="ROOMS">Room</option>
                                                                 </select>
 
                                                             </div>
@@ -165,7 +165,7 @@
             <div class="col-lg-8">
                 <div class="main-title text-center">
                     <h2>Why Choose Makairooms</h2>
-                    <p>Discover some of the most popular listings in Toronto based on user reviews and ratings.
+                    <p>Discover some of the most popular listings in All Over INDIA.
                     </p>
                 </div>
             </div>
@@ -174,9 +174,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-cutlery"></span></div>
+                        <div class="icon"><span class="fal fa-badge-percent"></span></div>
                         <div class="details">
-                            <h5 class="title">Restaurant</h5>
+                            <h5 class="title">Best offers </h5>
                         </div>
                     </div>
                 </div>
@@ -184,9 +184,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-shopping-bag"></span></div>
+                        <div class="icon"><span class="fal fa-street-view"></span></div>
                         <div class="details">
-                            <h5 class="title">Shopping</h5>
+                            <h5 class="title">Clear view of property</h5>
                         </div>
                     </div>
                 </div>
@@ -194,9 +194,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-tent"></span></div>
+                        <div class="icon"><span class="fal fa-times-hexagon"></span></div>
                         <div class="details">
-                            <h5 class="title">Outdoor Activities</h5>
+                            <h5 class="title">Avoid brokers</h5>
                         </div>
                     </div>
                 </div>
@@ -204,9 +204,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-desk-bell"></span></div>
+                        <div class="icon"><span class="fal fa-search"></span></div>
                         <div class="details">
-                            <h5 class="title">Hotels</h5>
+                            <h5 class="title">Easiest way of hunting stays</h5>
                         </div>
                     </div>
                 </div>
@@ -214,9 +214,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-mirror"></span></div>
+                        <div class="icon"><span class="fal fa-rupee-sign"></span></div>
                         <div class="details">
-                            <h5 class="title">Beauty & Spa</h5>
+                            <h5 class="title">Free listing </h5>
                         </div>
                     </div>
                 </div>
@@ -224,9 +224,9 @@
             <div class="col-sm-6 col-lg-2">
                 <div class="icon_hvr_img_box" style="background-image: url(web/themes/guido/images/service/4.jpg);">
                     <div class="overlay">
-                        <div class="icon"><span class="flaticon-brake"></span></div>
+                        <div class="icon"><span class="fal fa-arrows-h"></span></div>
                         <div class="details">
-                            <h5 class="title">Automotive</h5>
+                            <h5 class="title">Pan India Availiblity</h5>
                         </div>
                     </div>
                 </div>

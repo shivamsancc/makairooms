@@ -65,6 +65,20 @@
                         </div>
                         <div class="col-4">
                             <div class="form-group">
+                                <div class="form-group">
+                                  <label for="gender">Item For (Gender) <span class="text-danger">*</span></label>
+                                  <select class="form-control" required name="gender" id="gender">
+                                    <option value="" selected>Select One</option>
+                                    <option value="male" {{ ( $property_data['0']->gender == 'male') ? 'selected' : '' }} >Male</option>
+                                    <option value="female" {{ ( $property_data['0']->gender == 'female') ? 'selected' : '' }} >Female</option>
+                                    <option value="unisex" {{ ( $property_data['0']->gender == 'unisex') ? 'selected' : '' }} >Unisex</option>
+                                  </select>
+                                  <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
                                 <label for="">Status</label>
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" value="1" name="status"

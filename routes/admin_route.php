@@ -84,6 +84,12 @@ Route::post('/blog/cat/update/{id}', 'admin\blog\blogController@updatecategory')
 Route::get('/blog/cat/delete/{id}', 'admin\blog\blogController@categorydestroy')->name('all_blogs_cat_delete');
 
 Route::post('ckeditor/upload', 'admin\blog\blogController@upload')->name('ckeditor.upload');
+//==============================Query Route======================================
+Route::get('/query/listingquery', 'admin\query\queryController@listquery')->name('listingquery');
+Route::get('/query/{id}/listingquerysoftdelete', 'admin\query\queryController@listquerysoftdelete')->name('listquerysoftdelete');
+Route::get('/query/helpquery', 'admin\query\queryController@helpquery')->name('helpquery');
+Route::get('/query/{id}/helpquerysoftdelete', 'admin\query\queryController@helpquerysoftdelete')->name('helpquerysoftdelete');
+
 
 
 //========================Ajax Route=====================================================

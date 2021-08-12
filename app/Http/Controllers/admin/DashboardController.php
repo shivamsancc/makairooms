@@ -22,8 +22,13 @@ class DashboardController extends Controller
             'flat_count'=>mak_properties::where('property_type','FLAT')->count(),
             'rooms_count'=>mak_properties::where('property_type','ROOMS')->count(),
         ]);
-        // return $all_count['0']['partner_count'];
-        return view('admindash.dashboard',compact('all_count'));
+        $alllistingquery= \App\Models\listing_query::where('status',1)->get();
+        foreach ($alllistingquery as $inst)
+        {
+            $inst->partnername = \App\Models\partner::where('id',$inst->partner_id)->first()->name;
+            $inst->propertyname =  \App\Models\mak_properties::where('id',$inst->property_id)->first()->name;
+        }
+        return view('admindash.dashboard',compact('all_count','alllistingquery'));
     }
 
 }

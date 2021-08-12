@@ -27,4 +27,6 @@ Route::get('/blog/category/{slug}', 'frontend\WebPageController@catergoryblog')-
 
 
 Route::get('/newlogin', 'frontend\WebPageController@newlogin')->name('newlogin');
+//====================Query poste===============
+Route::post('/helpquerysubmit', 'frontend\queryController@store')->name('helpquerysubmit');
 });

@@ -24,8 +24,7 @@ class Visitor_log{
         $log->path = $request->path();
         $log->user_agent = $request->userAgent();
         $log->save();
-
-        $newlog = new \App\Models\Visitor_log;
+        $newlog = new \App\Models\visitorLog;
         $newlog->ip = $request->ip();
         $newlog->userAgent = $request->userAgent();
         $newlog->method = $request->method();
