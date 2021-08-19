@@ -18,9 +18,9 @@
             <div class="col-lg-12 p0">
                 <div class="listing_single_property_slider">
                     @foreach ($property['images'] as $item)
-                    <div class="item">
-                        <img class="img-fluid" src="{{Storage::url($item->img_name)}}" alt="{{$item->img_name}}">
-                    </div>
+                        <div class="item">
+                            <img class="img-fluid" style="max-height: 335px;" src="{{Storage::url($item->img_name)}}" alt="{{$item->img_name}}">
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -266,16 +266,16 @@
                         <ul class="sidebar_social_icon mb0">
                             <li class="list-inline-item"><a target="_blank"
                                     href="https://www.facebook.com/sharer.php?u={{URL::full()}}"><i
-                                        class="fa fa-facebook"></i></a></li>
+                                        class="fab fa-facebook"></i></a></li>
                             <li class="list-inline-item"><a target="_blank"
                                     href="https://twitter.com/share?url={{URL::full()}}"><i
-                                        class="fa fa-twitter"></i></a></li>
+                                        class="fab fa-twitter"></i></a></li>
                             <li class="list-inline-item"><a target="_blank"
                                     href="https://api.whatsapp.com/send?text={{URL::full()}}"><i
-                                        class="fa fa-whatsapp"></i></a></li>
+                                        class="fab fa-whatsapp"></i></a></li>
                             <li class="list-inline-item"><a target="_blank"
                                     href="https://www.linkedin.com/sharing/share-offsite/?{{URL::full()}}"><i
-                                        class="fa fa-linkedin"></i></a></li>
+                                        class="fab fa-linkedin"></i></a></li>
                         </ul>
                     </div>
                     <div class="sidebar_contact_business_widget">

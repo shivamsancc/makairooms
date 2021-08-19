@@ -73,8 +73,12 @@
         </div>
     </div>
 </section>
-
 <!-- Property Cities -->
+@isset($ads['home'])
+    <div class="col-12 m-0 p-0" >
+        <img src="{{Storage::url($ads['home'])}}" class="img-fluid" style="max-height:200px ; width:100%:" alt="{{$ads['home']}}">
+    </div>
+@endisset
 <section id="property-city" class="property-city border-bottom pb70">
     <div class="container">
         <div class="row">

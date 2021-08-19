@@ -49,7 +49,7 @@
         </div>
     </header>
     <!-- Modal -->
-    <div class="sign_up_modal modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    {{-- <div class="sign_up_modal modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-md mt100" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -200,7 +200,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Main Header Nav For Mobile -->
     <div id="page" class="stylehome1 h0">
@@ -245,9 +245,9 @@
                 </li>
                 <li><span>Explore</span>
                     <ul>
-                        <li><a href="page-author-single.html">Author Single</a></li>
-                        <li><a href="page-city-single.html">City Single</a></li>
-                        <li><a href="page-add-new-listing.html">New Listing</a></li>
+                        <li><a href="{{route('all_isting',['type' => 'PG'])}}">PG</a></li>
+                        <li><a href="{{route('all_isting',['type' => 'FLAT'])}}">Flat</a></li>
+                        <li><a href="{{route('all_isting',['type' => 'ROOMS'])}}">Room</a></li>
                     </ul>
                 </li>
                 <li><a href="{{'/'}}">Blog</a></li>

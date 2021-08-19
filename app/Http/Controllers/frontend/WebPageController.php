@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Mail;
 class WebPageController extends Controller
 {
 
+    public function __construct()
+    {
+       $this->data= \App\system::getmasterdata();
+    }
     public function hompage()
     {
+        // dd($this->data);
         $all_POST= \App\Models\blog_post::orderBy('created_at', 'DESC')->where('status',1)->take(3)->get();
         foreach ($all_POST as $insts)
         {
@@ -28,7 +33,7 @@ class WebPageController extends Controller
             $allcity =$all_city;
         }
 
-        return view('frontend.home',compact('all_POST','allcity'));
+        return view('frontend.home',compact('all_POST','allcity'),$this->data);
     }
 
     //============Listing Controller ================

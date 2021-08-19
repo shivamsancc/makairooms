@@ -90,6 +90,8 @@ Route::get('/query/{id}/listingquerysoftdelete', 'admin\query\queryController@li
 Route::get('/query/helpquery', 'admin\query\queryController@helpquery')->name('helpquery');
 Route::get('/query/{id}/helpquerysoftdelete', 'admin\query\queryController@helpquerysoftdelete')->name('helpquerysoftdelete');
 
+//============Adds route=======================
+Route::resource('/adsmanager',  'admin\master\adsController');
 
 
 //========================Ajax Route=====================================================
