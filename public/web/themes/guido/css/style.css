@@ -14195,7 +14195,9 @@ section {
   position: absolute;
   right: 0;
   top: 0; }
-
+.some{
+  background-color: #000;
+}
 .bgc-overlay-white6:before {
   background-color: rgba(255, 255, 255, 0.6);
   bottom: 0;
