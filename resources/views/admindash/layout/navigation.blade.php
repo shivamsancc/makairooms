@@ -100,6 +100,7 @@
             <a class="collapse-item" href="{{route('all_features')}}">Features</a>
             <a class="collapse-item" href="{{route('all_admin_city')}}">City</a>
             <a class="collapse-item" href="{{route('all_admin_locality')}}">Locality</a>
+            <a class="collapse-item" href="{{route('adsmanager.index')}}">Adsmanager</a>
         </div>
     </div>
 </li>

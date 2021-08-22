@@ -71,13 +71,20 @@ class propertyController extends Controller
 
 
    function add_pgpost(Request $request){
+    if (isset($request->youtube_link)) {
+        $validator = \Validator::make($request->all() , ['youtube_link' => ['required','regex:/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i']]);       
+        if ($validator->passes()) {
+            $youtube=$request->youtube_link;
+        }else{
+            $youtube=NULL;
+         }}
         $randomurl = $this->random_strings(30); 
         $insert= mak_properties::create([
             'partner_id'=>$request->partner_id,
             'name'=>$request->name,
             'property_type'=>$request->property_type,
             'status'=>$request->status,
-            'youtube_link'=>$request->youtube_link,
+            'youtube_link'=>$youtube,
             '360_degree_link'=>$request->degree_link,
             'about_property'=>$request->about_property,
             'address'=>$request->address,
@@ -102,9 +109,8 @@ class propertyController extends Controller
          }
          alert()->success('You Data has been saved Prperly.', 'Save Sucessfully');
          return redirect()->route('allproperties');
-
-     }
-
+        }   
+    // }
    }
 public function eidtproperty($id)
 {

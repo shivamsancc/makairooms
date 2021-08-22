@@ -72,6 +72,7 @@
                                     <option value="male" {{ ( $property_data['0']->gender == 'male') ? 'selected' : '' }} >Male</option>
                                     <option value="female" {{ ( $property_data['0']->gender == 'female') ? 'selected' : '' }} >Female</option>
                                     <option value="unisex" {{ ( $property_data['0']->gender == 'unisex') ? 'selected' : '' }} >Unisex</option>
+                                    <option value="married" {{ ( $property_data['0']->gender == 'married') ? 'selected' : '' }} >Married</option>
                                   </select>
                                   <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
                                 </div>

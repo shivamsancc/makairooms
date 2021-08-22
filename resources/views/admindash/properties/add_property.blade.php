@@ -96,6 +96,7 @@
                                   <option value="male">Male</option>
                                   <option value="female">Female</option>
                                   <option value="unisex">Unisex</option>
+                                  <option value="married">Married</option>
                                 </select>
                                 <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
                               </div>
@@ -298,34 +299,20 @@ $(document).ready(function() {
     var map = new MapmyIndia.Map('map', {
       center: [28.8787, 77.08888],
       zoom: 15,
-      search: false
+      search: true
     });
   
     /*Place Picker plugin initialization*/
     var options = {
       map: map,
       callback: callback_method,
-      search: false,
+      search: true,
       closeBtn:true,
       topText:'Property Location',
-
-
-
-      /*
-       location:{lat:28.8787,lng:77.08888},//to open that location on map on initailization
-       closeBtn:true,
-       closeBtn_callback:closeBtn_callback,
-       search:true,
-       topText:'Location Search',
-       pinImage:'pin.png', //custom pin image
-       pinHeight:40
-       */
     };
     var picker = new MapmyIndia.placePicker(options);
   
-    function callback_method(data) {
-      // console.log(data);
-      // alert(JSON.stringify(data));
+    function callback_method(data) {;
       alert('location Picked');
       document.getElementById("lat").value = data.lat;
       document.getElementById("long").value = data.lng;
@@ -339,26 +326,6 @@ $(document).ready(function() {
      * 
      */
   
-    //============================map submit ajax===============
-    // $('#institutemap').on('submit', function (event) {
-    //   event.preventDefault();
-  
-    //   lat = $('#lat').val();
-    //   long = $('#long').val();
-    //   $.ajax({
-    //     url: "{{ route('home') }}",
-    //     type: "POST",
-    //     data: {
-    //       "_token": "{{ csrf_token() }}",
-    //       lat: lat,long:long,
-    //     },
-    //     success: function (response) {
-    //       console.log(response);
-    //       alert('Institue Map saved Properly');
-    //       // window.location.reload();
-    //     },
-    //   });
-    // });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>

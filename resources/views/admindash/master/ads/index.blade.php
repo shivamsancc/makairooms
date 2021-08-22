@@ -55,7 +55,6 @@
                             <td>{{$item->distName}}</td>
                             <td class="text-center">
                                 <a href="{{ route('adsmanager.destroy', $item->id) }}" data-method="delete" class="jquery-postback  btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-                            {{-- <a href="{{ route('adsmanager.destroy', $item->id) }}" data-method="delete" class="btn btn-outline-danger jquery-postback"><i class="fas fa-recycle"></i></a></td> --}}
                         </tr>
                         @endforeach
                     </tbody>

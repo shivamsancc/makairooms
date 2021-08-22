@@ -1,6 +1,5 @@
 @extends('frontend.listing.layout.app')
-@section('title','best institute for iit in patna,Top coaching in Patna for NEET,Best coaching in Patna for 11 and
-12,Best Coaching in Patna for SSC,Best IIT coaching in Bihar')
+@section('title','Register')
 @section('content')
 <section class="inner_page_breadcrumb">
     <div class="container">

@@ -16,4 +16,10 @@ class property_item extends Model
         $result= self::where('id',$id)->where('partner_id',$user_id)->first();
          return $result;
      }
+
+
+     public static function getbyId($id){
+        $result= self::where('id',$id)->first();
+         return $result;
+     }
 }

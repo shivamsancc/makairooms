@@ -221,7 +221,7 @@
                         <a href="#"><span class="title">{{Auth::user()->name}}</span></a>
                         <!-- Level Two-->
                         <ul>
-                            <li><a href="page-author-single.html">Profile</a></li>
+                            {{-- <li><a href="page-author-single.html">Profile</a></li> --}}
                             <li><a href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             </li>
@@ -257,7 +257,7 @@
                     <a href="#"><span class="title">{{Auth::user()->name}}</span></a>
                     <!-- Level Two-->
                     <ul>
-                        <li><a href="page-author-single.html">Profile</a></li>
+                        <li><a href="#">Profile</a></li>
                         <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         </li>

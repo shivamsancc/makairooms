@@ -180,6 +180,7 @@ return [
         Conner\Tagging\Providers\TaggingServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
 
         
 
@@ -239,6 +240,7 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
 
     ],  
 

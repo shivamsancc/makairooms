@@ -81,6 +81,12 @@ class featuresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result= \App\Models\property_features::destroy($id);
+        if (isset($result)) {
+            alert()->success('You Data has been Deleted Prperly.', 'Deleted Sucessfully');
+            return back();
+        }
+        alert()->error('You Data has not been Deleted Prperly.', 'Something Went Wrong');
+        return back();
     }
 }

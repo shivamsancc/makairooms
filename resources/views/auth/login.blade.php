@@ -1,6 +1,5 @@
 @extends('frontend.listing.layout.app')
-@section('title','best institute for iit in patna,Top coaching in Patna for NEET,Best coaching in Patna for 11 and
-12,Best Coaching in Patna for SSC,Best IIT coaching in Bihar')
+@section('title','Login')
 @section('content')
 <section class="inner_page_breadcrumb">
     <div class="container">
@@ -52,7 +51,7 @@
                         <button type="submit" class="btn btn-log btn-block btn-thm">
                             {{ __('Login') }}
                         </button>
-                        <p class="text-center mb30 mt20">Don't have an account? <a class="text-thm" href="{{route('register')}}">Sign up</a>
+                        {{-- <p class="text-center mb30 mt20">Don't have an account? <a class="text-thm" href="{{route('register')}}">Sign up</a> --}}
                         </p>
                     </form>
                 </div>

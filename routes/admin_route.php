@@ -64,6 +64,7 @@ Route::post('/locality/add/store', 'admin\master\localityController@store')->nam
 //=========================features Routes===============================
 Route::get('/property/features', 'admin\features\featuresController@index')->name('all_features');
 Route::post('/property/features/store', 'admin\features\featuresController@store')->name('all_features_add');
+Route::get('/features/destroy/{id}', 'admin\features\featuresController@destroy')->name('featuresController.destroy');
 
 
 

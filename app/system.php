@@ -7,7 +7,10 @@ class system
 {
       public static  function getmasterdata(){
             $data['ads'] = \App\Models\mk_ads::getValues();
+            $data['getFooternav'] = \App\Models\City::getFooternav();
 			return $data;
+
+            
         }
 
 

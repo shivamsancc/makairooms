@@ -49,7 +49,7 @@ class WebPageController extends Controller
         }
         $localities= \App\Models\locality::getlisting();
         
-        return view('frontend.listing.all-listing',compact('all_properties','localities'));
+        return view('frontend.listing.all-listing',compact('all_properties','localities'),$this->data);
     }
     //==============single Listing===================
 
@@ -82,8 +82,7 @@ class WebPageController extends Controller
                     $property['property_item']= $xyx;
                 }               
             }
-
-        return view('frontend.listing.single_listing',compact('property'));
+        return view('frontend.listing.single_listing',compact('property'),$this->data);
     }
 
 //=================================================Filter Listing========================
@@ -99,7 +98,7 @@ class WebPageController extends Controller
             }
             $localities= \App\Models\locality::getlisting();
 
-            return view('frontend.listing.all-listing',compact('all_properties','localities'));
+            return view('frontend.listing.all-listing',compact('all_properties','localities'),$this->data);
         }
 
         public function filterview(Request $request)
@@ -166,7 +165,7 @@ class WebPageController extends Controller
                 $allcategory= \App\Models\blog_category::orderBy('created_at')->where('status',1)->get();
                 $tags=\App\Models\blog_post::existingTags();
 
-        return view('frontend.blog.blog',compact('all_POST','allcategory','tags'));
+        return view('frontend.blog.blog',compact('all_POST','allcategory','tags'),$this->data);
     }
 
     public function singleblog($slug){
@@ -177,7 +176,7 @@ class WebPageController extends Controller
                 $POST['pre_record'] = \App\Models\blog_post::where('id', '<', $POST->id)->orderBy('id')->first();    
             }
 
-        return view('frontend.blog.single',compact('POST'));
+        return view('frontend.blog.single',compact('POST'),$this->data);
     }
 
     public function catergoryblog($category){
@@ -190,7 +189,7 @@ class WebPageController extends Controller
         }
         $tags=\App\Models\blog_post::existingTags();
 
-     return view('frontend.blog.blog',compact('all_POST','allcategory','tags','category'));
+     return view('frontend.blog.blog',compact('all_POST','allcategory','tags','category'),$this->data);
     }
 
 

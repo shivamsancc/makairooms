@@ -8,6 +8,7 @@
 @section('content')
 @section('excss')
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {!! NoCaptcha::renderJs() !!}
 @endsection
 @isset($property)
@@ -19,7 +20,9 @@
                 <div class="listing_single_property_slider">
                     @foreach ($property['images'] as $item)
                         <div class="item">
-                            <img class="img-fluid" style="max-height: 335px;" src="{{Storage::url($item->img_name)}}" alt="{{$item->img_name}}">
+                            <a href="{{Storage::url($item->img_name)}}" data-lightbox="image-1" data-title="My caption">
+                                <img class="img-fluid" style="max-height: 335px;" src="{{Storage::url($item->img_name)}}" alt="{{$item->img_name}}">
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -78,55 +81,18 @@
                                 <div class="col-lg-12 pl0 pr0 pl15-767 pr15-767">
                                     <h4 class="mb30">Features</h4>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
+                                @foreach ($property['property_features'] as $item)
+                                   <div class="col-4">
                                     <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-credit-card"></span>
+                                        <div class="icon float-left mr10"><span class="{{$item->f_icon}} fa-1x"></span>
                                         </div>
                                         <div class="details">
-                                            <div class="title">Accepts Credit Cards</div>
+                                            <div class="title">{{$item->f_name}}</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
-                                    <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-bike"></span></div>
-                                        <div class="details">
-                                            <div class="title">Bike Parking</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
-                                    <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-car"></span></div>
-                                        <div class="details">
-                                            <div class="title">Parking Street</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
-                                    <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-wifi"></span></div>
-                                        <div class="details">
-                                            <div class="title">Wireless Internet</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
-                                    <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-disabled"></span></div>
-                                        <div class="details">
-                                            <div class="title">Wheelchair Accessible</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4 pl0 pr0 pl15-767">
-                                    <div class="listing_feature_iconbox mb30">
-                                        <div class="icon float-left mr10"><span class="flaticon-pawprint"></span></div>
-                                        <div class="details">
-                                            <div class="title">Pets Friendly</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                   </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -140,7 +106,7 @@
                                         <th>Name</th>
                                         <th>For (People)</th>
                                         <th>Price (In INR)</th>
-                                        <th>View</th>
+                                        {{-- <th>Book</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,7 +115,7 @@
                                         <td>{{$item->item_name}}</td>
                                         <td>{{$item->item_for}}</td>
                                         <td>{{$item->item_price}}</td>
-                                        <td><a href="#{{$item->item_price}}">View</a></td>
+                                        <td><a href="#{{$item->item_price}}" class="btn btn-outline-info btn-block">Book Now</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -157,6 +123,7 @@
                         </div>
                     </div>
                     @endisset
+                @isset($property->youtube_link)
                     <div class="col-lg-12 pl0 pl15-767">
                         <div class="listing_single_video">
                             <h4 class="mb30">video</h4>
@@ -174,6 +141,7 @@
                             </div>
                         </div>
                     </div>
+                @endisset
                     <div class="col-lg-12 pl0 pl15-767">
                         <div class="single_listing_faq">
                             <h4 class="mb35">Frequently Asked Questions</h4>
@@ -261,6 +229,7 @@
                             <li class="df"><span class="flaticon-pin mr15"></span><a target="_blank"
                                     href="https://www.google.com/maps/@<?php echo $property->lat?>,<?php echo $property->long ?>,16z?hl=en-US">
                                     {{$property->address}}
+                                    {{-- https://www.google.com/maps/dir/?api=1&origin=34.1030032,-118.41046840000001&destination=34.059808,-118.368152 --}}
                                     <br> <span class="tdu text-thm">Get Direction</span></a></li>
                         </ul>
                         <ul class="sidebar_social_icon mb0">
@@ -278,20 +247,20 @@
                                         class="fab fa-linkedin"></i></a></li>
                         </ul>
                     </div>
-                    <div class="sidebar_contact_business_widget">
-                    <h4 class="title mb25">Book Now</h4>
-                    <form action="" method="post">
-                        <ul class="business_contact mb0">
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Name</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Email:</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>PG Detials</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Sharing</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>From Date</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>months</li>
-                            <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Price</li>
-                        </ul>
-                    </form>
-                    </div>
+                    {{-- <div class="sidebar_contact_business_widget">
+                        <h4 class="title mb25">Book Now</h4>
+                        <form action="" method="post">
+                            <ul class="business_contact mb0">
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Name</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Email:</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>PG Detials</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Sharing</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>From Date</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>months</li>
+                                <li><div class="form-group"><input type="text" class="form-control" required name="date_of_visit" value=""placeholder="Date" /></div>Price</li>
+                            </ul>
+                        </form>
+                    </div> --}}
                     <div class="sidebar_contact_business_widget">
                         <h4 class="title mb25">SCHEDULE A VISIT</h4>
                         <form action="{{route('propertyquerySubmit')}}" method="post">@csrf
@@ -329,7 +298,7 @@
                                             placeholder="Message"></textarea>
                                     </div>
                                 </li>
-                                {!! app('captcha')->display() !!}
+                                {!! app('captcha')->display() !!}<br>
                                 <li>
                                     <div class="search_option_button">
                                         <button type="submit" class="btn btn-block btn-thm h55">Send Message</button>
@@ -407,13 +376,6 @@
                                     </a>
                                 </div>
                                 <div class="fp_footer">
-                                    {{-- <ul class="fp_meta float-left mb0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="{{ asset('/web/themes/guido') }}/images/icons/icon3.svg"
-                                    alt="icon3.svg"></a></li>
-                                    <li class="list-inline-item"><a href="#">Outdoor
-                                            Activities</a></li>
-                                    </ul> --}}
                                     <ul class="fp_meta float-right mb0">
                                         <li class="list-inline-item"><a
                                                 href="{{route('siglelisting',['slug' => $item->slug])}}"><span
@@ -433,6 +395,7 @@
 <input type="hidden" name="lan" id="lan" value="{{$property->long}}">
 @endsection
 @section('extrajs')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script type="text/javascript">
@@ -500,6 +463,12 @@
         // show_info_window(url_result, lng, lat);
     };
 
+</script>
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    })
 </script>
 @endisset
 @empty($property)

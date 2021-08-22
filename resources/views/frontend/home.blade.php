@@ -18,7 +18,8 @@
                                 <div class="wrapper">
                                     <div class="home_adv_srch_form home2">
                                         <div class="home_adv_srch_form">
-                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767" action="{{route('properyfilter')}}" method="get">
+                                            <form class="bgc-white bgct-767 pl30 pt10 pl0-767"
+                                                action="{{route('properyfilter')}}" method="get">
                                                 <div class="form-row align-items-center">
                                                     <div class="col-auto home_form_input mb20-xsd">
                                                         <label class="sr-only">Username</label>
@@ -31,7 +32,8 @@
                                                                 <select name="city" class="form-control js-searchBox">
                                                                     <option value="">Your City</option>
                                                                     @foreach ($allcity as $item)
-                                                                        <option value="{{$item->id}}">{{$item->city_name}}</option>   
+                                                                    <option value="{{$item->id}}">{{$item->city_name}}
+                                                                    </option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -46,11 +48,18 @@
                                                             </div>
                                                             <div class="select-wrap style2-dropdown">
 
-                                                                <select name="property_type" class="form-control js-searchBox2">
+                                                                <select name="property_type"
+                                                                    class="form-control js-searchBox2">
                                                                     <option value="" selected>Select</option>
-                                                                    <option <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?> value="PG">PG</option>
-                                                                    <option <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?> value="FLAT">Flat</option>
-                                                                    <option <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?> value="ROOMS">Room</option>
+                                                                    <option
+                                                                        <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?>
+                                                                        value="PG">PG</option>
+                                                                    <option
+                                                                        <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?>
+                                                                        value="FLAT">Flat</option>
+                                                                    <option
+                                                                        <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?>
+                                                                        value="ROOMS">Room</option>
                                                                 </select>
 
                                                             </div>
@@ -75,10 +84,24 @@
 </section>
 <!-- Property Cities -->
 @isset($ads['home'])
-    <div class="col-12 m-0 p-0" >
-        <img src="{{Storage::url($ads['home'])}}" class="img-fluid" style="max-height:200px ; width:100%:" alt="{{$ads['home']}}">
-    </div>
+<div class="col-12 m-0 p-0">
+    <img src="{{Storage::url($ads['home'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home']}}">
+</div>
 @endisset
+<div class="container-fluid">
+    <div class="row" style="height: 450px">
+        @isset($ads['home1'])
+            <div class="col-6  p-5">
+                <img src="{{Storage::url($ads['home1'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home1']}}">
+            </div>
+        @endisset
+        @isset($ads['home2'])
+            <div class="col-6  p-5">
+                <img src="{{Storage::url($ads['home2'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home2']}}">
+            </div>
+        @endisset
+    </div>
+</div>
 <section id="property-city" class="property-city border-bottom pb70">
     <div class="container">
         <div class="row">
@@ -93,69 +116,70 @@
             <div class="col-lg-12">
                 <div class="feature_place_home2_slider">
                     @foreach ($allcity as $item)
-                        <div class="item">
-                            <div class="properti_city">
-                                <div class="thumb"><img class="img-fluid w100"src="{{Storage::url($item->city_img)}}" alt="{{$item->city_name}}" alt="pc5.jpg"></div>
-                                <div class="overlay">
-                                    <div class="details">
-                                        <h4>{{$item->city_name}}</h4>
-                                        <p>{{$item->count}}</p>
-                                    </div>
+                    <div class="item">
+                        <div class="properti_city">
+                            <div class="thumb"><img class="img-fluid w100" src="{{Storage::url($item->city_img)}}"
+                                    alt="{{$item->city_name}}" alt="pc5.jpg"></div>
+                            <div class="overlay">
+                                <div class="details">
+                                    <h4>{{$item->city_name}}</h4>
+                                    <p>{{$item->count}}</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                     {{-- <div class="item">
                         <div class="properti_city">
                             <div class="thumb"><img class="img-fluid w100"
                                     src="{{ asset('/web/themes/guido') }}/images/property/pc6.jpg" alt="pc6.jpg"></div>
-                            <div class="overlay">
-                                <div class="details">
-                                    <h4>Roma</h4>
-                                    <p>92 Listing</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="overlay">
+                    <div class="details">
+                        <h4>Roma</h4>
+                        <p>92 Listing</p>
                     </div>
-                    <div class="item">
-                        <div class="properti_city">
-                            <div class="thumb"><img class="img-fluid w100"
-                                    src="{{ asset('/web/themes/guido') }}/images/property/pc7.jpg" alt="pc7.jpg"></div>
-                            <div class="overlay">
-                                <div class="details">
-                                    <h4>New Delhi</h4>
-                                    <p>12 Listing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="properti_city">
-                            <div class="thumb"><img class="img-fluid w100"
-                                    src="{{ asset('/web/themes/guido') }}/images/property/pc8.jpg" alt="pc8.jpg"></div>
-                            <div class="overlay">
-                                <div class="details">
-                                    <h4>London</h4>
-                                    <p>74 Listing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="properti_city">
-                            <div class="thumb"><img class="img-fluid w100"
-                                    src="{{ asset('/web/themes/guido') }}/images/property/pc5.jpg" alt="pc5.jpg"></div>
-                            <div class="overlay">
-                                <div class="details">
-                                    <h4>Miami</h4>
-                                    <p>62 Listing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
+        <div class="item">
+            <div class="properti_city">
+                <div class="thumb"><img class="img-fluid w100"
+                        src="{{ asset('/web/themes/guido') }}/images/property/pc7.jpg" alt="pc7.jpg"></div>
+                <div class="overlay">
+                    <div class="details">
+                        <h4>New Delhi</h4>
+                        <p>12 Listing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="properti_city">
+                <div class="thumb"><img class="img-fluid w100"
+                        src="{{ asset('/web/themes/guido') }}/images/property/pc8.jpg" alt="pc8.jpg"></div>
+                <div class="overlay">
+                    <div class="details">
+                        <h4>London</h4>
+                        <p>74 Listing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="properti_city">
+                <div class="thumb"><img class="img-fluid w100"
+                        src="{{ asset('/web/themes/guido') }}/images/property/pc5.jpg" alt="pc5.jpg"></div>
+                <div class="overlay">
+                    <div class="details">
+                        <h4>Miami</h4>
+                        <p>62 Listing</p>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+    </div>
+    </div>
+    </div>
     </div>
 </section>
 
@@ -280,7 +304,8 @@
             </a>
             @endforeach
         </div>
-        <center><a href="{{route('blog')}}" type="submit" class=" txt-center  btn btn-outline-primary">View All</a></center>
+        <center><a href="{{route('blog')}}" type="submit" class=" txt-center  btn btn-outline-primary">View All</a>
+        </center>
     </div>
 </section>
 

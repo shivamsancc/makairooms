@@ -53,7 +53,7 @@
             <div class="table-responsive">
                 <form action="{{route('updateproperty',['id' => $property_data['0']->id])}}" method="post" enctype="multipart/form-data" role="form">@csrf
                     <div class="row m-0 p-0">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
                                 <label for="">Name of the Poperty</label>
                                 <input type="text" class="form-control" name="name" id="name" required
@@ -69,7 +69,7 @@
                                 <small id="helpId" class="form-text text-muted">Name of the Poperty</small>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                           <div class="form-group">
                             <label for="">Property Type</label>
                             <select class="custom-select" name="property_type" id="property_type">
@@ -80,6 +80,21 @@
                             </select>
                           </div>
                         </div>
+                        <div class="col-4">
+                          <div class="form-group">
+                              <div class="form-group">
+                                <label for="gender">Item For (Gender) <span class="text-danger">*</span></label>
+                                <select class="form-control" required name="gender" id="gender">
+                                  <option value="" selected>Select One</option>
+                                  <option value="male" {{ ( $property_data['0']->gender == 'male') ? 'selected' : '' }} >Male</option>
+                                  <option value="female" {{ ( $property_data['0']->gender == 'female') ? 'selected' : '' }} >Female</option>
+                                  <option value="unisex" {{ ( $property_data['0']->gender == 'unisex') ? 'selected' : '' }} >Unisex</option>
+                                  <option value="married" {{ ( $property_data['0']->gender == 'married') ? 'selected' : '' }} >Married</option>
+                                </select>
+                                <small id="helpId" class="form-text text-muted">Slect the Gender you want to allow</small>
+                              </div>
+                          </div>
+                      </div>
                         {{-- <div class="col-6">
                             <div class="form-group">
                                 <label for="">Status</label>

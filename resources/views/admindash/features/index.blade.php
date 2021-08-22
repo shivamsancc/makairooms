@@ -41,27 +41,29 @@
                         @error('f_icon')
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
-                        <small id="helpId" class="form-text text-muted">Enter Icon Code for Refrence <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank"> Click Here</a></small>
+                        <small id="helpId" class="form-text text-muted">Enter Icon Code for Refrence <a
+                                href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank"> Click
+                                Here</a></small>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button><br>
                 </form>
             </div>
             <div class="col-8">
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Icon</th>
-                                    {{-- <th>Action</th> --}}
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Name</th>
                                     <th>Icon</th>
-                                    {{-- <th>Action</th> --}}
+                                    <th></th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -69,6 +71,10 @@
                                 <tr>
                                     <td>{{$item->f_name}}</td>
                                     <td><i class="{{$item->f_icon}} fa-2x text-primary"> </i></td>
+                                    <td>
+                                        <a href="{{ route('featuresController.destroy', $item->id) }}"
+                                            class="btn btn-outline-danger"><i class="fas fa-trash-alt    "></i></a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
