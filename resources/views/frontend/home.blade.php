@@ -85,20 +85,23 @@
 <!-- Property Cities -->
 @isset($ads['home'])
 <div class="col-12 m-0 p-0">
-    <img src="{{Storage::url($ads['home'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home']}}">
+    <img src="{{Storage::url($ads['home'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"
+        alt="{{$ads['home']}}">
 </div>
 @endisset
 <div class="container-fluid">
     <div class="row" style="height: 450px">
         @isset($ads['home1'])
-            <div class="col-6  p-5">
-                <img src="{{Storage::url($ads['home1'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home1']}}">
-            </div>
+        <div class="col-6  p-5">
+            <img src="{{Storage::url($ads['home1'])}}" class="img-fluid mx-auto d-block"
+                style="max-height:200px ; width:100%:" alt="{{$ads['home1']}}">
+        </div>
         @endisset
         @isset($ads['home2'])
-            <div class="col-6  p-5">
-                <img src="{{Storage::url($ads['home2'])}}" class="img-fluid mx-auto d-block" style="max-height:200px ; width:100%:"alt="{{$ads['home2']}}">
-            </div>
+        <div class="col-6  p-5">
+            <img src="{{Storage::url($ads['home2'])}}" class="img-fluid mx-auto d-block"
+                style="max-height:200px ; width:100%:" alt="{{$ads['home2']}}">
+        </div>
         @endisset
     </div>
 </div>
@@ -129,57 +132,9 @@
                         </div>
                     </div>
                     @endforeach
-                    {{-- <div class="item">
-                        <div class="properti_city">
-                            <div class="thumb"><img class="img-fluid w100"
-                                    src="{{ asset('/web/themes/guido') }}/images/property/pc6.jpg" alt="pc6.jpg"></div>
-                <div class="overlay">
-                    <div class="details">
-                        <h4>Roma</h4>
-                        <p>92 Listing</p>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="item">
-            <div class="properti_city">
-                <div class="thumb"><img class="img-fluid w100"
-                        src="{{ asset('/web/themes/guido') }}/images/property/pc7.jpg" alt="pc7.jpg"></div>
-                <div class="overlay">
-                    <div class="details">
-                        <h4>New Delhi</h4>
-                        <p>12 Listing</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="properti_city">
-                <div class="thumb"><img class="img-fluid w100"
-                        src="{{ asset('/web/themes/guido') }}/images/property/pc8.jpg" alt="pc8.jpg"></div>
-                <div class="overlay">
-                    <div class="details">
-                        <h4>London</h4>
-                        <p>74 Listing</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="properti_city">
-                <div class="thumb"><img class="img-fluid w100"
-                        src="{{ asset('/web/themes/guido') }}/images/property/pc5.jpg" alt="pc5.jpg"></div>
-                <div class="overlay">
-                    <div class="details">
-                        <h4>Miami</h4>
-                        <p>62 Listing</p>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-    </div>
-    </div>
-    </div>
     </div>
 </section>
 
@@ -308,20 +263,4 @@
         </center>
     </div>
 </section>
-
-<!-- Our Divider -->
-{{-- <section class="divider bg-img5 parallax" data-stellar-background-ratio="0.2">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-8">
-				<div class="business_exposer text-center">
-					<h2 class="title text-white mb20">Stay at Amazing Places</h2>
-					<p class="text-white mb35">We've pre-picked the best hotels, hostels and bed and breakfasts
-						to make your stay as enjoyable as possible.</p>
-					<a class="btn stay_amplace_btn" href="#">See All Places</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> --}}
 @endsection

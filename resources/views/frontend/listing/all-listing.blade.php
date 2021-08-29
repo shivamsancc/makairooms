@@ -12,13 +12,7 @@
                                 <h4 class="mb25">Advanced Search <a class="filter_closed_btn float-right"
                                         href="#"><small>Hide Filter</small> <span class="flaticon-close"></span></a>
                                 </h4>
-                                <ul class="sasw_list style2 mb0">
-                                    {{-- <li class="search_area">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputName1"
-                                                placeholder="What are you looking for">
-                                        </div>
-                                    </li> --}}
+                                {{-- <ul class="sasw_list style2 mb0">
                                     <li>
                                         <div class="search_option_two">
                                             <div class="sidebar_select_options">
@@ -197,7 +191,7 @@
                                             <a class="tdu fz14" href="#">Reset Filter</a>
                                         </div>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>
