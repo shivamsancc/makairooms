@@ -106,19 +106,19 @@ class WebPageController extends Controller
         {
             $users = \App\Models\mak_properties::where('status', 1);
 
-            if ($request->has('property_type')) {
+            if ($request->has('property_type') && !is_null($request->property_type)) {
                 $users->where('property_type', $request->property_type);
             }
     
-            if ($request->has('gender')) {
+            if ($request->has('gender') && !is_null($request->gender)) {
                 $users->where('gender', $request->gender);
             }
 
-            if ($request->has('localities')) {
-                $users = \App\Models\mak_properties::getbylatlong($request->localities);
-            }
+            // if ($request->has('localities')) {
+            //     $users = \App\Models\mak_properties::getbylatlong($request->localities);
+            // }
     
-            return $users->get()->all();   
+            return $users->get();   
 
         }
 //===============================================Query Submission =========================
