@@ -30,7 +30,10 @@ Route::get('/newlogin', 'frontend\WebPageController@newlogin')->name('newlogin')
 //====================Query poste===============
 Route::post('/helpquerysubmit', 'frontend\queryController@store')->name('helpquerysubmit');
 
-
+//======================================
+Route::get('/termscondition', 'frontend\WebPageController@termscondition')->name('termscondition');
+Route::get('/about', 'frontend\WebPageController@about')->name('about');
+Route::get('/privacy', 'frontend\WebPageController@privacy')->name('privacy');
 
 //================================Payment Gateway=========================
 Route::get('booknow/{id}', 'frontend\pg\paymentGateway@index');

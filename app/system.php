@@ -3,6 +3,8 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use state;
+
 class system 
 {
       public static  function getmasterdata(){
@@ -27,6 +29,11 @@ class system
           return substr(str_shuffle($str_result),  0, $length_of_string); 
       }
 
+      public static function masknumber($phone){
+            $result = substr($phone, 0, 3);
+            $result .= "****";
+            return $result .= substr($phone, 7, 4);
+      }
 
 
 }

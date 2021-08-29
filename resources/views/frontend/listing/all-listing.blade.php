@@ -232,11 +232,18 @@
                                     <li>
                                         <div class="search_option_two">
                                             <div class="sidebar_select_options">
-                                                <select name="property_type" id="property_type" class="selectpicker w100 show-tick">
+                                                <select name="property_type" id="property_type"
+                                                    class="selectpicker w100 show-tick">
                                                     <option value="">All Categories</option>
-                                                    <option <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?> value="PG">PG</option>
-                                                    <option <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?> value="FLAT">Flat</option>
-                                                    <option <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?> value="ROOMS">Room</option>
+                                                    <option
+                                                        <?= app('request')->input('property_type') == 'PG' ? ' selected="selected"' : '';?>
+                                                        value="PG">PG</option>
+                                                    <option
+                                                        <?= app('request')->input('property_type') == 'FLAT' ? ' selected="selected"' : '';?>
+                                                        value="FLAT">Flat</option>
+                                                    <option
+                                                        <?= app('request')->input('property_type') == 'ROOMS' ? ' selected="selected"' : '';?>
+                                                        value="ROOMS">Room</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -246,9 +253,15 @@
                                             <div class="sidebar_select_options">
                                                 <select name="gender" id="gender" class="selectpicker w100 show-tick">
                                                     <option value="" selected>Select One</option>
-                                                    <option value="male" <?= app('request')->input('gender') == 'male' ? ' selected="selected"' : '';?>>Male</option>
-                                                    <option value="female" <?= app('request')->input('gender')  == 'female' ? ' selected="selected"' : '';?>>Female</option>
-                                                    <option value="unisex"  <?= app('request')->input('gender')  == 'unisex' ? ' selected="selected"' : '';?>>Unisex</option>
+                                                    <option value="male"
+                                                        <?= app('request')->input('gender') == 'male' ? ' selected="selected"' : '';?>>
+                                                        Male</option>
+                                                    <option value="female"
+                                                        <?= app('request')->input('gender')  == 'female' ? ' selected="selected"' : '';?>>
+                                                        Female</option>
+                                                    <option value="unisex"
+                                                        <?= app('request')->input('gender')  == 'unisex' ? ' selected="selected"' : '';?>>
+                                                        Unisex</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -274,13 +287,16 @@
                                             <h4 class="title">Locality</h4>
                                             <div class="wrapper">
                                                 <div class="form-group">
-                                                  <label for=""></label>
-                                                  <select class="selectpicker w100 show-tick" name="localities" id="localities">
-                                                    <option value="" selected> Select </option>
-                                                    @foreach ($localities as $item)
-                                                        <option <?= app('request')->input('localities')  == $item->id ? ' selected="selected"' : '';?> value="{{$item->id}}">{{$item->name}}</option>
-                                                    @endforeach
-                                                  </select>
+                                                    <label for=""></label>
+                                                    <select class="selectpicker w100 show-tick" name="localities"
+                                                        id="localities">
+                                                        <option value="" selected> Select </option>
+                                                        @foreach ($localities as $item)
+                                                        <option
+                                                            <?= app('request')->input('localities')  == $item->id ? ' selected="selected"' : '';?>
+                                                            value="{{$item->id}}">{{$item->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -312,66 +328,69 @@
                     </div>
                 </div>
                 <div class="row">
-        @foreach ($all_properties as $item)
-        <div class="col-md-4 col-lg-4">
-            <div class="item">
-                <div class="feat_property">
-                    <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                        <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                @foreach ($item['images'] as $itema => $slider)
-                                {{-- ----------------{{$itema}} --}}
-                                <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
-                                    style="max-height: 200px !important">
-                                    <img class="d-block w-100" src="{{Storage::url($slider['img_name'])}}"
-                                        alt="{{$slider['img_name']}}">
+                    @foreach ($all_properties as $item)
+                    <div class="col-md-4 col-lg-4">
+                        <div class="item">
+                            <div class="feat_property">
+                                <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                    <div id="demo{{$item->id}}" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @foreach ($item['images'] as $itema => $slider)
+                                            {{-- ----------------{{$itema}} --}}
+                                            <div class="carousel-item {{$itema == 0 ? 'active' : '' }}"
+                                                style="max-height: 200px !important">
+                                                <img class="d-block w-100" src="{{Storage::url($slider['img_name'])}}"
+                                                    alt="{{$slider['img_name']}}">
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                        <!-- Left and right controls -->
+                                        <a class="carousel-control-prev" href="#demo{{$item->id}}" data-slide="prev">
+                                            <span class="carousel-control-prev-icon"></span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#demo{{$item->id}}" data-slide="next">
+                                            <span class="carousel-control-next-icon"></span>
+                                        </a>
+                                    </div>
+                                </a>
+                                <div class="thmb_cntnt">
                                 </div>
-                                @endforeach
-                            </div>
-                            <!-- Left and right controls -->
-                            <a class="carousel-control-prev" href="#demo{{$item->id}}" data-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#demo{{$item->id}}" data-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </a>
-                        </div>
-                    </a>
-                    <div class="thmb_cntnt">
-                    </div>
-                    {{-- </div> --}}
+                                {{-- </div> --}}
 
-                    <div class="details">
-                        <div class="tc_content">
-                            <a href="{{route('siglelisting',['slug' => $item->slug])}}">
-                                <h4>{{$item->name}}</h4>
-                                <p>{{ Str::limit($item->about_property, 55) }}</p>
-                                <ul class="prop_details mb0">
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-phone pr5"></span>
-                                            {{$item['partnername']['0']->phone}}</a></li>
-                                    <li class="list-inline-item"><a href="#"><span class="flaticon-pin pr5"></span>
-                                            {{$item->distName}}</a>
-                                    </li>
-                                </ul>
-                                <div class="text-center"><br>
-                                    Price Range &nbsp;
-                                    <a href="#">₹{{$item->price_range1}} --
-                                        ₹{{$item->price_range2}}</a>
-                                    </li>
+                                <div class="details">
+                                    <div class="tc_content">
+                                        <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                            <h4>{{$item->name}}</h4>
+                                            <p>{{ Str::limit($item->about_property, 55) }}</p>
+                                            <ul class="prop_details mb0">
+                                                <li class="list-inline-item"><a href="#"><span
+                                                            class="flaticon-phone pr5"></span>
+                                                        {{$item->listingphone}}</a></li>
+                                                <li class="list-inline-item"><a href="#"><span
+                                                            class="flaticon-pin pr5"></span>
+                                                        {{$item->distName}}</a>
+                                                </li>
+                                            </ul>
+                                            <div class="text-center"><br>
+                                                Price Range &nbsp;
+                                                <a href="#">₹{{$item->price_range1}} --
+                                                    ₹{{$item->price_range2}}</a>
+                                                </li>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a href="{{route('siglelisting',['slug' => $item->slug])}}">
+                                        <div class="fp_footer">
+                                            {{-- <li class="list-inline-item text-center"><span
+                                            class="flaticon-zoom"></span></li> --}}
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="fp_footer">
-                                <li class="list-inline-item text-center"><a
-                                        href="{{route('siglelisting',['slug' => $item->slug])}}"><span
-                                            class="flaticon-zoom"></span></a></li>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-        {{-- <div class="col-lg-12">
+                    @endforeach
+                    {{-- <div class="col-lg-12">
             <div class="mbp_pagination mt10">
                 <ul class="page_navigation">
                     <li class="page-item">
@@ -393,10 +412,10 @@
                 </ul>
             </div>
         </div> --}}
-        {{-- {{ $all_properties->links() }} --}}
-    </div>
-    </div>
-    </div>
+                    {{-- {{ $all_properties->links() }} --}}
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 @endsection

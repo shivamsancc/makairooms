@@ -39,9 +39,15 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        $this->data= \App\system::getmasterdata();
         $this->middleware('guest');
     }
 
+
+    public function showRegistrationForm()
+    {
+        return view('auth.register',$this->data);
+    }
     /**
      * Get a validator for an incoming registration request.
      *
