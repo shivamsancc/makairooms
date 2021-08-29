@@ -60,10 +60,11 @@
                     <h4>Company</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" data-toggle="modal" data-target="#myModal">Help Center</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{route('about')}}">About</a></li>
                         <li><a href="#">Career</a></li>
                         <li><a href="{{route('blog')}}">Article & Tips</a></li>
-                        <li><a href="#">Terms & Service</a></li>
+                        <li><a href="{{route('termscondition')}}">Terms & Service</a></li>
+                        <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>

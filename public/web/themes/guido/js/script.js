@@ -157,7 +157,7 @@
             time: 2000
         });
     }
-    $('.circlechart').circlechart(); // Initialization
+    // $('.circlechart').circlechart(); // Initialization
 
     /* ----- Mobile Nav ----- */
     $(function() {

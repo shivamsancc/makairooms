@@ -42,8 +42,8 @@
                     </li> --}}
                     @include('frontend.listing.layout.template.explore')
                     @include('frontend.listing.layout.template.login_view')
-                    <li class="list-inline-item add_listing"><a href="#"><span
-                                class="icon"></span><span class="dn-lg">List Your Property</span></a></li>
+                    {{-- <li class="list-inline-item add_listing"><a href="#"><span
+                                class="icon"></span><span class="dn-lg">List Your Property</span></a></li> --}}
                 </ul>
             </nav>
         </div>

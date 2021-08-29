@@ -44,11 +44,12 @@ class WebPageController extends Controller
         {
             $insts->stateName = \App\Models\state::find($insts->state)->state_name;
             $insts->distName = \App\Models\district::find($insts->district)->district_name;
+            $partner= \App\Models\partner::getpropertyuser($insts->partner_id);
             $insts->partnername = \App\Models\partner::getpropertyuser($insts->partner_id);
             $insts->images = \App\Models\mak_propert_images::where('property_id', $insts->id)->get();
+            $insts->listingphone = \App\system::masknumber($partner['0']->phone);
         }
         $localities= \App\Models\locality::getlisting();
-        
         return view('frontend.listing.all-listing',compact('all_properties','localities'),$this->data);
     }
     //==============single Listing===================
@@ -111,6 +112,10 @@ class WebPageController extends Controller
     
             if ($request->has('gender')) {
                 $users->where('gender', $request->gender);
+            }
+
+            if ($request->has('localities')) {
+                $users = \App\Models\mak_properties::getbylatlong($request->localities);
             }
     
             return $users->get()->all();   
@@ -215,4 +220,18 @@ class WebPageController extends Controller
             }
         }
     }
+    
+     public function termscondition(){
+         return view('frontend.pages.termscondition',$this->data);
+     } 
+     
+     public function about(){
+         return view('frontend.pages.about',$this->data);
+     }
+     public function privacy(){
+         return view('frontend.pages.privacy',$this->data);
+     }
+    
+    
+    
 }
