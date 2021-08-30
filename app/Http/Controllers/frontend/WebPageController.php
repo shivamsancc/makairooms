@@ -116,8 +116,10 @@ class WebPageController extends Controller
 
             // if ($request->has('localities')) {
             //     $users = \App\Models\mak_properties::getbylatlong($request->localities);
+            //     dd($users);
+            //     $users=whereIn('id', [1, 2, 3]);
             // }
-    
+            
             return $users->get();   
 
         }

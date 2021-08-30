@@ -4,7 +4,7 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 use state;
-
+use DB;
 class mak_properties extends Model
 {
     protected $table = 'mak_properties';
@@ -22,22 +22,26 @@ class mak_properties extends Model
         return $result;
     }
 
-
+    public static function getByID($id){
+        $result= self::where('id',$id)->where('status',1)->first();
+        return $result;
+    }   
 
     public static function getbylatlong($localities){
 
-        $locality=\DB::table("localities")->find($localities);
-        $lat = $locality->lat;
-        $lon = $locality->long;
-        
+        $locality= DB::table("localities")->find($localities);
+        $latitude = $locality->lat;
+        $longitude = $locality->long;
         $result = \DB::table("mak_properties")
             ->select("mak_properties.id"
-                ,\DB::raw("6371 * acos(cos(radians(" . $lat . ")) 
+                ,\DB::raw("6371 * acos(cos(radians(" . $latitude . ")) 
                 * cos(radians(mak_properties.lat)) 
-                * cos(radians(mak_properties.long) - radians(" . $lon . ")) 
-                + sin(radians(" .$lat. ")) 
-                * sin(radians(mak_properties.lat))) AS distance"))
-                ->groupBy("mak_properties.id")
+                * cos(radians(mak_properties.long) - radians(" . $longitude . ")) 
+                + sin(radians(" .$latitude. ")) 
+                * sin(radians(mak_properties.lat))) AS distance")
+                )
+                // ->groupBy("mak_properties.id")
+                ->having('distance', '<', 25)
                 ->get();
         return $result;
     }

@@ -30,7 +30,7 @@
         <div class="row m-0 p-0">
             <div class="col-12">
                 <div class="card-body">
-                    <form action="{{route('all_admin_locality_store')}}" role="form" method="post">@csrf
+                    <form action="{{route('all_admin_locality_store')}}"  name="propertyform"  role="form" method="post">@csrf
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -77,12 +77,12 @@
                             <div class="col-12" >
                                   <div id="map" class="col-12"></div><br>
                             </div>
+                            <input name="lat"  type="hidden" id="lat" >
+                            <input name="long" type="hidden"  id="long">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" id="newspopButton" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
-                        <input name="lat"  type="hidden" id="lat" >
-                        <input name="long" type="hidden"  id="long" >
                     </form>
                 </div>
             </div>
@@ -175,14 +175,14 @@
       var map = new MapmyIndia.Map('map', {
         center: [28.8787, 77.08888],
         zoom: 15,
-        search: false
+        search: true
       });
     
       /*Place Picker plugin initialization*/
       var options = {
         map: map,
         callback: callback_method,
-        search: false,
+        search: true,
         closeBtn:true,
         topText:'Property Location',
   
